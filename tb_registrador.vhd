@@ -1,0 +1,60 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity tb_registrador is
+end tb_registrador;
+
+architecture tb_architecture of tb_registrador is
+    constant largura_dado : natural := 32;
+
+    signal entrada_dados_tb : std_logic_vector((largura_dado - 1) downto 0);
+    signal WE_tb, clk_tb, reset_tb : std_logic;
+    signal saida_dados_tb : std_logic_vector((largura_dado - 1) downto 0);
+
+    component registrador
+        generic (
+            largura_dado : natural := 32
+        );
+        port (
+            entrada_dados  : in std_logic_vector((largura_dado - 1) downto 0);
+            WE, clk, reset : in std_logic;
+            saida_dados    : out std_logic_vector((largura_dado - 1) downto 0)
+        );
+    end component;
+
+begin
+    DUT: registrador
+        generic map (
+            largura_dado => largura_dado
+        )
+        port map (
+            entrada_dados  => entrada_dados_tb,
+            WE             => WE_tb,
+            clk            => clk_tb,
+            reset          => reset_tb,
+            saida_dados    => saida_dados_tb
+        );
+
+
+    stim_proc: process
+    begin
+        entrada_dados_tb <= (others => '0');
+        WE_tb <= '0';
+        reset_tb <= '0';
+
+        wait for 10 ns;
+
+        -- Test case 1: Write operation
+        entrada_dados_tb <= "10101010";
+        WE_tb <= '1';
+        wait until rising_edge(clk_tb);
+        WE_tb <= '0';
+
+        -- Test case 2: Reset operation
+        reset_tb <= '1';
+        wait until rising_edge(clk_tb);
+        reset_tb <= '0';
+        wait;
+    end process;
+
+end tb_architecture;

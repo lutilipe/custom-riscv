@@ -1,0 +1,76 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity deslocador_tb is
+end deslocador_tb;
+
+architecture tb_arch of deslocador_tb is
+    constant largura_dado : natural := 8;
+    constant largura_qtde : natural := 4;
+
+    signal ent_rs_dado : std_logic_vector(largura_dado - 1 downto 0);
+    signal ent_rt_ende : std_logic_vector(largura_qtde - 1 downto 0);
+    signal ent_tipo_deslocamento : std_logic_vector(1 downto 0);
+    signal sai_rd_dado : std_logic_vector(largura_dado - 1 downto 0);
+
+    constant clock_period : time := 10 ns;
+    signal clk : std_logic := '0';
+begin
+    dut : entity work.deslocador
+        generic map (
+            largura_dado => largura_dado,
+            largura_qtde => largura_qtde
+        )
+        port map (
+            ent_rs_dado => ent_rs_dado,
+            ent_rt_ende => ent_rt_ende,
+            ent_tipo_deslocamento => ent_tipo_deslocamento,
+            sai_rd_dado => sai_rd_dado
+        );
+
+    clk_process : process
+    begin
+        while now < 500 ns loop
+            clk <= '0';
+            wait for clock_period / 2;
+            clk <= '1';
+            wait for clock_period / 2;
+        end loop;
+        wait;
+    end process;
+
+    stimulus : process
+    begin
+        -- Test case 1: Logical right shift (ent_tipo_deslocamento = "00")
+        ent_rs_dado <= "10101010";
+        ent_rt_ende <= "0010";
+        ent_tipo_deslocamento <= "00";
+
+        wait for 10 ns;
+
+        -- Test case 2: Logical left shift (ent_tipo_deslocamento = "01")
+        ent_rs_dado <= "10101010";
+        ent_rt_ende <= "0011";
+        ent_tipo_deslocamento <= "01";
+
+        wait for 10 ns;
+
+        -- Test case 3: Right rotation (ent_tipo_deslocamento = "10")
+        ent_rs_dado <= "10101010";
+        ent_rt_ende <= "0001";
+        ent_tipo_deslocamento <= "10";
+
+        wait for 10 ns;
+
+        -- Test case 4: Copy (ent_tipo_deslocamento = "11")
+        ent_rs_dado <= "10101010";
+        ent_rt_ende <= "0000";
+        ent_tipo_deslocamento <= "11";
+
+        wait for 10 ns;
+
+
+        wait;
+    end process;
+end tb_arch;

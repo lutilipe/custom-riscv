@@ -1,0 +1,321 @@
+ -- Copyright (C) 2023  Intel Corporation. All rights reserved.
+ -- Your use of Intel Corporation's design tools, logic functions 
+ -- and other software and tools, and any partner logic 
+ -- functions, and any output files from any of the foregoing 
+ -- (including device programming or simulation files), and any 
+ -- associated documentation or information are expressly subject 
+ -- to the terms and conditions of the Intel Program License 
+ -- Subscription Agreement, the Intel Quartus Prime License Agreement,
+ -- the Intel FPGA IP License Agreement, or other applicable license
+ -- agreement, including, without limitation, that your use is for
+ -- the sole purpose of programming logic devices manufactured by
+ -- Intel and sold by Intel or its authorized distributors.  Please
+ -- refer to the applicable agreement for further details, at
+ -- https://fpgasoftware.intel.com/eula.
+ -- 
+ -- This is a Quartus Prime output file. It is for reporting purposes only, and is
+ -- not intended for use as a Quartus Prime input file. This file cannot be used
+ -- to make Quartus Prime pin assignments - for instructions on how to make pin
+ -- assignments, please see Quartus Prime help.
+ ---------------------------------------------------------------------------------
+
+
+
+ ---------------------------------------------------------------------------------
+ -- NC            : No Connect. This pin has no internal connection to the device.
+ -- DNU           : Do Not Use. This pin MUST NOT be connected.
+ -- VCCINT        : Dedicated power pin, which MUST be connected to VCC  (1.8V).
+ -- VCCIO         : Dedicated power pin, which MUST be connected to VCC
+ --                 of its bank.
+ --                  Bank 1:       3.3V
+ --                  Bank 2:       3.3V
+ -- GND           : Dedicated ground pin. Dedicated GND pins MUST be connected to GND.
+ --                  It can also be used to report unused dedicated pins. The connection
+ --                  on the board for unused dedicated pins depends on whether this will
+ --                  be used in a future design. One example is device migration. When
+ --                  using device migration, refer to the device pin-tables. If it is a
+ --                  GND pin in the pin table or if it will not be used in a future design
+ --                  for another purpose the it MUST be connected to GND. If it is an unused
+ --                  dedicated pin, then it can be connected to a valid signal on the board
+ --                  (low, high, or toggling) if that signal is required for a different
+ --                  revision of the design.
+ -- GND+          : Unused input pin. It can also be used to report unused dual-purpose pins.
+ --                  This pin should be connected to GND. It may also be connected  to a
+ --                  valid signal  on the board  (low, high, or toggling)  if that signal
+ --                  is required for a different revision of the design.
+ -- GND*          : Unused  I/O  pin. Connect each pin marked GND* directly to GND
+ --                  or leave it unconnected.
+ -- RESERVED      : Unused I/O pin, which MUST be left unconnected.
+ -- RESERVED_INPUT    : Pin is tri-stated and should be connected to the board.
+ -- RESERVED_INPUT_WITH_WEAK_PULLUP    : Pin is tri-stated with internal weak pull-up resistor.
+ -- RESERVED_INPUT_WITH_BUS_HOLD       : Pin is tri-stated with bus-hold circuitry.
+ -- RESERVED_OUTPUT_DRIVEN_HIGH        : Pin is output driven high.
+ ---------------------------------------------------------------------------------
+
+
+
+ ---------------------------------------------------------------------------------
+ -- Pin directions (input, output or bidir) are based on device operating in user mode.
+ ---------------------------------------------------------------------------------
+
+Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
+CHIP  "custom-riscv"  ASSIGNED TO AN: 5M570ZF256C4
+
+Pin Name/Usage               : Location  : Dir.   : I/O Standard      : Voltage : I/O Bank  : User Assignment
+-------------------------------------------------------------------------------------------------------------
+GND                          : A1        : gnd    :                   :         :           :                
+GND*                         : A2        :        :                   :         : 2         :                
+VCCIO2                       : A3        : power  :                   : 3.3V    : 2         :                
+GND*                         : A4        :        :                   :         : 2         :                
+dado_ent_0[15]               : A5        : input  : 3.3-V LVTTL       :         : 2         : N              
+GND*                         : A6        :        :                   :         : 2         :                
+GND*                         : A7        :        :                   :         : 2         :                
+dado_ent_1[3]                : A8        : input  : 3.3-V LVTTL       :         : 2         : N              
+dado_ent_0[3]                : A9        : input  : 3.3-V LVTTL       :         : 2         : N              
+GND*                         : A10       :        :                   :         : 2         :                
+dado_sai[6]                  : A11       : output : 3.3-V LVTTL       :         : 2         : N              
+GND*                         : A12       :        :                   :         : 2         :                
+GND*                         : A13       :        :                   :         : 2         :                
+VCCIO2                       : A14       : power  :                   : 3.3V    : 2         :                
+dado_ent_0[10]               : A15       : input  : 3.3-V LVTTL       :         : 2         : N              
+GND                          : A16       : gnd    :                   :         :           :                
+GND*                         : B1        :        :                   :         : 2         :                
+GND                          : B2        : gnd    :                   :         :           :                
+GND*                         : B3        :        :                   :         : 2         :                
+GND*                         : B4        :        :                   :         : 2         :                
+GND*                         : B5        :        :                   :         : 2         :                
+GND*                         : B6        :        :                   :         : 2         :                
+GND                          : B7        : gnd    :                   :         :           :                
+GND*                         : B8        :        :                   :         : 2         :                
+dado_ent_0[2]                : B9        : input  : 3.3-V LVTTL       :         : 2         : N              
+GND*                         : B10       :        :                   :         : 2         :                
+GND*                         : B11       :        :                   :         : 2         :                
+dado_sai[12]                 : B12       : output : 3.3-V LVTTL       :         : 2         : N              
+GND*                         : B13       :        :                   :         : 2         :                
+GND*                         : B14       :        :                   :         : 2         :                
+GND                          : B15       : gnd    :                   :         :           :                
+dado_ent_0[27]               : B16       : input  : 3.3-V LVTTL       :         : 2         : N              
+VCCIO1                       : C1        : power  :                   : 3.3V    : 1         :                
+GND*                         : C2        :        :                   :         : 1         :                
+GND*                         : C3        :        :                   :         : 1         :                
+GND*                         : C4        :        :                   :         : 2         :                
+GND*                         : C5        :        :                   :         : 2         :                
+GND*                         : C6        :        :                   :         : 2         :                
+dado_sai[17]                 : C7        : output : 3.3-V LVTTL       :         : 2         : N              
+dado_sai[26]                 : C8        : output : 3.3-V LVTTL       :         : 2         : N              
+GND*                         : C9        :        :                   :         : 2         :                
+GND*                         : C10       :        :                   :         : 2         :                
+dado_ent_1[26]               : C11       : input  : 3.3-V LVTTL       :         : 2         : N              
+dado_sai[3]                  : C12       : output : 3.3-V LVTTL       :         : 2         : N              
+GND*                         : C13       :        :                   :         : 2         :                
+GND*                         : C14       :        :                   :         : 2         :                
+GND*                         : C15       :        :                   :         : 2         :                
+VCCIO2                       : C16       : power  :                   : 3.3V    : 2         :                
+dado_ent_1[21]               : D1        : input  : 3.3-V LVTTL       :         : 1         : N              
+dado_ent_1[19]               : D2        : input  : 3.3-V LVTTL       :         : 1         : N              
+dado_ent_0[24]               : D3        : input  : 3.3-V LVTTL       :         : 1         : N              
+GND*                         : D4        :        :                   :         : 2         :                
+GND*                         : D5        :        :                   :         : 2         :                
+NC                           : D6        :        :                   :         :           :                
+NC                           : D7        :        :                   :         :           :                
+NC                           : D8        :        :                   :         :           :                
+NC                           : D9        :        :                   :         :           :                
+NC                           : D10       :        :                   :         :           :                
+GND*                         : D11       :        :                   :         : 2         :                
+GND*                         : D12       :        :                   :         : 2         :                
+GND*                         : D13       :        :                   :         : 2         :                
+GND*                         : D14       :        :                   :         : 2         :                
+dado_ent_0[11]               : D15       : input  : 3.3-V LVTTL       :         : 2         : N              
+dado_sai[27]                 : D16       : output : 3.3-V LVTTL       :         : 2         : N              
+dado_ent_0[4]                : E1        : input  : 3.3-V LVTTL       :         : 1         : N              
+dado_ent_0[16]               : E2        : input  : 3.3-V LVTTL       :         : 1         : N              
+dado_ent_0[22]               : E3        : input  : 3.3-V LVTTL       :         : 1         : N              
+dado_sai[5]                  : E4        : output : 3.3-V LVTTL       :         : 1         : N              
+NC                           : E5        :        :                   :         :           :                
+NC                           : E6        :        :                   :         :           :                
+NC                           : E7        :        :                   :         :           :                
+NC                           : E8        :        :                   :         :           :                
+NC                           : E9        :        :                   :         :           :                
+NC                           : E10       :        :                   :         :           :                
+NC                           : E11       :        :                   :         :           :                
+NC                           : E12       :        :                   :         :           :                
+GND*                         : E13       :        :                   :         : 2         :                
+dado_ent_1[18]               : E14       : input  : 3.3-V LVTTL       :         : 2         : N              
+GND*                         : E15       :        :                   :         : 2         :                
+dado_sai[13]                 : E16       : output : 3.3-V LVTTL       :         : 2         : N              
+dado_ent_0[25]               : F1        : input  : 3.3-V LVTTL       :         : 1         : N              
+dado_sai[4]                  : F2        : output : 3.3-V LVTTL       :         : 1         : N              
+dado_ent_1[4]                : F3        : input  : 3.3-V LVTTL       :         : 1         : N              
+NC                           : F4        :        :                   :         :           :                
+NC                           : F5        :        :                   :         :           :                
+NC                           : F6        :        :                   :         :           :                
+NC                           : F7        :        :                   :         :           :                
+VCCIO2                       : F8        : power  :                   : 3.3V    : 2         :                
+VCCIO2                       : F9        : power  :                   : 3.3V    : 2         :                
+NC                           : F10       :        :                   :         :           :                
+NC                           : F11       :        :                   :         :           :                
+NC                           : F12       :        :                   :         :           :                
+dado_ent_1[10]               : F13       : input  : 3.3-V LVTTL       :         : 2         : N              
+dado_ent_0[13]               : F14       : input  : 3.3-V LVTTL       :         : 2         : N              
+GND*                         : F15       :        :                   :         : 2         :                
+GND*                         : F16       :        :                   :         : 2         :                
+dado_sai[25]                 : G1        : output : 3.3-V LVTTL       :         : 1         : N              
+dado_sai[21]                 : G2        : output : 3.3-V LVTTL       :         : 1         : N              
+dado_sai[22]                 : G3        : output : 3.3-V LVTTL       :         : 1         : N              
+NC                           : G4        :        :                   :         :           :                
+NC                           : G5        :        :                   :         :           :                
+NC                           : G6        :        :                   :         :           :                
+GND                          : G7        : gnd    :                   :         :           :                
+GND                          : G8        : gnd    :                   :         :           :                
+GND                          : G9        : gnd    :                   :         :           :                
+GND                          : G10       : gnd    :                   :         :           :                
+NC                           : G11       :        :                   :         :           :                
+NC                           : G12       :        :                   :         :           :                
+NC                           : G13       :        :                   :         :           :                
+dado_ent_1[11]               : G14       : input  : 3.3-V LVTTL       :         : 2         : N              
+dado_ent_1[20]               : G15       : input  : 3.3-V LVTTL       :         : 2         : N              
+dado_ent_1[14]               : G16       : input  : 3.3-V LVTTL       :         : 2         : N              
+dado_sai[1]                  : H1        : output : 3.3-V LVTTL       :         : 1         : N              
+dado_ent_1[24]               : H2        : input  : 3.3-V LVTTL       :         : 1         : N              
+dado_ent_0[5]                : H3        : input  : 3.3-V LVTTL       :         : 1         : N              
+NC                           : H4        :        :                   :         :           :                
+dado_ent_0[9]                : H5        : input  : 3.3-V LVTTL       :         : 1         : N              
+VCCIO1                       : H6        : power  :                   : 3.3V    : 1         :                
+GND                          : H7        : gnd    :                   :         :           :                
+VCCINT                       : H8        : power  :                   : 1.8V    :           :                
+GND                          : H9        : gnd    :                   :         :           :                
+VCCINT                       : H10       : power  :                   : 1.8V    :           :                
+VCCIO2                       : H11       : power  :                   : 3.3V    : 2         :                
+dado_ent_0[18]               : H12       : input  : 3.3-V LVTTL       :         : 2         : N              
+NC                           : H13       :        :                   :         :           :                
+dado_ent_1[12]               : H14       : input  : 3.3-V LVTTL       :         : 2         : N              
+dado_sai[10]                 : H15       : output : 3.3-V LVTTL       :         : 2         : N              
+dado_ent_1[27]               : H16       : input  : 3.3-V LVTTL       :         : 2         : N              
+dado_ent_0[19]               : J1        : input  : 3.3-V LVTTL       :         : 1         : N              
+dado_ent_1[1]                : J2        : input  : 3.3-V LVTTL       :         : 1         : N              
+dado_sai[9]                  : J3        : output : 3.3-V LVTTL       :         : 1         : N              
+NC                           : J4        :        :                   :         :           :                
+dado_ent_1[22]               : J5        : input  : 3.3-V LVTTL       :         : 1         : N              
+VCCIO1                       : J6        : power  :                   : 3.3V    : 1         :                
+VCCINT                       : J7        : power  :                   : 1.8V    :           :                
+GND                          : J8        : gnd    :                   :         :           :                
+VCCINT                       : J9        : power  :                   : 1.8V    :           :                
+GND                          : J10       : gnd    :                   :         :           :                
+VCCIO2                       : J11       : power  :                   : 3.3V    : 2         :                
+dado_sai[20]                 : J12       : output : 3.3-V LVTTL       :         : 2         : N              
+NC                           : J13       :        :                   :         :           :                
+dado_ent_0[0]                : J14       : input  : 3.3-V LVTTL       :         : 2         : N              
+dado_sai[11]                 : J15       : output : 3.3-V LVTTL       :         : 2         : N              
+dado_ent_0[30]               : J16       : input  : 3.3-V LVTTL       :         : 2         : N              
+dado_ent_1[5]                : K1        : input  : 3.3-V LVTTL       :         : 1         : N              
+GND*                         : K2        :        :                   :         : 1         :                
+dado_ent_1[9]                : K3        : input  : 3.3-V LVTTL       :         : 1         : N              
+NC                           : K4        :        :                   :         :           :                
+NC                           : K5        :        :                   :         :           :                
+NC                           : K6        :        :                   :         :           :                
+GND                          : K7        : gnd    :                   :         :           :                
+GND                          : K8        : gnd    :                   :         :           :                
+GND                          : K9        : gnd    :                   :         :           :                
+GND                          : K10       : gnd    :                   :         :           :                
+NC                           : K11       :        :                   :         :           :                
+NC                           : K12       :        :                   :         :           :                
+NC                           : K13       :        :                   :         :           :                
+dado_ent_0[14]               : K14       : input  : 3.3-V LVTTL       :         : 2         : N              
+dado_sai[14]                 : K15       : output : 3.3-V LVTTL       :         : 2         : N              
+dado_ent_1[0]                : K16       : input  : 3.3-V LVTTL       :         : 2         : N              
+GND*                         : L1        :        :                   :         : 1         :                
+dado_ent_1[16]               : L2        : input  : 3.3-V LVTTL       :         : 1         : N              
+dado_ent_0[1]                : L3        : input  : 3.3-V LVTTL       :         : 1         : N              
+dado_ent_1[25]               : L4        : input  : 3.3-V LVTTL       :         : 1         : N              
+NC                           : L5        :        :                   :         :           :                
+TDI                          : L6        : input  :                   :         : 1         :                
+NC                           : L7        :        :                   :         :           :                
+VCCIO1                       : L8        : power  :                   : 3.3V    : 1         :                
+VCCIO1                       : L9        : power  :                   : 3.3V    : 1         :                
+NC                           : L10       :        :                   :         :           :                
+NC                           : L11       :        :                   :         :           :                
+NC                           : L12       :        :                   :         :           :                
+dado_sai[18]                 : L13       : output : 3.3-V LVTTL       :         : 2         : N              
+dado_ent_0[20]               : L14       : input  : 3.3-V LVTTL       :         : 2         : N              
+GND*                         : L15       :        :                   :         : 2         :                
+dado_sai[30]                 : L16       : output : 3.3-V LVTTL       :         : 2         : N              
+dado_ent_0[31]               : M1        : input  : 3.3-V LVTTL       :         : 1         : N              
+dado_ent_0[21]               : M2        : input  : 3.3-V LVTTL       :         : 1         : N              
+GND*                         : M3        :        :                   :         : 1         :                
+dado_sai[16]                 : M4        : output : 3.3-V LVTTL       :         : 1         : N              
+TDO                          : M5        : output :                   :         : 1         :                
+NC                           : M6        :        :                   :         :           :                
+NC                           : M7        :        :                   :         :           :                
+dado_sai[7]                  : M8        : output : 3.3-V LVTTL       :         : 1         : N              
+dado_sai[28]                 : M9        : output : 3.3-V LVTTL       :         : 1         : N              
+NC                           : M10       :        :                   :         :           :                
+NC                           : M11       :        :                   :         :           :                
+NC                           : M12       :        :                   :         :           :                
+GND*                         : M13       :        :                   :         : 2         :                
+dado_ent_0[12]               : M14       : input  : 3.3-V LVTTL       :         : 2         : N              
+GND*                         : M15       :        :                   :         : 2         :                
+dado_ent_1[7]                : M16       : input  : 3.3-V LVTTL       :         : 2         : N              
+GND*                         : N1        :        :                   :         : 1         :                
+GND*                         : N2        :        :                   :         : 1         :                
+dado_sai[19]                 : N3        : output : 3.3-V LVTTL       :         : 1         : N              
+TMS                          : N4        : input  :                   :         : 1         :                
+GND*                         : N5        :        :                   :         : 1         :                
+NC                           : N6        :        :                   :         :           :                
+NC                           : N7        :        :                   :         :           :                
+NC                           : N8        :        :                   :         :           :                
+NC                           : N9        :        :                   :         :           :                
+NC                           : N10       :        :                   :         :           :                
+NC                           : N11       :        :                   :         :           :                
+GND*                         : N12       :        :                   :         : 1         :                
+GND*                         : N13       :        :                   :         : 2         :                
+dado_ent_1[13]               : N14       : input  : 3.3-V LVTTL       :         : 2         : N              
+GND*                         : N15       :        :                   :         : 2         :                
+GND*                         : N16       :        :                   :         : 2         :                
+VCCIO1                       : P1        : power  :                   : 3.3V    : 1         :                
+dado_sai[24]                 : P2        : output : 3.3-V LVTTL       :         : 1         : N              
+TCK                          : P3        : input  :                   :         : 1         :                
+GND*                         : P4        :        :                   :         : 1         :                
+dado_sai[15]                 : P5        : output : 3.3-V LVTTL       :         : 1         : N              
+dado_sai[8]                  : P6        : output : 3.3-V LVTTL       :         : 1         : N              
+dado_sai[2]                  : P7        : output : 3.3-V LVTTL       :         : 1         : N              
+dado_ent_0[23]               : P8        : input  : 3.3-V LVTTL       :         : 1         : N              
+dado_ent_0[6]                : P9        : input  : 3.3-V LVTTL       :         : 1         : N              
+dado_ent_1[6]                : P10       : input  : 3.3-V LVTTL       :         : 1         : N              
+dado_ent_0[26]               : P11       : input  : 3.3-V LVTTL       :         : 1         : N              
+GND*                         : P12       :        :                   :         : 1         :                
+dado_ent_1[30]               : P13       : input  : 3.3-V LVTTL       :         : 1         : N              
+GND*                         : P14       :        :                   :         : 2         :                
+GND*                         : P15       :        :                   :         : 2         :                
+VCCIO2                       : P16       : power  :                   : 3.3V    : 2         :                
+GND*                         : R1        :        :                   :         : 1         :                
+GND                          : R2        : gnd    :                   :         :           :                
+GND*                         : R3        :        :                   :         : 1         :                
+dado_ent_1[2]                : R4        : input  : 3.3-V LVTTL       :         : 1         : N              
+dado_ent_1[31]               : R5        : input  : 3.3-V LVTTL       :         : 1         : N              
+dado_sai[31]                 : R6        : output : 3.3-V LVTTL       :         : 1         : N              
+dado_ent_1[23]               : R7        : input  : 3.3-V LVTTL       :         : 1         : N              
+dado_ent_0[28]               : R8        : input  : 3.3-V LVTTL       :         : 1         : N              
+dado_ent_0[8]                : R9        : input  : 3.3-V LVTTL       :         : 1         : N              
+dado_ent_1[17]               : R10       : input  : 3.3-V LVTTL       :         : 1         : N              
+dado_ent_1[28]               : R11       : input  : 3.3-V LVTTL       :         : 1         : N              
+dado_ent_1[8]                : R12       : input  : 3.3-V LVTTL       :         : 1         : N              
+dado_sai[23]                 : R13       : output : 3.3-V LVTTL       :         : 1         : N              
+GND*                         : R14       :        :                   :         : 1         :                
+GND                          : R15       : gnd    :                   :         :           :                
+dado_sai[0]                  : R16       : output : 3.3-V LVTTL       :         : 1         : N              
+GND                          : T1        : gnd    :                   :         :           :                
+sele_ent                     : T2        : input  : 3.3-V LVTTL       :         : 1         : N              
+VCCIO1                       : T3        : power  :                   : 3.3V    : 1         :                
+dado_ent_0[29]               : T4        : input  : 3.3-V LVTTL       :         : 1         : N              
+GND*                         : T5        :        :                   :         : 1         :                
+dado_ent_1[15]               : T6        : input  : 3.3-V LVTTL       :         : 1         : N              
+dado_ent_0[7]                : T7        : input  : 3.3-V LVTTL       :         : 1         : N              
+dado_ent_0[17]               : T8        : input  : 3.3-V LVTTL       :         : 1         : N              
+dado_ent_1[29]               : T9        : input  : 3.3-V LVTTL       :         : 1         : N              
+dado_sai[29]                 : T10       : output : 3.3-V LVTTL       :         : 1         : N              
+GND*                         : T11       :        :                   :         : 1         :                
+GND*                         : T12       :        :                   :         : 1         :                
+GND*                         : T13       :        :                   :         : 1         :                
+VCCIO1                       : T14       : power  :                   : 3.3V    : 1         :                
+GND*                         : T15       :        :                   :         : 1         :                
+GND                          : T16       : gnd    :                   :         :           :                

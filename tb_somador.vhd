@@ -1,24 +1,53 @@
-library IEEE;
-use IEEE.STD_LOGIC_1164.all;
+library ieee;
+use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
-use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
-entity tb_somador is
-end tb_somador;
+entity testbench_somador is
+end testbench_somador;
 
-architecture teste of tb_somador is
+architecture tb_architecture of testbench_somador is
 
-component somador is
-	port (	
-		x, y 	: in std_logic_vector(31 downto 0);
-		s 		: out std_logic_vector(31 downto 0)
-	);
-end component;
+    constant largura_dado : natural := 32;
 
-signal A, B, S: std_logic_vector(31 downto 0);
+    signal entrada_a_tb : std_logic_vector(largura_dado - 1 downto 0);
+    signal entrada_b_tb : std_logic_vector(largura_dado - 1 downto 0);
+    signal saida_tb : std_logic_vector(largura_dado - 1 downto 0);
+
+    component somador
+        generic (
+            largura_dado : natural := 32
+        );
+        port (
+            entrada_a : in std_logic_vector((largura_dado - 1) downto 0);
+            entrada_b : in std_logic_vector((largura_dado - 1) downto 0);
+            saida     : out std_logic_vector((largura_dado - 1) downto 0)
+        );
+    end component;
+
 begin
-	instancia_somador: somador port map(x=>A,y=>B,s=>S);
+    uut : somador
+        generic map (
+            largura_dado => largura_dado
+        )
+        port map (
+            entrada_a => entrada_a_tb,
+            entrada_b => entrada_b_tb,
+            saida     => saida_tb
+        );
 
-	A <= std_logic_vector(to_unsigned(2, 32)), std_logic_vector(to_unsigned(3, 32)) after 20 ns;
-	B <= std_logic_vector(to_unsigned(50, 32)), std_logic_vector(to_unsigned(4, 32)) after 10 ns;
-end teste;
+
+    stimulus_process: process
+    begin
+        -- Test case 1: 5 + 3
+        entrada_a_tb <= "00000000000000000000000000000101"; -- 5
+        entrada_b_tb <= "00000000000000000000000000000011"; -- 3
+        wait for 10 ns;
+
+        -- Test case 2: 255 + 1
+        entrada_a_tb <= "00000000000000000000000011111111"; -- 255
+        entrada_b_tb <= "00000000000000000000000000000001"; -- 1
+        wait for 10 ns;
+        wait;
+    end process stimulus_process;
+
+end tb_architecture;

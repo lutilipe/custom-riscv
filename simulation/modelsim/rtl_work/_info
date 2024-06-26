@@ -1,0 +1,94 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/custom-riscv/simulation/modelsim
+Emux21
+Z1 w1719409201
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 0
+R0
+Z4 8D:/custom-riscv/mux21.vhd
+Z5 FD:/custom-riscv/mux21.vhd
+l0
+L9 1
+VUI0mOCGPO?eh8C3KhIh>Q0
+!s100 c?:Uzi6of=c7nN@?RJcNY2
+Z6 OV;C;2020.1;71
+31
+Z7 !s110 1719409425
+!i10b 1
+Z8 !s108 1719409425.000000
+Z9 !s90 -reportprogress|300|-93|-work|work|D:/custom-riscv/mux21.vhd|
+Z10 !s107 D:/custom-riscv/mux21.vhd|
+!i113 1
+Z11 o-93 -work work
+Z12 tExplicit 1 CvgOpt 0
+Adataflow
+R2
+R3
+Z13 DEx4 work 5 mux21 0 22 UI0mOCGPO?eh8C3KhIh>Q0
+!i122 0
+l21
+L20 6
+VMmLX_8M6KS?QSCOck2iR61
+!s100 407D`d:TT=9kU5IdIT49M2
+R6
+31
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+R12
+Etb_mux21
+Z14 w1719407944
+R2
+R3
+!i122 1
+R0
+Z15 8D:/custom-riscv/tb_mux21.vhd
+Z16 FD:/custom-riscv/tb_mux21.vhd
+l0
+L4 1
+VF^0bJfX[Wd823M3agIELZ1
+!s100 F2W5e]M:2XezOe[6GgIMB2
+R6
+31
+R7
+!i10b 1
+R8
+Z17 !s90 -reportprogress|300|-93|-work|work|D:/custom-riscv/tb_mux21.vhd|
+!s107 D:/custom-riscv/tb_mux21.vhd|
+!i113 1
+R11
+R12
+Atestbench
+R13
+R2
+R3
+DEx4 work 8 tb_mux21 0 22 F^0bJfX[Wd823M3agIELZ1
+!i122 1
+l15
+L7 45
+VD26TTiOcJ9o<3JT@S64AV2
+!s100 JIAn6j3a0TK14Hg53WS730
+R6
+31
+R7
+!i10b 1
+R8
+R17
+Z18 !s107 D:/custom-riscv/tb_mux21.vhd|
+!i113 1
+R11
+R12

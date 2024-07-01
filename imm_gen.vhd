@@ -24,13 +24,13 @@ ARCHITECTURE comportamental OF imm_gen IS
 BEGIN
 	opcode <= instrucao(6 DOWNTO 0);
 
-	imm_i <= instrucao(31 DOWNTO 20) & "00000000000000000000";
+	imm_i <= std_logic_vector(resize(instrucao(31 DOWNTO 20), imm_i'length));
 
-	imm_s <= instrucao(31 DOWNTO 25) & "0000000000000" & instrucao(11 DOWNTO 7) & "0000000";
+	imm_s <= std_logic_vector(resize(instrucao(31 DOWNTO 25) & instrucao(11 DOWNTO 7), imm_i'length));
 
-	imm_b <= instrucao(31 DOWNTO 25) & "0000000000000" & instrucao(11 DOWNTO 7) & "0000000";
+	imm_b <= std_logic_vector(resize(instrucao(31 DOWNTO 25) & instrucao(11 DOWNTO 7), imm_i'length));
 
-	imm_j <= instrucao(31 DOWNTO 12) & "000000000000";
+	imm_j <= std_logic_vector(resize(instrucao(31 DOWNTO 12), imm_i'length));
 
 	PROCESS (opcode, instrucao, imm_i, imm_s, imm_b, imm_j)
 	BEGIN

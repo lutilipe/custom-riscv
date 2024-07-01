@@ -30,7 +30,7 @@ architecture comportamental of banco_registradores is
     type registerfile is array(0 to ((2 ** largura_ende) - 1)) of std_logic_vector((largura_dado - 1) downto 0);
     signal banco : registerfile;
 begin
-    leitura : process (clk) is
+    leitura : process (clk, banco, ent_Rs_ende, ent_Rt_ende) is
     begin
         -- lê o registrador de endereço Rs da instrução apontada por PC no ciclo anterior,
         -- lê o registrador de endereço Rt da instrução apontada por PC no ciclo anterior.
@@ -38,7 +38,7 @@ begin
         sai_Rt_dado <= banco(to_integer(unsigned(ent_Rt_ende)));
     end process;
 
-    escrita : process (clk) is
+    escrita : process (clk,ent_Rd_ende) is
     begin
         if rising_edge(clk) then
             if WE = '1' then

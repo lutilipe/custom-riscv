@@ -16,32 +16,40 @@ entity ula is
     port (
         entrada_a : in std_logic_vector((largura_dado - 1) downto 0);
         entrada_b : in std_logic_vector((largura_dado - 1) downto 0);
-        seletor   : in std_logic_vector(2 downto 0);
-        saida     : out std_logic_vector((largura_dado - 1) downto 0)
+        seletor   : in std_logic_vector(3 downto 0);
+        saida     : out std_logic_vector((largura_dado - 1) downto 0);
+        zero      : out std_logic
     );
 end ula;
 
 architecture comportamental of ula is
     signal resultado_ula : std_logic_vector((largura_dado - 1) downto 0);
+    constant zeros : std_logic_vector((largura_dado - 1) downto 0) := (others => '0');
 begin
-    process (entrada_a, entrada_b, seletor) is
+    process(seletor, entrada_a, entrada_b, resultado_ula)
     begin
-        case(seletor) is
-            when "000" => -- soma com sinal
-            resultado_ula <= std_logic_vector(signed(entrada_a) + signed(entrada_b));
-            when "001" => -- soma estendida
-            resultado_ula <= std_logic_vector(signed(entrada_a) + signed(entrada_b));
-            when "100" => -- and lógico
-            resultado_ula <= entrada_a and entrada_b;
-            when "101" => -- or lógico
-            resultado_ula <= entrada_a or entrada_b;
-            when "110" => -- xor lógico
-            resultado_ula <= entrada_a xor entrada_b;
-            when "111" => -- not lógico
-            resultado_ula <= not(entrada_a);
-            when others => -- xnor lógico
-            resultado_ula <= entrada_a xnor entrada_b;
+        case seletor is
+            when "0000" => -- AND
+                resultado_ula <= entrada_a and entrada_b;
+            when "0001" => -- OR
+                resultado_ula <= entrada_a or entrada_b;
+            when "0010" => -- ADD
+                resultado_ula <= std_logic_vector(signed(entrada_a) + signed(entrada_b));
+            when "0110" => -- SUB
+                resultado_ula <= std_logic_vector(signed(entrada_a) - signed(entrada_b));
+            when "1100" => -- NOR
+                resultado_ula <= not (entrada_a or entrada_b);
+            when "0101" => -- XOR
+                resultado_ula <= entrada_a xor entrada_b;
+            when others =>
+                resultado_ula <= zeros;
         end case;
+
+        if resultado_ula = zeros then
+            zero <= '1';
+        else
+            zero <= '0';
+        end if;
     end process;
     saida <= resultado_ula;
 end comportamental;

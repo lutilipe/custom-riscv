@@ -1,5 +1,5 @@
 Timing Analyzer report for custom-riscv
-Wed Jun 26 10:42:51 2024
+Sun Jun 30 21:15:21 2024
 Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
 
 
@@ -20,11 +20,7 @@ Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
  12. Report TCCS
  13. Report RSKM
  14. Unconstrained Paths Summary
- 15. Unconstrained Input Ports
- 16. Unconstrained Output Ports
- 17. Unconstrained Input Ports
- 18. Unconstrained Output Ports
- 19. Timing Analyzer Messages
+ 15. Timing Analyzer Messages
 
 
 
@@ -55,7 +51,7 @@ https://fpgasoftware.intel.com/eula.
 ; Timing Analyzer       ; Legacy Timing Analyzer                                 ;
 ; Revision Name         ; custom-riscv                                           ;
 ; Device Family         ; MAX V                                                  ;
-; Device Name           ; 5M570ZF256C4                                           ;
+; Device Name           ; 5M40ZE64C4                                             ;
 ; Timing Models         ; Final                                                  ;
 ; Delay Model           ; Slow Model                                             ;
 ; Rise/Fall Delays      ; Unavailable                                            ;
@@ -145,237 +141,11 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +---------------------------------+-------+------+
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
-; Unconstrained Input Ports       ; 65    ; 65   ;
-; Unconstrained Input Port Paths  ; 96    ; 96   ;
-; Unconstrained Output Ports      ; 32    ; 32   ;
-; Unconstrained Output Port Paths ; 96    ; 96   ;
+; Unconstrained Input Ports       ; 0     ; 0    ;
+; Unconstrained Input Port Paths  ; 0     ; 0    ;
+; Unconstrained Output Ports      ; 0     ; 0    ;
+; Unconstrained Output Port Paths ; 0     ; 0    ;
 +---------------------------------+-------+------+
-
-
-+-------------------------------------------------------------------------------------------------------+
-; Unconstrained Input Ports                                                                             ;
-+----------------+--------------------------------------------------------------------------------------+
-; Input Port     ; Comment                                                                              ;
-+----------------+--------------------------------------------------------------------------------------+
-; dado_ent_0[0]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[1]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[2]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[3]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[4]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[5]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[6]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[7]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[8]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[9]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[10] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[11] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[12] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[13] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[14] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[15] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[16] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[17] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[18] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[19] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[20] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[21] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[22] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[23] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[24] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[25] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[26] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[27] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[28] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[29] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[30] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[31] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[0]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[1]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[2]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[3]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[4]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[5]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[6]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[7]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[8]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[9]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[10] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[11] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[12] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[13] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[14] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[15] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[16] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[17] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[18] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[19] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[20] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[21] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[22] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[23] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[24] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[25] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[26] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[27] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[28] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[29] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[30] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[31] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; sele_ent       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-+----------------+--------------------------------------------------------------------------------------+
-
-
-+------------------------------------------------------------------------------------------------------+
-; Unconstrained Output Ports                                                                           ;
-+--------------+---------------------------------------------------------------------------------------+
-; Output Port  ; Comment                                                                               ;
-+--------------+---------------------------------------------------------------------------------------+
-; dado_sai[0]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[1]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[2]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[3]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[4]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[5]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[6]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[7]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[8]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[9]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[10] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[11] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[12] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[13] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[14] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[15] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[16] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[17] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[18] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[19] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[20] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[21] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[22] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[23] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[24] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[25] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[26] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[27] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[28] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[29] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[30] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[31] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-+--------------+---------------------------------------------------------------------------------------+
-
-
-+-------------------------------------------------------------------------------------------------------+
-; Unconstrained Input Ports                                                                             ;
-+----------------+--------------------------------------------------------------------------------------+
-; Input Port     ; Comment                                                                              ;
-+----------------+--------------------------------------------------------------------------------------+
-; dado_ent_0[0]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[1]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[2]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[3]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[4]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[5]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[6]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[7]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[8]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[9]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[10] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[11] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[12] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[13] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[14] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[15] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[16] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[17] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[18] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[19] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[20] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[21] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[22] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[23] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[24] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[25] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[26] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[27] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[28] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[29] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[30] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_0[31] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[0]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[1]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[2]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[3]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[4]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[5]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[6]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[7]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[8]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[9]  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[10] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[11] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[12] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[13] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[14] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[15] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[16] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[17] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[18] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[19] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[20] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[21] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[22] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[23] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[24] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[25] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[26] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[27] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[28] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[29] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[30] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_ent_1[31] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; sele_ent       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-+----------------+--------------------------------------------------------------------------------------+
-
-
-+------------------------------------------------------------------------------------------------------+
-; Unconstrained Output Ports                                                                           ;
-+--------------+---------------------------------------------------------------------------------------+
-; Output Port  ; Comment                                                                               ;
-+--------------+---------------------------------------------------------------------------------------+
-; dado_sai[0]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[1]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[2]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[3]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[4]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[5]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[6]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[7]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[8]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[9]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[10] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[11] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[12] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[13] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[14] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[15] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[16] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[17] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[18] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[19] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[20] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[21] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[22] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[23] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[24] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[25] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[26] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[27] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[28] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[29] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[30] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; dado_sai[31] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-+--------------+---------------------------------------------------------------------------------------+
 
 
 +--------------------------+
@@ -384,7 +154,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
-    Info: Processing started: Wed Jun 26 10:42:51 2024
+    Info: Processing started: Sun Jun 30 21:15:20 2024
 Info: Command: quartus_sta custom-riscv -c custom-riscv
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -405,12 +175,12 @@ Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332140): No Minimum Pulse Width paths to report
 Info (332001): The selected device family is not supported by the report_metastability command.
-Info (332102): Design is not fully constrained for setup requirements
-Info (332102): Design is not fully constrained for hold requirements
+Info (332101): Design is fully constrained for setup requirements
+Info (332101): Design is fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 3 warnings
-    Info: Peak virtual memory: 4679 megabytes
-    Info: Processing ended: Wed Jun 26 10:42:51 2024
-    Info: Elapsed time: 00:00:00
+    Info: Peak virtual memory: 4681 megabytes
+    Info: Processing ended: Sun Jun 30 21:15:21 2024
+    Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
 

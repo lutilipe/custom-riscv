@@ -4,179 +4,172 @@
 -- Autoria: Professor Ricardo de Oliveira Duarte
 -- Via de dados do processador_ciclo_unico
 
-library IEEE;
-use IEEE.std_logic_1164.all;
+LIBRARY IEEE;
+USE IEEE.std_logic_1164.ALL;
 
-entity via_de_dados_ciclo_unico is
-	generic (
+ENTITY via_de_dados_ciclo_unico IS
+	GENERIC (
 		-- declare todos os tamanhos dos barramentos (sinais) das portas da sua via_dados_ciclo_unico aqui.
-		dp_ctrl_bus_width : natural := 32; -- tamanho do barramento de controle da via de dados (DP) em bits
-		data_width        : natural := 32; -- tamanho do dado em bits
-		pc_width          : natural := 13; -- tamanho da entrada de endereços da MI ou MP em bits (memi.vhd)
-		fr_addr_width     : natural := 5;  -- tamanho da linha de endereços do banco de registradores em bits
-		ula_ctrl_width    : natural := 4;  -- tamanho da linha de controle da ULA
-		instr_width       : natural := 32  -- tamanho da instrução em bits
+		dp_ctrl_bus_width : NATURAL := 32; -- tamanho do barramento de controle da via de dados (DP) em bits
+		data_width        : NATURAL := 32; -- tamanho do dado em bits
+		pc_width          : NATURAL := 13; -- tamanho da entrada de endereços da MI ou MP em bits (memi.vhd)
+		fr_addr_width     : NATURAL := 5; -- tamanho da linha de endereços do banco de registradores em bits
+		ula_ctrl_width    : NATURAL := 4; -- tamanho da linha de controle da ULA
+		instr_width       : NATURAL := 32 -- tamanho da instrução em bits
 	);
-	port (
+	PORT (
 		-- declare todas as portas da sua via_dados_ciclo_unico aqui.
-		clock     : in std_logic;
-		reset     : in std_logic;
-		controle  : in std_logic_vector(dp_ctrl_bus_width - 1 downto 0);
-		instrucao : in std_logic_vector(instr_width - 1 downto 0);
-		pc_out    : out std_logic_vector(pc_width - 1 downto 0);
-		saida     : out std_logic_vector(data_width - 1 downto 0)
+		clock    : IN std_logic;
+		reset    : IN std_logic;
+		branch   : IN std_logic;
+		jump     : IN std_logic;
+		memRead  : IN std_logic;
+		memWrite : IN std_logic;
+		regWrite : IN std_logic;
+		ALUSrc   : IN std_logic;
+		memToReg : IN std_logic;
+		ALUOp    : IN std_logic_vector(ula_ctrl_width - 1 DOWNTO 0);
+		opcode   : OUT std_logic_vector(6 DOWNTO 0);
+		funct3   : OUT std_logic_vector(14 DOWNTO 12);
+		funct7   : OUT std_logic_vector(31 DOWNTO 25)
 	);
-end entity via_de_dados_ciclo_unico;
+END ENTITY via_de_dados_ciclo_unico;
 
-architecture comportamento of via_de_dados_ciclo_unico is
+ARCHITECTURE comportamento OF via_de_dados_ciclo_unico IS
 
 	-- declare todos os componentes que serão necessários na sua via_de_dados_ciclo_unico a partir deste comentário
-	component pc is
-		generic (
-			pc_width : natural := 13
+	COMPONENT pc IS
+		GENERIC (
+			pc_width : NATURAL := pc_width
 		);
-		port (
-			entrada : in std_logic_vector(pc_width - 1 downto 0);
-			saida   : out std_logic_vector(pc_width - 1 downto 0);
-			clk     : in std_logic;
-			we      : in std_logic;
-			reset   : in std_logic
+		PORT (
+			entrada : IN std_logic_vector(pc_width - 1 DOWNTO 0);
+			clk     : IN std_logic;
+			we      : IN std_logic;
+			reset   : IN std_logic;
+			saida   : OUT std_logic_vector(pc_width - 1 DOWNTO 0)
 		);
-	end component pc;
+	END COMPONENT pc;
 
-	component somador is
-		generic (
-			largura_dado : natural := 32
+	COMPONENT somador IS
+		GENERIC (
+			largura_dado : NATURAL := pc_width
 		);
-		port (
-			entrada_a : in std_logic_vector((largura_dado - 1) downto 0);
-			entrada_b : in std_logic_vector((largura_dado - 1) downto 0);
-			saida     : out std_logic_vector((largura_dado - 1) downto 0)
+		PORT (
+			entrada_a : IN std_logic_vector((largura_dado - 1) DOWNTO 0);
+			entrada_b : IN std_logic_vector((largura_dado - 1) DOWNTO 0);
+			saida     : OUT std_logic_vector((largura_dado - 1) DOWNTO 0)
 		);
-	end component somador;
+	END COMPONENT somador;
 
-	component banco_registradores is
-		generic (
-			largura_dado : natural := 32;
-			largura_ende : natural := 5
+	COMPONENT banco_registradores IS
+		GENERIC (
+			largura_dado : NATURAL := 32;
+			largura_ende : NATURAL := 5
 		);
-		port (
-			ent_rs_ende : in std_logic_vector((largura_ende - 1) downto 0);
-			ent_rt_ende : in std_logic_vector((largura_ende - 1) downto 0);
-			ent_rd_ende : in std_logic_vector((largura_ende - 1) downto 0);
-			ent_rd_dado : in std_logic_vector((largura_dado - 1) downto 0);
-			sai_rs_dado : out std_logic_vector((largura_dado - 1) downto 0);
-			sai_rt_dado : out std_logic_vector((largura_dado - 1) downto 0);
-			clk         : in std_logic;
-			we          : in std_logic
+		PORT (
+			ent_rs_ende : IN std_logic_vector((largura_ende - 1) DOWNTO 0);
+			ent_rt_ende : IN std_logic_vector((largura_ende - 1) DOWNTO 0);
+			ent_rd_ende : IN std_logic_vector((largura_ende - 1) DOWNTO 0);
+			ent_rd_dado : IN std_logic_vector((largura_dado - 1) DOWNTO 0);
+			sai_rs_dado : OUT std_logic_vector((largura_dado - 1) DOWNTO 0);
+			sai_rt_dado : OUT std_logic_vector((largura_dado - 1) DOWNTO 0);
+			clk         : IN std_logic;
+			we          : IN std_logic
 		);
-	end component banco_registradores;
+	END COMPONENT banco_registradores;
 
-	component ula is
-		generic (
-			largura_dado : natural := 32
+	COMPONENT ula IS
+		GENERIC (
+			largura_dado : NATURAL := 32
 		);
-		port (
-			entrada_a : in std_logic_vector((largura_dado - 1) downto 0);
-			entrada_b : in std_logic_vector((largura_dado - 1) downto 0);
-			seletor   : in std_logic_vector(2 downto 0);
-			saida     : out std_logic_vector((largura_dado - 1) downto 0)
+		PORT (
+			entrada_a : IN std_logic_vector((largura_dado - 1) DOWNTO 0);
+			entrada_b : IN std_logic_vector((largura_dado - 1) DOWNTO 0);
+			seletor   : IN std_logic_vector(3 DOWNTO 0);
+			saida     : OUT std_logic_vector((largura_dado - 1) DOWNTO 0);
+			zero      : OUT std_logic
 		);
-	end component ula;
-	
-	component memd is
-	  generic (
-			number_of_words : natural := 256;
-			MD_DATA_WIDTH   : natural := 32;
-			MD_ADDR_WIDTH   : natural := 5
-	  );
-	  port (
-			clk                 : in std_logic;
-			mem_write, mem_read : in std_logic;
-			write_data_mem      : in std_logic_vector(MD_DATA_WIDTH - 1 downto 0);
-			adress_mem          : in std_logic_vector(MD_ADDR_WIDTH - 1 downto 0);
-			read_data_mem       : out std_logic_vector(MD_DATA_WIDTH - 1 downto 0)
-	  );
-    end component memd;
-	 
-	component memi is
-        generic (
-            INSTR_WIDTH   : natural := 32; -- tamanho da instrucao em numero de bits
-            MI_ADDR_WIDTH : natural := 5  -- tamanho do endereco da memoria de instrucoes em numero de bits
-        );
-        port (
-            clk       : in std_logic;
-            reset     : in std_logic;
-            Endereco  : in std_logic_vector(MI_ADDR_WIDTH - 1 downto 0);
-            Instrucao : out std_logic_vector(INSTR_WIDTH - 1 downto 0)
-        );
-    end component memi;
-	 
-	 component mux21 is
-       generic (
-        largura_dado : natural := 32
-		 );
-		 port (
-			  dado_ent_0, dado_ent_1 : in std_logic_vector((largura_dado - 1) downto 0);
-			  sele_ent               : in std_logic;
-			  dado_sai               : out std_logic_vector((largura_dado - 1) downto 0)
-		 );
-    end component mux21;
-	 
-	 component extensor is
-       generic (
-            largura_dado  : natural := 6;
-            largura_saida : natural := 32
-        );
-        port (
-            entrada_Rs : in std_logic_vector((largura_dado - 1) downto 0);
-            saida      : out std_logic_vector((largura_saida - 1) downto 0)
-        );
-    end component extensor;
+	END COMPONENT ula;
+ 
+	COMPONENT memd IS
+		GENERIC (
+			number_of_words : NATURAL := 256;
+			MD_DATA_WIDTH   : NATURAL := 32;
+			MD_ADDR_WIDTH   : NATURAL := 5
+		);
+		PORT (
+			clk                 : IN std_logic;
+			mem_write, mem_read : IN std_logic;
+			write_data_mem      : IN std_logic_vector(MD_DATA_WIDTH - 1 DOWNTO 0);
+			adress_mem          : IN std_logic_vector(MD_ADDR_WIDTH - 1 DOWNTO 0);
+			read_data_mem       : OUT std_logic_vector(MD_DATA_WIDTH - 1 DOWNTO 0)
+		);
+	END COMPONENT memd;
+ 
+	COMPONENT memi IS
+		GENERIC (
+			INSTR_WIDTH   : NATURAL := 32; -- tamanho da instrucao em numero de bits
+			MI_ADDR_WIDTH : NATURAL := 5 -- tamanho do endereco da memoria de instrucoes em numero de bits
+		);
+		PORT (
+			clk       : IN std_logic;
+			reset     : IN std_logic;
+			Endereco  : IN std_logic_vector(MI_ADDR_WIDTH - 1 DOWNTO 0);
+			Instrucao : OUT std_logic_vector(INSTR_WIDTH - 1 DOWNTO 0)
+		);
+	END COMPONENT memi;
+ 
+	COMPONENT mux21 IS
+		GENERIC (
+			largura_dado : NATURAL := 32
+		);
+		PORT (
+			dado_ent_0, dado_ent_1 : IN std_logic_vector((largura_dado - 1) DOWNTO 0);
+			sele_ent               : IN std_logic;
+			dado_sai               : OUT std_logic_vector((largura_dado - 1) DOWNTO 0)
+		);
+	END COMPONENT mux21;
+ 
+	COMPONENT imm_gen IS
+		GENERIC (
+			data_width  : NATURAL := 32;
+       	instr_width : NATURAL := 32
+		);
+		PORT (
+			instrucao : IN std_logic_vector((instr_width - 1) DOWNTO 0);
+			imm_out   : OUT std_logic_vector((data_width - 1) DOWNTO 0)
+		);
+	END COMPONENT imm_gen;
 
 	-- Declare todos os sinais auxiliares que serão necessários na sua via_de_dados_ciclo_unico a partir deste comentário.
 	-- Você só deve declarar sinais auxiliares se estes forem usados como "fios" para interligar componentes.
 	-- Os sinais auxiliares devem ser compatíveis com o mesmo tipo (std_logic, std_logic_vector, etc.) e o mesmo tamanho dos sinais dos portos dos
 	-- componentes onde serão usados.
 	-- Veja os exemplos abaixo:
-	signal aux_read_rs    : std_logic_vector(fr_addr_width - 1 downto 0);
-	signal aux_read_rt    : std_logic_vector(fr_addr_width - 1 downto 0);
-	signal aux_write_rd   : std_logic_vector(fr_addr_width - 1 downto 0);
-	signal aux_data_in    : std_logic_vector(data_width - 1 downto 0);
-	signal aux_data_outrs : std_logic_vector(data_width - 1 downto 0);
-	signal aux_data_outrt : std_logic_vector(data_width - 1 downto 0);
-	signal aux_reg_write  : std_logic;
 
-	signal aux_ula_ctrl : std_logic_vector(ula_ctrl_width - 1 downto 0);
+	SIGNAL aux_we             : std_logic;
+	SIGNAL aux_pc_out         : std_logic_vector(pc_width - 1 DOWNTO 0);
+	SIGNAL aux_novo_pc        : std_logic_vector(pc_width - 1 DOWNTO 0);
+	SIGNAL aux_out_sum_pc     : std_logic_vector(pc_width - 1 DOWNTO 0);
+	SIGNAL aux_out_sum2_pc    : std_logic_vector(pc_width - 1 DOWNTO 0);
+	SIGNAL aux_out_mux_sum_pc : std_logic_vector(pc_width - 1 DOWNTO 0);
 
-	signal aux_pc_out  : std_logic_vector(pc_width - 1 downto 0);
-	signal aux_novo_pc : std_logic_vector(pc_width - 1 downto 0);
-	signal aux_we      : std_logic;
+	SIGNAL aux_instrucao      : std_logic_vector(instr_width - 1 DOWNTO 0);
+	SIGNAL aux_out_immgen     : std_logic_vector(instr_width - 1 DOWNTO 0);
 
-    signal aux_ula_zero       : std_logic;
-    signal aux_mem_dado_out   : std_logic_vector(data_width - 1 downto 0);
-    signal aux_mux_data       : std_logic_vector(data_width - 1 downto 0);
-    signal mem_write_enable   : std_logic;
-    signal mem_read_enable    : std_logic;
-	 
-	 signal aux_instrucao : std_logic_vector(PROC_INSTR_WIDTH - 1 downto 0);
+	SIGNAL aux_out_mux_ula    : std_logic_vector(instr_width - 1 DOWNTO 0);
+	SIGNAL aux_zero_ula       : std_logic;
 
-begin
-
-	-- A partir deste comentário faça associações necessárias das entradas declaradas na entidade da sua via_dados_ciclo_unico com
-	-- os sinais que você acabou de definir.
-	-- Veja os exemplos abaixo:
-	aux_read_rs   <= instrucao(7 downto 4);  -- OP OP OP OP RD RD RD RD RS RS RS RS RT RT RT RT
-	aux_read_rt   <= instrucao(3 downto 0);  -- OP OP OP OP RD RD RD RD RS RS RS RS RT RT RT RT
-	aux_write_rd  <= instrucao(11 downto 8); -- OP OP OP OP RD RD RD RD RS RS RS RS RT RT RT RT
-	aux_reg_write <= controle(4);            -- WE RW UL UL UL UL
-	aux_ula_ctrl  <= controle(3 downto 0);   -- WE RW UL UL UL UL
-	aux_we        <= controle(5);            -- WE RW UL UL UL UL
-	mem_write_enable <= controle(6);          -- Memory write enable
-   mem_read_enable  <= controle(7);          -- Memory read enable
-	saida         <= aux_data_outrt;
-	pc_out        <= aux_pc_out;
-
+	SIGNAL aux_data_outrs     : std_logic_vector(data_width - 1 DOWNTO 0);
+	SIGNAL aux_data_outrt     : std_logic_vector(data_width - 1 DOWNTO 0);
+	SIGNAL aux_data_in        : std_logic_vector(data_width - 1 DOWNTO 0);
+	SIGNAL aux_mux_data       : std_logic_vector(data_width - 1 DOWNTO 0);
+	SIGNAL aux_mem_dado_out   : std_logic_vector(data_width - 1 DOWNTO 0);
+	
+	SIGNAL branch_and_zero 	  : std_logic;
+	
+BEGIN
 	-- A partir deste comentário instancie todos o componentes que serão usados na sua via_de_dados_ciclo_unico.
 	-- A instanciação do componente deve começar com um nome que você deve atribuir para a referida instancia seguido de : e seguido do nome
 	-- que você atribuiu ao componente.
@@ -185,130 +178,137 @@ begin
 	-- atribuição deve aparecer um dos sinais ("fios") que você definiu anteriormente, ou uma das entradas da entidade via_de_dados_ciclo_unico,
 	-- ou ainda uma das saídas da entidade via_de_dados_ciclo_unico.
 	-- Veja os exemplos de instanciação a seguir:
+	instancia_pc : COMPONENT pc
+	PORT MAP(
+		entrada => aux_novo_pc, 
+		saida   => aux_pc_out, 
+		clk     => clock, 
+		we      => aux_we, 
+		reset   => reset
+	);
 
-	instancia_ula1 : component ula
-  		port map(
-			entrada_a => aux_data_outrs,
-			entrada_b => aux_data_outrt,
-			seletor => aux_ula_ctrl,
-			saida => aux_data_in
- 		);
-		
-
-	instancia_banco_registradores : component banco_registradores
-		port map(
-			ent_rs_ende => aux_read_rs,
-			ent_rt_ende => aux_read_rt,
-			ent_rd_ende => aux_write_rd,
-			ent_rd_dado => aux_data_in,
-			sai_rs_dado => aux_data_outrs,
-			sai_rt_dado => aux_data_outrt,
-			clk => clock,
-			we => aux_reg_write
+	instancia_somador1 : COMPONENT somador
+	PORT MAP(
+		entrada_a => aux_pc_out, 
+		entrada_b => "0000000000001", 
+		saida     => aux_out_sum_pc
+	);
+ 
+	instancia_somador2 : COMPONENT somador
+	PORT MAP(
+		entrada_a => aux_out_sum_pc, 
+		entrada_b => aux_out_immgen(pc_width - 1 DOWNTO 0), 
+		saida     => aux_out_sum2_pc
+	);
+	
+	branch_and_zero <= branch AND aux_zero_ula;
+ 
+	instancia_mux_sum : COMPONENT mux21
+		GENERIC MAP(
+		largura_dado => pc_width
+		)
+		PORT MAP(
+			dado_ent_0 => aux_out_sum_pc, 
+			dado_ent_1 => aux_out_sum2_pc, 
+			sele_ent   => branch_and_zero, 
+			dado_sai   => aux_out_mux_sum_pc
 		);
+ 
+			instancia_mux_pc : COMPONENT mux21
+				GENERIC MAP(
+				largura_dado => pc_width
+				)
+				PORT MAP(
+					dado_ent_0 => aux_out_mux_sum_pc, 
+					dado_ent_1 => aux_instrucao(31 DOWNTO 19), 
+					sele_ent   => jump, 
+					dado_sai   => aux_novo_pc
+				);
+ 
+					instancia_mem_instrucao : COMPONENT memi
+						GENERIC MAP(
+						INSTR_WIDTH   => instr_width, 
+						MI_ADDR_WIDTH => pc_width
+						)
+						PORT MAP(
+							clk       => clock, 
+							reset     => reset, 
+							Endereco  => aux_pc_out, 
+							Instrucao => aux_instrucao
+						);
+ 
 
-    instancia_pc : component pc
-    	port map(
-			entrada => aux_novo_pc,
-			saida => aux_pc_out,
-			clk => clock,
-			we => aux_we,
-			reset => reset
-      	);
+							instancia_banco_registradores : COMPONENT banco_registradores
+							PORT MAP(
+								ent_rs_ende => aux_instrucao(19 DOWNTO 15), 
+								ent_rt_ende => aux_instrucao(24 DOWNTO 20), 
+								ent_rd_ende => aux_instrucao(11 DOWNTO 7), 
+								ent_rd_dado => aux_mux_data, 
+								sai_rs_dado => aux_data_outrs, 
+								sai_rt_dado => aux_data_outrt, 
+								clk         => clock, 
+								we          => regWrite
+	); 
 
-    instancia_somador1 : component somador
-        port map(
-			entrada_a => aux_pc_out,
-			entrada_b => "0001",
-			saida => aux_novo_pc
-        );
-		  
-	instancia_somador2 : component somador
-        port map(
-			entrada_a => aux_pc_out,
-			entrada_b => "0001",
-			saida => aux_novo_pc
-        );
-		  
-	instancia_mem_dados : component memd
-	  generic map(
-			number_of_words => 256,
-			MD_DATA_WIDTH   => 32,
-			MD_ADDR_WIDTH   => 5
-	  )
-	  port map(
-			clk             => clock,
-			mem_write       => mem_write_enable,
-			mem_read        => mem_read_enable,
-			write_data_mem  => aux_data_outrt,
-			adress_mem      => aux_data_in,
-			read_data_mem   => aux_mem_dado_out
-	  );
-		  
-	instancia_mem_instrucao : component memi
-	  generic map(
-			INSTR_WIDTH   => instr_width,
-			MI_ADDR_WIDTH => pc_width
-	  )
-	  port map(
-			clk       => clock,
-			reset     => reset,
-			Endereco  => aux_pc_out,
-			Instrucao => aux_instrucao
-	  );
-	  
-	  
-    instancia_mux_data : component mux21
-        generic map(
-            largura_dado => data_width
-        )
-        port map(
-            dado_ent_0  => aux_novo_pc,       -- Incremented PC
-            dado_ent_1  => aux_data_in(pc_width - 1 downto 0), -- Address from ALU result
-            sele_ent   => controle(9),       -- Control signal for MUX
-            dado_sai     => aux_pc_out         -- Output of MUX
-        );
-
-    instancia_mux_pc : component mux21
-        generic map(
-            largura_dado => pc_width
-        )
-        port map(
-            dado_ent_0  => aux_novo_pc,       -- Incremented PC
-            dado_ent_1  => aux_data_in(pc_width - 1 downto 0), -- Address from ALU result
-            sele_ent   => controle(9),       -- Control signal for MUX
-            dado_sai     => aux_pc_out         -- Output of MUX
-        );
-		  
-	instancia_mux_reg : component mux21
-        generic map(
-            largura_dado => pc_width
-        )
-        port map(
-            dado_ent_0  => aux_novo_pc,       -- Incremented PC
-            dado_ent_1  => aux_data_in(pc_width - 1 downto 0), -- Address from ALU result
-            sele_ent   => controle(9),       -- Control signal for MUX
-            dado_sai     => aux_pc_out         -- Output of MUX
-        );
-		  
-	instancia_mux_alu : component mux21
-        generic map(
-            largura_dado => pc_width
-        )
-        port map(
-            dado_ent_0  => aux_novo_pc,       -- Incremented PC
-            dado_ent_1  => aux_data_in(pc_width - 1 downto 0), -- Address from ALU result
-            sele_ent   => controle(9),       -- Control signal for MUX
-            dado_sai     => aux_pc_out         -- Output of MUX
-        );
-		  
-	instancia_extensor : component extensor
-        generic map(
-            largura_dado => pc_width,
-				largura_saida => instr_width
-        )
-        port map(
-            entrada_Rs  => aux_novo_pc,       -- Incremented PC
-            saida  => aux_data_in(pc_width - 1 downto 0) -- Address from ALU result
-        );
-end architecture comportamento;
+	instancia_extensor : COMPONENT imm_gen
+		GENERIC MAP(
+		data_width  => data_width, 
+		instr_width => instr_width
+		)
+		PORT MAP(
+			instrucao => aux_instrucao, 
+			imm_out   => aux_out_immgen
+		);
+ 
+			instancia_mux_ula : COMPONENT mux21
+				GENERIC MAP(
+				largura_dado => data_width
+				)
+				PORT MAP(
+					dado_ent_0 => aux_data_outrt, 
+					dado_ent_1 => aux_out_immgen, 
+					sele_ent   => ALUSrc, 
+					dado_sai   => aux_out_mux_ula
+				);
+ 
+					instancia_ula : COMPONENT ula
+					PORT MAP(
+						entrada_a => aux_data_outrs, 
+						entrada_b => aux_out_mux_ula, 
+						seletor   => ALUOp, 
+						saida     => aux_data_in,
+						zero		 => aux_zero_ula
+	);
+ 
+	instancia_mem_dados : COMPONENT memd
+		GENERIC MAP(
+		number_of_words => 256, 
+		MD_DATA_WIDTH   => 32, 
+		MD_ADDR_WIDTH   => 32
+		)
+		PORT MAP(
+			clk            => clock, 
+			mem_write      => memWrite, 
+			mem_read       => memRead, 
+			write_data_mem => aux_data_outrt, 
+			adress_mem     => aux_data_in, 
+			read_data_mem  => aux_mem_dado_out
+		);
+ 
+ 
+			instancia_mux_reg : COMPONENT mux21
+				GENERIC MAP(
+				largura_dado => data_width
+				)
+				PORT MAP(
+					dado_ent_0 => aux_data_in, 
+					dado_ent_1 => aux_mem_dado_out, 
+					sele_ent   => memToReg, 
+					dado_sai   => aux_mux_data
+				);
+				
+	opcode <= aux_instrucao(6 DOWNTO 0);
+	funct3 <= aux_instrucao(14 DOWNTO 12);
+	funct7 <= aux_instrucao(31 DOWNTO 25);
+ 
+END ARCHITECTURE comportamento;

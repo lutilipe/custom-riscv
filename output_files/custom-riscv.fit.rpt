@@ -1,5 +1,5 @@
 Fitter report for custom-riscv
-Wed Jun 26 10:42:48 2024
+Sun Jun 30 21:15:17 2024
 Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
 
 
@@ -21,13 +21,9 @@ Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
  13. Fitter Resource Utilization by Entity
  14. Delay Chain Summary
  15. Routing Usage Summary
- 16. LAB Logic Elements
- 17. LAB Signals Sourced
- 18. LAB Signals Sourced Out
- 19. LAB Distinct Inputs
- 20. Fitter Device Options
- 21. Fitter Messages
- 22. Fitter Suppressed Messages
+ 16. Fitter Device Options
+ 17. Fitter Messages
+ 18. Fitter Suppressed Messages
 
 
 
@@ -54,15 +50,15 @@ https://fpgasoftware.intel.com/eula.
 +------------------------------------------------------------------------+
 ; Fitter Summary                                                         ;
 +-----------------------+------------------------------------------------+
-; Fitter Status         ; Successful - Wed Jun 26 10:42:48 2024          ;
+; Fitter Status         ; Successful - Sun Jun 30 21:15:17 2024          ;
 ; Quartus Prime Version ; 22.1std.1 Build 917 02/14/2023 SC Lite Edition ;
 ; Revision Name         ; custom-riscv                                   ;
-; Top-level Entity Name ; mux21                                          ;
+; Top-level Entity Name ; via_de_dados_ciclo_unico                       ;
 ; Family                ; MAX V                                          ;
-; Device                ; 5M570ZF256C4                                   ;
+; Device                ; 5M40ZE64C4                                     ;
 ; Timing Models         ; Final                                          ;
-; Total logic elements  ; 32 / 570 ( 6 % )                               ;
-; Total pins            ; 97 / 159 ( 61 % )                              ;
+; Total logic elements  ; 0 / 40 ( 0 % )                                 ;
+; Total pins            ; 30 / 54 ( 56 % )                               ;
 ; Total virtual pins    ; 0                                              ;
 ; UFM blocks            ; 0 / 1 ( 0 % )                                  ;
 +-----------------------+------------------------------------------------+
@@ -142,32 +138,32 @@ The pin-out file can be found in D:/custom-riscv/output_files/custom-riscv.pin.
 +---------------------------------------------+--------------------+
 ; Resource                                    ; Usage              ;
 +---------------------------------------------+--------------------+
-; Total logic elements                        ; 32 / 570 ( 6 % )   ;
-;     -- Combinational with no register       ; 32                 ;
+; Total logic elements                        ; 0 / 40 ( 0 % )     ;
+;     -- Combinational with no register       ; 0                  ;
 ;     -- Register only                        ; 0                  ;
 ;     -- Combinational with a register        ; 0                  ;
 ;                                             ;                    ;
 ; Logic element usage by number of LUT inputs ;                    ;
 ;     -- 4 input functions                    ; 0                  ;
-;     -- 3 input functions                    ; 32                 ;
+;     -- 3 input functions                    ; 0                  ;
 ;     -- 2 input functions                    ; 0                  ;
 ;     -- 1 input functions                    ; 0                  ;
 ;     -- 0 input functions                    ; 0                  ;
 ;                                             ;                    ;
 ; Logic elements by mode                      ;                    ;
-;     -- normal mode                          ; 32                 ;
+;     -- normal mode                          ; 0                  ;
 ;     -- arithmetic mode                      ; 0                  ;
 ;     -- qfbk mode                            ; 0                  ;
 ;     -- register cascade mode                ; 0                  ;
 ;     -- synchronous clear/load mode          ; 0                  ;
 ;     -- asynchronous clear/load mode         ; 0                  ;
 ;                                             ;                    ;
-; Total registers                             ; 0 / 570 ( 0 % )    ;
-; Total LABs                                  ; 5 / 57 ( 9 % )     ;
+; Total registers                             ; 0 / 40 ( 0 % )     ;
+; Total LABs                                  ; 0 / 4 ( 0 % )      ;
 ; Logic elements in carry chains              ; 0                  ;
 ; Virtual pins                                ; 0                  ;
-; I/O pins                                    ; 97 / 159 ( 61 % )  ;
-;     -- Clock pins                           ; 4 / 4 ( 100 % )    ;
+; I/O pins                                    ; 30 / 54 ( 56 % )   ;
+;     -- Clock pins                           ; 2 / 4 ( 50 % )     ;
 ;                                             ;                    ;
 ; UFM blocks                                  ; 0 / 1 ( 0 % )      ;
 ;                                             ;                    ;
@@ -177,126 +173,55 @@ The pin-out file can be found in D:/custom-riscv/output_files/custom-riscv.pin.
 ; Global signals                              ; 0                  ;
 ;     -- Global clocks                        ; 0 / 4 ( 0 % )      ;
 ; JTAGs                                       ; 0 / 1 ( 0 % )      ;
-; Average interconnect usage (total/H/V)      ; 4.9% / 3.3% / 6.6% ;
-; Peak interconnect usage (total/H/V)         ; 4.9% / 3.3% / 6.6% ;
-; Maximum fan-out                             ; 32                 ;
-; Highest non-global fan-out                  ; 32                 ;
-; Total fan-out                               ; 128                ;
-; Average fan-out                             ; 0.99               ;
+; Average interconnect usage (total/H/V)      ; 0.0% / 0.0% / 0.0% ;
+; Peak interconnect usage (total/H/V)         ; 0.0% / 0.0% / 0.0% ;
 +---------------------------------------------+--------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Input Pins                                                                                                                                                                                                                             ;
-+----------------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+-----------------+----------+--------------+--------------+----------------------+----------------+
-; Name           ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Cell number ; Combinational Fan-Out ; Registered Fan-Out ; Global ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard ; Location assigned by ; Slow Slew Rate ;
-+----------------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+-----------------+----------+--------------+--------------+----------------------+----------------+
-; dado_ent_0[0]  ; J14   ; 2        ; 13           ; 4            ; 5           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_0[10] ; A15   ; 2        ; 12           ; 8            ; 3           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_0[11] ; D15   ; 2        ; 13           ; 7            ; 0           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_0[12] ; M14   ; 2        ; 13           ; 2            ; 1           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_0[13] ; F14   ; 2        ; 13           ; 5            ; 3           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_0[14] ; K14   ; 2        ; 13           ; 3            ; 1           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_0[15] ; A5    ; 2        ; 4            ; 8            ; 3           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_0[16] ; E2    ; 1        ; 0            ; 7            ; 4           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_0[17] ; T8    ; 1        ; 6            ; 3            ; 0           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_0[18] ; H12   ; 2        ; 13           ; 4            ; 3           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_0[19] ; J1    ; 1        ; 0            ; 6            ; 6           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_0[1]  ; L3    ; 1        ; 0            ; 5            ; 4           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_0[20] ; L14   ; 2        ; 13           ; 3            ; 3           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_0[21] ; M2    ; 1        ; 0            ; 4            ; 1           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_0[22] ; E3    ; 1        ; 0            ; 7            ; 2           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_0[23] ; P8    ; 1        ; 6            ; 3            ; 3           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_0[24] ; D3    ; 1        ; 1            ; 8            ; 0           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_0[25] ; F1    ; 1        ; 0            ; 7            ; 3           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_0[26] ; P11   ; 1        ; 8            ; 3            ; 1           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_0[27] ; B16   ; 2        ; 12           ; 8            ; 1           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_0[28] ; R8    ; 1        ; 6            ; 3            ; 2           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_0[29] ; T4    ; 1        ; 3            ; 3            ; 2           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_0[2]  ; B9    ; 2        ; 7            ; 8            ; 0           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_0[30] ; J16   ; 2        ; 13           ; 4            ; 2           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_0[31] ; M1    ; 1        ; 0            ; 4            ; 6           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_0[3]  ; A9    ; 2        ; 7            ; 8            ; 1           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_0[4]  ; E1    ; 1        ; 1            ; 8            ; 3           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_0[5]  ; H3    ; 1        ; 0            ; 6            ; 3           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_0[6]  ; P9    ; 1        ; 6            ; 3            ; 1           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_0[7]  ; T7    ; 1        ; 5            ; 3            ; 0           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_0[8]  ; R9    ; 1        ; 7            ; 3            ; 2           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_0[9]  ; H5    ; 1        ; 0            ; 5            ; 0           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_1[0]  ; K16   ; 2        ; 13           ; 3            ; 2           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_1[10] ; F13   ; 2        ; 13           ; 5            ; 1           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_1[11] ; G14   ; 2        ; 13           ; 5            ; 5           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_1[12] ; H14   ; 2        ; 13           ; 4            ; 1           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_1[13] ; N14   ; 2        ; 13           ; 2            ; 5           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_1[14] ; G16   ; 2        ; 13           ; 5            ; 2           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_1[15] ; T6    ; 1        ; 4            ; 3            ; 0           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_1[16] ; L2    ; 1        ; 0            ; 4            ; 4           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_1[17] ; R10   ; 1        ; 8            ; 3            ; 0           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_1[18] ; E14   ; 2        ; 13           ; 6            ; 5           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_1[19] ; D2    ; 1        ; 1            ; 8            ; 2           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_1[1]  ; J2    ; 1        ; 0            ; 5            ; 3           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_1[20] ; G15   ; 2        ; 13           ; 5            ; 0           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_1[21] ; D1    ; 1        ; 1            ; 8            ; 1           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_1[22] ; J5    ; 1        ; 0            ; 5            ; 1           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_1[23] ; R7    ; 1        ; 5            ; 3            ; 2           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_1[24] ; H2    ; 1        ; 0            ; 6            ; 2           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_1[25] ; L4    ; 1        ; 0            ; 5            ; 6           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_1[26] ; C11   ; 2        ; 10           ; 8            ; 2           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_1[27] ; H16   ; 2        ; 13           ; 4            ; 0           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_1[28] ; R11   ; 1        ; 10           ; 0            ; 0           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_1[29] ; T9    ; 1        ; 7            ; 3            ; 3           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_1[2]  ; R4    ; 1        ; 3            ; 3            ; 3           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_1[30] ; P13   ; 1        ; 12           ; 0            ; 3           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_1[31] ; R5    ; 1        ; 4            ; 3            ; 1           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_1[3]  ; A8    ; 2        ; 7            ; 8            ; 2           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_1[4]  ; F3    ; 1        ; 0            ; 7            ; 6           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_1[5]  ; K1    ; 1        ; 0            ; 5            ; 5           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_1[6]  ; P10   ; 1        ; 7            ; 3            ; 1           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_1[7]  ; M16   ; 2        ; 13           ; 2            ; 4           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_1[8]  ; R12   ; 1        ; 10           ; 0            ; 3           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; dado_ent_1[9]  ; K3    ; 1        ; 0            ; 5            ; 2           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; sele_ent       ; T2    ; 1        ; 2            ; 3            ; 0           ; 32                    ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-+----------------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+-----------------+----------+--------------+--------------+----------------------+----------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Input Pins                                                                                                                                                                                                                       ;
++----------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+-----------------+----------+--------------+--------------+----------------------+----------------+
+; Name     ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Cell number ; Combinational Fan-Out ; Registered Fan-Out ; Global ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard ; Location assigned by ; Slow Slew Rate ;
++----------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+-----------------+----------+--------------+--------------+----------------------+----------------+
+; ALUOp[0] ; 31    ; 1        ; 6            ; 0            ; 0           ; 0                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
+; ALUOp[1] ; 46    ; 2        ; 8            ; 4            ; 3           ; 0                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
+; ALUOp[2] ; 3     ; 1        ; 1            ; 3            ; 0           ; 0                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
+; ALUOp[3] ; 50    ; 2        ; 6            ; 5            ; 3           ; 0                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
+; ALUSrc   ; 61    ; 2        ; 2            ; 5            ; 0           ; 0                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
+; branch   ; 36    ; 2        ; 8            ; 1            ; 2           ; 0                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
+; clock    ; 44    ; 2        ; 8            ; 3            ; 0           ; 0                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
+; jump     ; 53    ; 2        ; 5            ; 5            ; 2           ; 0                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
+; memRead  ; 43    ; 2        ; 8            ; 3            ; 1           ; 0                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
+; memToReg ; 54    ; 2        ; 4            ; 5            ; 0           ; 0                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
+; memWrite ; 37    ; 2        ; 8            ; 1            ; 1           ; 0                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
+; regWrite ; 42    ; 2        ; 8            ; 3            ; 4           ; 0                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
+; reset    ; 35    ; 2        ; 8            ; 1            ; 3           ; 0                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
++----------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+-----------------+----------+--------------+--------------+----------------------+----------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Output Pins                                                                                                                                                                                                                                                                                                                    ;
-+--------------+-------+----------+--------------+--------------+-------------+-----------------+----------------+-----------------+------------+---------------+----------+--------------+--------------+------------------+------------------------+----------------------+-------+----------------------+---------------------+
-; Name         ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Cell number ; Output Register ; Slow Slew Rate ; PCI I/O Enabled ; Open Drain ; TRI Primitive ; Bus Hold ; Weak Pull Up ; I/O Standard ; Current Strength ; Fast Output Connection ; Location assigned by ; Load  ; Output Enable Source ; Output Enable Group ;
-+--------------+-------+----------+--------------+--------------+-------------+-----------------+----------------+-----------------+------------+---------------+----------+--------------+--------------+------------------+------------------------+----------------------+-------+----------------------+---------------------+
-; dado_sai[0]  ; R16   ; 1        ; 12           ; 0            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; dado_sai[10] ; H15   ; 2        ; 13           ; 5            ; 4           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; yes                    ; Fitter               ; 10 pF ; -                    ; -                   ;
-; dado_sai[11] ; J15   ; 2        ; 13           ; 3            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; dado_sai[12] ; B12   ; 2        ; 11           ; 8            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; dado_sai[13] ; E16   ; 2        ; 13           ; 6            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; dado_sai[14] ; K15   ; 2        ; 13           ; 3            ; 4           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; dado_sai[15] ; P5    ; 1        ; 4            ; 3            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; yes                    ; Fitter               ; 10 pF ; -                    ; -                   ;
-; dado_sai[16] ; M4    ; 1        ; 0            ; 4            ; 5           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; dado_sai[17] ; C7    ; 2        ; 7            ; 8            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; dado_sai[18] ; L13   ; 2        ; 13           ; 3            ; 5           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; dado_sai[19] ; N3    ; 1        ; 1            ; 3            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; dado_sai[1]  ; H1    ; 1        ; 0            ; 6            ; 4           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; yes                    ; Fitter               ; 10 pF ; -                    ; -                   ;
-; dado_sai[20] ; J12   ; 2        ; 13           ; 4            ; 4           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; yes                    ; Fitter               ; 10 pF ; -                    ; -                   ;
-; dado_sai[21] ; G2    ; 1        ; 0            ; 7            ; 5           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; dado_sai[22] ; G3    ; 1        ; 0            ; 6            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; yes                    ; Fitter               ; 10 pF ; -                    ; -                   ;
-; dado_sai[23] ; R13   ; 1        ; 11           ; 0            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; dado_sai[24] ; P2    ; 1        ; 1            ; 3            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; dado_sai[25] ; G1    ; 1        ; 0            ; 6            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; yes                    ; Fitter               ; 10 pF ; -                    ; -                   ;
-; dado_sai[26] ; C8    ; 2        ; 8            ; 8            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; dado_sai[27] ; D16   ; 2        ; 13           ; 7            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; dado_sai[28] ; M9    ; 1        ; 8            ; 3            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; dado_sai[29] ; T10   ; 1        ; 7            ; 3            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; yes                    ; Fitter               ; 10 pF ; -                    ; -                   ;
-; dado_sai[2]  ; P7    ; 1        ; 5            ; 3            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; dado_sai[30] ; L16   ; 2        ; 13           ; 2            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; dado_sai[31] ; R6    ; 1        ; 4            ; 3            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; yes                    ; Fitter               ; 10 pF ; -                    ; -                   ;
-; dado_sai[3]  ; C12   ; 2        ; 11           ; 8            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; dado_sai[4]  ; F2    ; 1        ; 0            ; 7            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; dado_sai[5]  ; E4    ; 1        ; 0            ; 7            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; dado_sai[6]  ; A11   ; 2        ; 9            ; 8            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; dado_sai[7]  ; M8    ; 1        ; 8            ; 3            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; dado_sai[8]  ; P6    ; 1        ; 5            ; 3            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; dado_sai[9]  ; J3    ; 1        ; 0            ; 6            ; 5           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; yes                    ; Fitter               ; 10 pF ; -                    ; -                   ;
-+--------------+-------+----------+--------------+--------------+-------------+-----------------+----------------+-----------------+------------+---------------+----------+--------------+--------------+------------------+------------------------+----------------------+-------+----------------------+---------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Output Pins                                                                                                                                                                                                                                                                                                                  ;
++------------+-------+----------+--------------+--------------+-------------+-----------------+----------------+-----------------+------------+---------------+----------+--------------+--------------+------------------+------------------------+----------------------+-------+----------------------+---------------------+
+; Name       ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Cell number ; Output Register ; Slow Slew Rate ; PCI I/O Enabled ; Open Drain ; TRI Primitive ; Bus Hold ; Weak Pull Up ; I/O Standard ; Current Strength ; Fast Output Connection ; Location assigned by ; Load  ; Output Enable Source ; Output Enable Group ;
++------------+-------+----------+--------------+--------------+-------------+-----------------+----------------+-----------------+------------+---------------+----------+--------------+--------------+------------------+------------------------+----------------------+-------+----------------------+---------------------+
+; funct3[12] ; 34    ; 2        ; 8            ; 1            ; 4           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; funct3[13] ; 47    ; 2        ; 8            ; 4            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; funct3[14] ; 58    ; 2        ; 3            ; 5            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; funct7[25] ; 10    ; 1        ; 1            ; 2            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; funct7[26] ; 13    ; 1        ; 1            ; 1            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; funct7[27] ; 18    ; 1        ; 2            ; 0            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; funct7[28] ; 7     ; 1        ; 1            ; 3            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; funct7[29] ; 45    ; 2        ; 8            ; 4            ; 4           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; funct7[30] ; 21    ; 1        ; 2            ; 0            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; funct7[31] ; 59    ; 2        ; 3            ; 5            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; opcode[0]  ; 32    ; 1        ; 7            ; 0            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; opcode[1]  ; 1     ; 1        ; 1            ; 4            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; opcode[2]  ; 20    ; 1        ; 2            ; 0            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; opcode[3]  ; 33    ; 1        ; 7            ; 0            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; opcode[4]  ; 4     ; 1        ; 1            ; 3            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; opcode[5]  ; 48    ; 2        ; 8            ; 4            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; opcode[6]  ; 63    ; 2        ; 2            ; 5            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
++------------+-------+----------+--------------+--------------+-------------+-----------------+----------------+-----------------+------------+---------------+----------+--------------+--------------+------------------+------------------------+----------------------+-------+----------------------+---------------------+
 
 
 +------------------------------------------------------------+
@@ -304,8 +229,8 @@ The pin-out file can be found in D:/custom-riscv/output_files/custom-riscv.pin.
 +----------+------------------+---------------+--------------+
 ; I/O Bank ; Usage            ; VCCIO Voltage ; VREF Voltage ;
 +----------+------------------+---------------+--------------+
-; 1        ; 59 / 78 ( 76 % ) ; 3.3V          ; --           ;
-; 2        ; 38 / 81 ( 47 % ) ; 3.3V          ; --           ;
+; 1        ; 12 / 27 ( 44 % ) ; 3.3V          ; --           ;
+; 2        ; 18 / 27 ( 67 % ) ; 3.3V          ; --           ;
 +----------+------------------+---------------+--------------+
 
 
@@ -314,262 +239,71 @@ The pin-out file can be found in D:/custom-riscv/output_files/custom-riscv.pin.
 +----------+------------+----------+----------------+--------+--------------+---------+------------+-----------------+----------+--------------+
 ; Location ; Pad Number ; I/O Bank ; Pin Name/Usage ; Dir.   ; I/O Standard ; Voltage ; I/O Type   ; User Assignment ; Bus Hold ; Weak Pull Up ;
 +----------+------------+----------+----------------+--------+--------------+---------+------------+-----------------+----------+--------------+
-; A1       ;            ;          ; GND            ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
-; A2       ; 161        ; 2        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; A3       ;            ; 2        ; VCCIO2         ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
-; A4       ; 159        ; 2        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; A5       ; 157        ; 2        ; dado_ent_0[15] ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; A6       ; 153        ; 2        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; A7       ; 149        ; 2        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; A8       ; 145        ; 2        ; dado_ent_1[3]  ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; A9       ; 144        ; 2        ; dado_ent_0[3]  ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; A10      ; 141        ; 2        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; A11      ; 137        ; 2        ; dado_sai[6]    ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; A12      ; 133        ; 2        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; A13      ; 129        ; 2        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; A14      ;            ; 2        ; VCCIO2         ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
-; A15      ; 127        ; 2        ; dado_ent_0[10] ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; A16      ;            ;          ; GND            ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
-; B1       ; 163        ; 2        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; B2       ;            ;          ; GND            ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
-; B3       ; 162        ; 2        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; B4       ; 156        ; 2        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; B5       ; 150        ; 2        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; B6       ; 155        ; 2        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; B7       ;            ;          ; GND            ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
-; B8       ; 147        ; 2        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; B9       ; 143        ; 2        ; dado_ent_0[2]  ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; B10      ; 139        ; 2        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; B11      ; 135        ; 2        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; B12      ; 131        ; 2        ; dado_sai[12]   ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; B13      ; 128        ; 2        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; B14      ; 124        ; 2        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; B15      ;            ;          ; GND            ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
-; B16      ; 125        ; 2        ; dado_ent_0[27] ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; C1       ;            ; 1        ; VCCIO1         ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
-; C2       ; 1          ; 1        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; C3       ; 0          ; 1        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; C4       ; 158        ; 2        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; C5       ; 152        ; 2        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; C6       ; 148        ; 2        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; C7       ; 146        ; 2        ; dado_sai[17]   ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; C8       ; 142        ; 2        ; dado_sai[26]   ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; C9       ; 140        ; 2        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; C10      ; 138        ; 2        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; C11      ; 134        ; 2        ; dado_ent_1[26] ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; C12      ; 130        ; 2        ; dado_sai[3]    ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; C13      ; 126        ; 2        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; C14      ; 122        ; 2        ; GND*           ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; C15      ; 120        ; 2        ; GND*           ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; C16      ;            ; 2        ; VCCIO2         ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
-; D1       ; 3          ; 1        ; dado_ent_1[21] ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; D2       ; 4          ; 1        ; dado_ent_1[19] ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; D3       ; 2          ; 1        ; dado_ent_0[24] ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; D4       ; 160        ; 2        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; D5       ; 154        ; 2        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; D6       ;            ;          ; NC             ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; D7       ;            ;          ; NC             ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; D8       ;            ;          ; NC             ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; D9       ;            ;          ; NC             ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; D10      ;            ;          ; NC             ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; D11      ; 136        ; 2        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; D12      ; 132        ; 2        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; D13      ; 118        ; 2        ; GND*           ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; D14      ; 116        ; 2        ; GND*           ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; D15      ; 123        ; 2        ; dado_ent_0[11] ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; D16      ; 121        ; 2        ; dado_sai[27]   ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; E1       ; 5          ; 1        ; dado_ent_0[4]  ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; E2       ; 10         ; 1        ; dado_ent_0[16] ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; E3       ; 8          ; 1        ; dado_ent_0[22] ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; E4       ; 6          ; 1        ; dado_sai[5]    ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; E5       ;            ;          ; NC             ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; E6       ;            ;          ; NC             ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; E7       ;            ;          ; NC             ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; E8       ;            ;          ; NC             ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; E9       ;            ;          ; NC             ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; E10      ;            ;          ; NC             ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; E11      ;            ;          ; NC             ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; E12      ;            ;          ; NC             ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; E13      ; 114        ; 2        ; GND*           ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; E14      ; 112        ; 2        ; dado_ent_1[18] ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; E15      ; 119        ; 2        ; GND*           ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; E16      ; 117        ; 2        ; dado_sai[13]   ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; F1       ; 9          ; 1        ; dado_ent_0[25] ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; F2       ; 7          ; 1        ; dado_sai[4]    ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; F3       ; 12         ; 1        ; dado_ent_1[4]  ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; F4       ;            ;          ; NC             ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; F5       ;            ;          ; NC             ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; F6       ;            ;          ; NC             ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; F7       ;            ;          ; NC             ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; F8       ;            ; 2        ; VCCIO2         ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
-; F9       ;            ; 2        ; VCCIO2         ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
-; F10      ;            ;          ; NC             ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; F11      ;            ;          ; NC             ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; F12      ;            ;          ; NC             ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; F13      ; 110        ; 2        ; dado_ent_1[10] ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; F14      ; 108        ; 2        ; dado_ent_0[13] ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; F15      ; 115        ; 2        ; GND*           ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; F16      ; 113        ; 2        ; GND*           ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; G1       ; 13         ; 1        ; dado_sai[25]   ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; G2       ; 11         ; 1        ; dado_sai[21]   ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; G3       ; 14         ; 1        ; dado_sai[22]   ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; G4       ;            ;          ; NC             ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; G5       ;            ;          ; NC             ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; G6       ;            ;          ; NC             ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; G7       ;            ;          ; GND            ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
-; G8       ;            ;          ; GND            ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
-; G9       ;            ;          ; GND            ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
-; G10      ;            ;          ; GND            ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
-; G11      ;            ;          ; NC             ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; G12      ;            ;          ; NC             ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; G13      ;            ;          ; NC             ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; G14      ; 106        ; 2        ; dado_ent_1[11] ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; G15      ; 111        ; 2        ; dado_ent_1[20] ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; G16      ; 109        ; 2        ; dado_ent_1[14] ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; H1       ; 17         ; 1        ; dado_sai[1]    ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; H2       ; 15         ; 1        ; dado_ent_1[24] ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; H3       ; 16         ; 1        ; dado_ent_0[5]  ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; H4       ;            ;          ; NC             ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; H5       ; 20         ; 1        ; dado_ent_0[9]  ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; H6       ;            ; 1        ; VCCIO1         ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
-; H7       ;            ;          ; GND            ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
-; H8       ;            ;          ; VCCINT         ; power  ;              ; 1.8V    ; --         ;                 ; --       ; --           ;
-; H9       ;            ;          ; GND            ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
-; H10      ;            ;          ; VCCINT         ; power  ;              ; 1.8V    ; --         ;                 ; --       ; --           ;
-; H11      ;            ; 2        ; VCCIO2         ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
-; H12      ; 102        ; 2        ; dado_ent_0[18] ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; H13      ;            ;          ; NC             ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; H14      ; 104        ; 2        ; dado_ent_1[12] ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; H15      ; 107        ; 2        ; dado_sai[10]   ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; H16      ; 105        ; 2        ; dado_ent_1[27] ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; J1       ; 19         ; 1        ; dado_ent_0[19] ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; J2       ; 23         ; 1        ; dado_ent_1[1]  ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; J3       ; 18         ; 1        ; dado_sai[9]    ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; J4       ;            ;          ; NC             ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; J5       ; 21         ; 1        ; dado_ent_1[22] ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; J6       ;            ; 1        ; VCCIO1         ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
-; J7       ;            ;          ; VCCINT         ; power  ;              ; 1.8V    ; --         ;                 ; --       ; --           ;
-; J8       ;            ;          ; GND            ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
-; J9       ;            ;          ; VCCINT         ; power  ;              ; 1.8V    ; --         ;                 ; --       ; --           ;
-; J10      ;            ;          ; GND            ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
-; J11      ;            ; 2        ; VCCIO2         ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
-; J12      ; 101        ; 2        ; dado_sai[20]   ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; J13      ;            ;          ; NC             ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; J14      ; 100        ; 2        ; dado_ent_0[0]  ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; J15      ; 99         ; 2        ; dado_sai[11]   ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; J16      ; 103        ; 2        ; dado_ent_0[30] ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; K1       ; 25         ; 1        ; dado_ent_1[5]  ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; K2       ; 27         ; 1        ; GND*           ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; K3       ; 22         ; 1        ; dado_ent_1[9]  ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; K4       ;            ;          ; NC             ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; K5       ;            ;          ; NC             ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; K6       ;            ;          ; NC             ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; K7       ;            ;          ; GND            ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
-; K8       ;            ;          ; GND            ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
-; K9       ;            ;          ; GND            ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
-; K10      ;            ;          ; GND            ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
-; K11      ;            ;          ; NC             ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; K12      ;            ;          ; NC             ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; K13      ;            ;          ; NC             ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; K14      ; 98         ; 2        ; dado_ent_0[14] ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; K15      ; 95         ; 2        ; dado_sai[14]   ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; K16      ; 97         ; 2        ; dado_ent_1[0]  ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; L1       ; 29         ; 1        ; GND*           ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; L2       ; 31         ; 1        ; dado_ent_1[16] ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; L3       ; 24         ; 1        ; dado_ent_0[1]  ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; L4       ; 26         ; 1        ; dado_ent_1[25] ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; L5       ;            ;          ; NC             ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; L6       ; 39         ; 1        ; #TDI           ; input  ;              ;         ; --         ;                 ; --       ; --           ;
-; L7       ;            ;          ; NC             ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; L8       ;            ; 1        ; VCCIO1         ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
-; L9       ;            ; 1        ; VCCIO1         ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
-; L10      ;            ;          ; NC             ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; L11      ;            ;          ; NC             ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; L12      ;            ;          ; NC             ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; L13      ; 94         ; 2        ; dado_sai[18]   ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; L14      ; 96         ; 2        ; dado_ent_0[20] ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; L15      ; 91         ; 2        ; GND*           ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; L16      ; 93         ; 2        ; dado_sai[30]   ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; M1       ; 33         ; 1        ; dado_ent_0[31] ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; M2       ; 28         ; 1        ; dado_ent_0[21] ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; M3       ; 30         ; 1        ; GND*           ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; M4       ; 32         ; 1        ; dado_sai[16]   ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; M5       ; 41         ; 1        ; #TDO           ; output ;              ;         ; --         ;                 ; --       ; --           ;
-; M6       ;            ;          ; NC             ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; M7       ;            ;          ; NC             ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; M8       ; 66         ; 1        ; dado_sai[7]    ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; M9       ; 67         ; 1        ; dado_sai[28]   ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; M10      ;            ;          ; NC             ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; M11      ;            ;          ; NC             ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; M12      ;            ;          ; NC             ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; M13      ; 90         ; 2        ; GND*           ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; M14      ; 92         ; 2        ; dado_ent_0[12] ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; M15      ; 87         ; 2        ; GND*           ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; M16      ; 89         ; 2        ; dado_ent_1[7]  ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; N1       ; 35         ; 1        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; N2       ; 34         ; 1        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; N3       ; 36         ; 1        ; dado_sai[19]   ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; N4       ; 38         ; 1        ; #TMS           ; input  ;              ;         ; --         ;                 ; --       ; --           ;
-; N5       ; 48         ; 1        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; N6       ;            ;          ; NC             ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; N7       ;            ;          ; NC             ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; N8       ;            ;          ; NC             ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; N9       ;            ;          ; NC             ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; N10      ;            ;          ; NC             ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; N11      ;            ;          ; NC             ;        ;              ;         ; --         ;                 ; --       ; --           ;
-; N12      ; 74         ; 1        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; N13      ; 86         ; 2        ; GND*           ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; N14      ; 88         ; 2        ; dado_ent_1[13] ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; N15      ; 83         ; 2        ; GND*           ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; N16      ; 85         ; 2        ; GND*           ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; P1       ;            ; 1        ; VCCIO1         ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
-; P2       ; 37         ; 1        ; dado_sai[24]   ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; P3       ; 40         ; 1        ; #TCK           ; input  ;              ;         ; --         ;                 ; --       ; --           ;
-; P4       ; 44         ; 1        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; P5       ; 50         ; 1        ; dado_sai[15]   ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; P6       ; 54         ; 1        ; dado_sai[8]    ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; P7       ; 56         ; 1        ; dado_sai[2]    ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; P8       ; 58         ; 1        ; dado_ent_0[23] ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; P9       ; 60         ; 1        ; dado_ent_0[6]  ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; P10      ; 64         ; 1        ; dado_ent_1[6]  ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; P11      ; 68         ; 1        ; dado_ent_0[26] ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; P12      ; 72         ; 1        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; P13      ; 78         ; 1        ; dado_ent_1[30] ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; P14      ; 82         ; 2        ; GND*           ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; P15      ; 84         ; 2        ; GND*           ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; P16      ;            ; 2        ; VCCIO2         ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
-; R1       ; 43         ; 1        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; R2       ;            ;          ; GND            ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
-; R3       ; 42         ; 1        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; R4       ; 46         ; 1        ; dado_ent_1[2]  ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; R5       ; 52         ; 1        ; dado_ent_1[31] ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; R6       ; 51         ; 1        ; dado_sai[31]   ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; R7       ; 55         ; 1        ; dado_ent_1[23] ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; R8       ; 59         ; 1        ; dado_ent_0[28] ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; R9       ; 63         ; 1        ; dado_ent_0[8]  ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; R10      ; 69         ; 1        ; dado_ent_1[17] ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; R11      ; 73         ; 1        ; dado_ent_1[28] ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; R12      ; 70         ; 1        ; dado_ent_1[8]  ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; R13      ; 76         ; 1        ; dado_sai[23]   ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; R14      ; 80         ; 1        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; R15      ;            ;          ; GND            ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
-; R16      ; 81         ; 1        ; dado_sai[0]    ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; T1       ;            ;          ; GND            ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
-; T2       ; 45         ; 1        ; sele_ent       ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; T3       ;            ; 1        ; VCCIO1         ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
-; T4       ; 47         ; 1        ; dado_ent_0[29] ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; T5       ; 49         ; 1        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; T6       ; 53         ; 1        ; dado_ent_1[15] ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; T7       ; 57         ; 1        ; dado_ent_0[7]  ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; T8       ; 61         ; 1        ; dado_ent_0[17] ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; T9       ; 62         ; 1        ; dado_ent_1[29] ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; T10      ; 65         ; 1        ; dado_sai[29]   ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; T11      ; 71         ; 1        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; T12      ; 75         ; 1        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; T13      ; 77         ; 1        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; T14      ;            ; 1        ; VCCIO1         ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
-; T15      ; 79         ; 1        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; T16      ;            ;          ; GND            ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
+; 1        ; 2          ; 1        ; opcode[1]      ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; 2        ; 3          ; 1        ; GND*           ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; 3        ; 4          ; 1        ; ALUOp[2]       ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; 4        ; 5          ; 1        ; opcode[4]      ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; 5        ; 6          ; 1        ; GND*           ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; 6        ;            ; 1        ; VCCIO1         ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
+; 7        ; 7          ; 1        ; funct7[28]     ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; 8        ;            ;          ; VCCINT         ; power  ;              ; 1.8V    ; --         ;                 ; --       ; --           ;
+; 9        ; 8          ; 1        ; GND*           ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; 10       ; 11         ; 1        ; funct7[25]     ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; 11       ; 13         ; 1        ; GND*           ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; 12       ; 14         ; 1        ; GND*           ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; 13       ; 15         ; 1        ; funct7[26]     ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; 14       ; 16         ; 1        ; #TMS           ; input  ;              ;         ; --         ;                 ; --       ; --           ;
+; 15       ; 17         ; 1        ; #TDI           ; input  ;              ;         ; --         ;                 ; --       ; --           ;
+; 16       ; 18         ; 1        ; #TCK           ; input  ;              ;         ; --         ;                 ; --       ; --           ;
+; 17       ; 19         ; 1        ; #TDO           ; output ;              ;         ; --         ;                 ; --       ; --           ;
+; 18       ; 20         ; 1        ; funct7[27]     ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; 19       ; 21         ; 1        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; 20       ; 22         ; 1        ; opcode[2]      ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; 21       ; 23         ; 1        ; funct7[30]     ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; 22       ; 24         ; 1        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; 23       ;            ; 1        ; VCCIO1         ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
+; 24       ; 25         ; 1        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; 25       ; 26         ; 1        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; 26       ; 33         ; 1        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; 27       ; 34         ; 1        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; 28       ; 35         ; 1        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; 29       ; 36         ; 1        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; 30       ; 37         ; 1        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; 31       ; 38         ; 1        ; ALUOp[0]       ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; 32       ; 39         ; 1        ; opcode[0]      ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; 33       ; 40         ; 1        ; opcode[3]      ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; 34       ; 42         ; 2        ; funct3[12]     ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; 35       ; 43         ; 2        ; reset          ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; 36       ; 44         ; 2        ; branch         ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; 37       ; 45         ; 2        ; memWrite       ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; 38       ; 47         ; 2        ; GND*           ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; 39       ;            ; 2        ; VCCIO2         ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
+; 40       ; 50         ; 2        ; GND*           ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; 41       ;            ;          ; VCCINT         ; power  ;              ; 1.8V    ; --         ;                 ; --       ; --           ;
+; 42       ; 51         ; 2        ; regWrite       ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; 43       ; 54         ; 2        ; memRead        ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; 44       ; 55         ; 2        ; clock          ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; 45       ; 56         ; 2        ; funct7[29]     ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; 46       ; 57         ; 2        ; ALUOp[1]       ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; 47       ; 58         ; 2        ; funct3[13]     ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; 48       ; 59         ; 2        ; opcode[5]      ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; 49       ; 67         ; 2        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; 50       ; 68         ; 2        ; ALUOp[3]       ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; 51       ; 69         ; 2        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; 52       ; 70         ; 2        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; 53       ; 71         ; 2        ; jump           ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; 54       ; 73         ; 2        ; memToReg       ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; 55       ; 75         ; 2        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; 56       ; 76         ; 2        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; 57       ;            ; 2        ; VCCIO2         ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
+; 58       ; 77         ; 2        ; funct3[14]     ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; 59       ; 78         ; 2        ; funct7[31]     ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; 60       ; 79         ; 2        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; 61       ; 80         ; 2        ; ALUSrc         ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; 62       ; 81         ; 2        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; 63       ; 82         ; 2        ; opcode[6]      ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; 64       ; 1          ; 1        ; GND*           ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; EPAD     ;            ;          ; GND            ;        ;              ;         ; --         ;                 ; --       ; --           ;
 +----------+------------+----------+----------------+--------+--------------+---------+------------+-----------------+----------+--------------+
 Note: Pin directions (input, output or bidir) are based on device operating in user mode.
 
@@ -593,325 +327,105 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 Note: User assignments will override these defaults. The user specified values are listed in the Output Pins and Bidir Pins tables.
 
 
-+----------------------------------------------+
-; I/O Assignment Warnings                      ;
-+----------------+-----------------------------+
-; Pin Name       ; Reason                      ;
-+----------------+-----------------------------+
-; dado_sai[0]    ; Missing location assignment ;
-; dado_sai[1]    ; Missing location assignment ;
-; dado_sai[2]    ; Missing location assignment ;
-; dado_sai[3]    ; Missing location assignment ;
-; dado_sai[4]    ; Missing location assignment ;
-; dado_sai[5]    ; Missing location assignment ;
-; dado_sai[6]    ; Missing location assignment ;
-; dado_sai[7]    ; Missing location assignment ;
-; dado_sai[8]    ; Missing location assignment ;
-; dado_sai[9]    ; Missing location assignment ;
-; dado_sai[10]   ; Missing location assignment ;
-; dado_sai[11]   ; Missing location assignment ;
-; dado_sai[12]   ; Missing location assignment ;
-; dado_sai[13]   ; Missing location assignment ;
-; dado_sai[14]   ; Missing location assignment ;
-; dado_sai[15]   ; Missing location assignment ;
-; dado_sai[16]   ; Missing location assignment ;
-; dado_sai[17]   ; Missing location assignment ;
-; dado_sai[18]   ; Missing location assignment ;
-; dado_sai[19]   ; Missing location assignment ;
-; dado_sai[20]   ; Missing location assignment ;
-; dado_sai[21]   ; Missing location assignment ;
-; dado_sai[22]   ; Missing location assignment ;
-; dado_sai[23]   ; Missing location assignment ;
-; dado_sai[24]   ; Missing location assignment ;
-; dado_sai[25]   ; Missing location assignment ;
-; dado_sai[26]   ; Missing location assignment ;
-; dado_sai[27]   ; Missing location assignment ;
-; dado_sai[28]   ; Missing location assignment ;
-; dado_sai[29]   ; Missing location assignment ;
-; dado_sai[30]   ; Missing location assignment ;
-; dado_sai[31]   ; Missing location assignment ;
-; dado_ent_1[0]  ; Missing location assignment ;
-; dado_ent_0[0]  ; Missing location assignment ;
-; sele_ent       ; Missing location assignment ;
-; dado_ent_1[1]  ; Missing location assignment ;
-; dado_ent_0[1]  ; Missing location assignment ;
-; dado_ent_1[2]  ; Missing location assignment ;
-; dado_ent_0[2]  ; Missing location assignment ;
-; dado_ent_1[3]  ; Missing location assignment ;
-; dado_ent_0[3]  ; Missing location assignment ;
-; dado_ent_1[4]  ; Missing location assignment ;
-; dado_ent_0[4]  ; Missing location assignment ;
-; dado_ent_1[5]  ; Missing location assignment ;
-; dado_ent_0[5]  ; Missing location assignment ;
-; dado_ent_1[6]  ; Missing location assignment ;
-; dado_ent_0[6]  ; Missing location assignment ;
-; dado_ent_1[7]  ; Missing location assignment ;
-; dado_ent_0[7]  ; Missing location assignment ;
-; dado_ent_1[8]  ; Missing location assignment ;
-; dado_ent_0[8]  ; Missing location assignment ;
-; dado_ent_1[9]  ; Missing location assignment ;
-; dado_ent_0[9]  ; Missing location assignment ;
-; dado_ent_1[10] ; Missing location assignment ;
-; dado_ent_0[10] ; Missing location assignment ;
-; dado_ent_1[11] ; Missing location assignment ;
-; dado_ent_0[11] ; Missing location assignment ;
-; dado_ent_1[12] ; Missing location assignment ;
-; dado_ent_0[12] ; Missing location assignment ;
-; dado_ent_1[13] ; Missing location assignment ;
-; dado_ent_0[13] ; Missing location assignment ;
-; dado_ent_1[14] ; Missing location assignment ;
-; dado_ent_0[14] ; Missing location assignment ;
-; dado_ent_1[15] ; Missing location assignment ;
-; dado_ent_0[15] ; Missing location assignment ;
-; dado_ent_1[16] ; Missing location assignment ;
-; dado_ent_0[16] ; Missing location assignment ;
-; dado_ent_1[17] ; Missing location assignment ;
-; dado_ent_0[17] ; Missing location assignment ;
-; dado_ent_1[18] ; Missing location assignment ;
-; dado_ent_0[18] ; Missing location assignment ;
-; dado_ent_1[19] ; Missing location assignment ;
-; dado_ent_0[19] ; Missing location assignment ;
-; dado_ent_1[20] ; Missing location assignment ;
-; dado_ent_0[20] ; Missing location assignment ;
-; dado_ent_1[21] ; Missing location assignment ;
-; dado_ent_0[21] ; Missing location assignment ;
-; dado_ent_1[22] ; Missing location assignment ;
-; dado_ent_0[22] ; Missing location assignment ;
-; dado_ent_1[23] ; Missing location assignment ;
-; dado_ent_0[23] ; Missing location assignment ;
-; dado_ent_1[24] ; Missing location assignment ;
-; dado_ent_0[24] ; Missing location assignment ;
-; dado_ent_1[25] ; Missing location assignment ;
-; dado_ent_0[25] ; Missing location assignment ;
-; dado_ent_1[26] ; Missing location assignment ;
-; dado_ent_0[26] ; Missing location assignment ;
-; dado_ent_1[27] ; Missing location assignment ;
-; dado_ent_0[27] ; Missing location assignment ;
-; dado_ent_1[28] ; Missing location assignment ;
-; dado_ent_0[28] ; Missing location assignment ;
-; dado_ent_1[29] ; Missing location assignment ;
-; dado_ent_0[29] ; Missing location assignment ;
-; dado_ent_1[30] ; Missing location assignment ;
-; dado_ent_0[30] ; Missing location assignment ;
-; dado_ent_1[31] ; Missing location assignment ;
-; dado_ent_0[31] ; Missing location assignment ;
-+----------------+-----------------------------+
++------------------------------------------+
+; I/O Assignment Warnings                  ;
++------------+-----------------------------+
+; Pin Name   ; Reason                      ;
++------------+-----------------------------+
+; clock      ; Missing location assignment ;
+; reset      ; Missing location assignment ;
+; branch     ; Missing location assignment ;
+; jump       ; Missing location assignment ;
+; memRead    ; Missing location assignment ;
+; memWrite   ; Missing location assignment ;
+; regWrite   ; Missing location assignment ;
+; ALUSrc     ; Missing location assignment ;
+; memToReg   ; Missing location assignment ;
+; ALUOp[0]   ; Missing location assignment ;
+; ALUOp[1]   ; Missing location assignment ;
+; ALUOp[2]   ; Missing location assignment ;
+; ALUOp[3]   ; Missing location assignment ;
+; opcode[0]  ; Missing location assignment ;
+; opcode[1]  ; Missing location assignment ;
+; opcode[2]  ; Missing location assignment ;
+; opcode[3]  ; Missing location assignment ;
+; opcode[4]  ; Missing location assignment ;
+; opcode[5]  ; Missing location assignment ;
+; opcode[6]  ; Missing location assignment ;
+; funct3[12] ; Missing location assignment ;
+; funct3[13] ; Missing location assignment ;
+; funct3[14] ; Missing location assignment ;
+; funct7[25] ; Missing location assignment ;
+; funct7[26] ; Missing location assignment ;
+; funct7[27] ; Missing location assignment ;
+; funct7[28] ; Missing location assignment ;
+; funct7[29] ; Missing location assignment ;
+; funct7[30] ; Missing location assignment ;
+; funct7[31] ; Missing location assignment ;
++------------+-----------------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Fitter Resource Utilization by Entity                                                                                                                                                                                              ;
-+----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------+-------------+--------------+
-; Compilation Hierarchy Node ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name ; Entity Name ; Library Name ;
-+----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------+-------------+--------------+
-; |mux21                     ; 32 (32)     ; 0            ; 0          ; 97   ; 0            ; 32 (32)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |mux21              ; mux21       ; work         ;
-+----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------+-------------+--------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fitter Resource Utilization by Entity                                                                                                                                                                                                                 ;
++----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------------+--------------------------+--------------+
+; Compilation Hierarchy Node ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name       ; Entity Name              ; Library Name ;
++----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------------+--------------------------+--------------+
+; |via_de_dados_ciclo_unico  ; 0 (0)       ; 0            ; 0          ; 30   ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |via_de_dados_ciclo_unico ; via_de_dados_ciclo_unico ; work         ;
++----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------------+--------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+-------------------------------------------+
-; Delay Chain Summary                       ;
-+----------------+----------+---------------+
-; Name           ; Pin Type ; Pad to Core 0 ;
-+----------------+----------+---------------+
-; dado_sai[0]    ; Output   ; --            ;
-; dado_sai[1]    ; Output   ; --            ;
-; dado_sai[2]    ; Output   ; --            ;
-; dado_sai[3]    ; Output   ; --            ;
-; dado_sai[4]    ; Output   ; --            ;
-; dado_sai[5]    ; Output   ; --            ;
-; dado_sai[6]    ; Output   ; --            ;
-; dado_sai[7]    ; Output   ; --            ;
-; dado_sai[8]    ; Output   ; --            ;
-; dado_sai[9]    ; Output   ; --            ;
-; dado_sai[10]   ; Output   ; --            ;
-; dado_sai[11]   ; Output   ; --            ;
-; dado_sai[12]   ; Output   ; --            ;
-; dado_sai[13]   ; Output   ; --            ;
-; dado_sai[14]   ; Output   ; --            ;
-; dado_sai[15]   ; Output   ; --            ;
-; dado_sai[16]   ; Output   ; --            ;
-; dado_sai[17]   ; Output   ; --            ;
-; dado_sai[18]   ; Output   ; --            ;
-; dado_sai[19]   ; Output   ; --            ;
-; dado_sai[20]   ; Output   ; --            ;
-; dado_sai[21]   ; Output   ; --            ;
-; dado_sai[22]   ; Output   ; --            ;
-; dado_sai[23]   ; Output   ; --            ;
-; dado_sai[24]   ; Output   ; --            ;
-; dado_sai[25]   ; Output   ; --            ;
-; dado_sai[26]   ; Output   ; --            ;
-; dado_sai[27]   ; Output   ; --            ;
-; dado_sai[28]   ; Output   ; --            ;
-; dado_sai[29]   ; Output   ; --            ;
-; dado_sai[30]   ; Output   ; --            ;
-; dado_sai[31]   ; Output   ; --            ;
-; dado_ent_1[0]  ; Input    ; (1)           ;
-; dado_ent_0[0]  ; Input    ; (1)           ;
-; sele_ent       ; Input    ; (1)           ;
-; dado_ent_1[1]  ; Input    ; (1)           ;
-; dado_ent_0[1]  ; Input    ; (1)           ;
-; dado_ent_1[2]  ; Input    ; (1)           ;
-; dado_ent_0[2]  ; Input    ; (1)           ;
-; dado_ent_1[3]  ; Input    ; (1)           ;
-; dado_ent_0[3]  ; Input    ; (1)           ;
-; dado_ent_1[4]  ; Input    ; (1)           ;
-; dado_ent_0[4]  ; Input    ; (1)           ;
-; dado_ent_1[5]  ; Input    ; (1)           ;
-; dado_ent_0[5]  ; Input    ; (1)           ;
-; dado_ent_1[6]  ; Input    ; (1)           ;
-; dado_ent_0[6]  ; Input    ; (1)           ;
-; dado_ent_1[7]  ; Input    ; (1)           ;
-; dado_ent_0[7]  ; Input    ; (1)           ;
-; dado_ent_1[8]  ; Input    ; (1)           ;
-; dado_ent_0[8]  ; Input    ; (1)           ;
-; dado_ent_1[9]  ; Input    ; (1)           ;
-; dado_ent_0[9]  ; Input    ; (1)           ;
-; dado_ent_1[10] ; Input    ; (1)           ;
-; dado_ent_0[10] ; Input    ; (1)           ;
-; dado_ent_1[11] ; Input    ; (1)           ;
-; dado_ent_0[11] ; Input    ; (1)           ;
-; dado_ent_1[12] ; Input    ; (1)           ;
-; dado_ent_0[12] ; Input    ; (1)           ;
-; dado_ent_1[13] ; Input    ; (1)           ;
-; dado_ent_0[13] ; Input    ; (1)           ;
-; dado_ent_1[14] ; Input    ; (1)           ;
-; dado_ent_0[14] ; Input    ; (1)           ;
-; dado_ent_1[15] ; Input    ; (1)           ;
-; dado_ent_0[15] ; Input    ; (1)           ;
-; dado_ent_1[16] ; Input    ; (1)           ;
-; dado_ent_0[16] ; Input    ; (1)           ;
-; dado_ent_1[17] ; Input    ; (1)           ;
-; dado_ent_0[17] ; Input    ; (1)           ;
-; dado_ent_1[18] ; Input    ; (1)           ;
-; dado_ent_0[18] ; Input    ; (1)           ;
-; dado_ent_1[19] ; Input    ; (1)           ;
-; dado_ent_0[19] ; Input    ; (1)           ;
-; dado_ent_1[20] ; Input    ; (1)           ;
-; dado_ent_0[20] ; Input    ; (1)           ;
-; dado_ent_1[21] ; Input    ; (1)           ;
-; dado_ent_0[21] ; Input    ; (1)           ;
-; dado_ent_1[22] ; Input    ; (1)           ;
-; dado_ent_0[22] ; Input    ; (1)           ;
-; dado_ent_1[23] ; Input    ; (1)           ;
-; dado_ent_0[23] ; Input    ; (1)           ;
-; dado_ent_1[24] ; Input    ; (1)           ;
-; dado_ent_0[24] ; Input    ; (1)           ;
-; dado_ent_1[25] ; Input    ; (1)           ;
-; dado_ent_0[25] ; Input    ; (1)           ;
-; dado_ent_1[26] ; Input    ; (1)           ;
-; dado_ent_0[26] ; Input    ; (1)           ;
-; dado_ent_1[27] ; Input    ; (1)           ;
-; dado_ent_0[27] ; Input    ; (1)           ;
-; dado_ent_1[28] ; Input    ; (1)           ;
-; dado_ent_0[28] ; Input    ; (1)           ;
-; dado_ent_1[29] ; Input    ; (1)           ;
-; dado_ent_0[29] ; Input    ; (1)           ;
-; dado_ent_1[30] ; Input    ; (1)           ;
-; dado_ent_0[30] ; Input    ; (1)           ;
-; dado_ent_1[31] ; Input    ; (1)           ;
-; dado_ent_0[31] ; Input    ; (1)           ;
-+----------------+----------+---------------+
++---------------------------------------+
+; Delay Chain Summary                   ;
++------------+----------+---------------+
+; Name       ; Pin Type ; Pad to Core 0 ;
++------------+----------+---------------+
+; clock      ; Input    ; (0)           ;
+; reset      ; Input    ; (0)           ;
+; branch     ; Input    ; (0)           ;
+; jump       ; Input    ; (0)           ;
+; memRead    ; Input    ; (0)           ;
+; memWrite   ; Input    ; (0)           ;
+; regWrite   ; Input    ; (0)           ;
+; ALUSrc     ; Input    ; (0)           ;
+; memToReg   ; Input    ; (0)           ;
+; ALUOp[0]   ; Input    ; (0)           ;
+; ALUOp[1]   ; Input    ; (0)           ;
+; ALUOp[2]   ; Input    ; (0)           ;
+; ALUOp[3]   ; Input    ; (0)           ;
+; opcode[0]  ; Output   ; --            ;
+; opcode[1]  ; Output   ; --            ;
+; opcode[2]  ; Output   ; --            ;
+; opcode[3]  ; Output   ; --            ;
+; opcode[4]  ; Output   ; --            ;
+; opcode[5]  ; Output   ; --            ;
+; opcode[6]  ; Output   ; --            ;
+; funct3[12] ; Output   ; --            ;
+; funct3[13] ; Output   ; --            ;
+; funct3[14] ; Output   ; --            ;
+; funct7[25] ; Output   ; --            ;
+; funct7[26] ; Output   ; --            ;
+; funct7[27] ; Output   ; --            ;
+; funct7[28] ; Output   ; --            ;
+; funct7[29] ; Output   ; --            ;
+; funct7[30] ; Output   ; --            ;
+; funct7[31] ; Output   ; --            ;
++------------+----------+---------------+
 
 
-+--------------------------------------------+
-; Routing Usage Summary                      ;
-+-----------------------+--------------------+
-; Routing Resource Type ; Usage              ;
-+-----------------------+--------------------+
-; C4s                   ; 80 / 1,624 ( 5 % ) ;
-; Direct links          ; 0 / 1,930 ( 0 % )  ;
-; Global clocks         ; 0 / 4 ( 0 % )      ;
-; LAB clocks            ; 0 / 56 ( 0 % )     ;
-; LUT chains            ; 0 / 513 ( 0 % )    ;
-; Local interconnects   ; 92 / 1,930 ( 5 % ) ;
-; R4s                   ; 42 / 1,472 ( 3 % ) ;
-+-----------------------+--------------------+
-
-
-+--------------------------------------------------------------------------+
-; LAB Logic Elements                                                       ;
-+--------------------------------------------+-----------------------------+
-; Number of Logic Elements  (Average = 6.40) ; Number of LABs  (Total = 5) ;
-+--------------------------------------------+-----------------------------+
-; 1                                          ; 1                           ;
-; 2                                          ; 1                           ;
-; 3                                          ; 0                           ;
-; 4                                          ; 0                           ;
-; 5                                          ; 0                           ;
-; 6                                          ; 0                           ;
-; 7                                          ; 0                           ;
-; 8                                          ; 0                           ;
-; 9                                          ; 1                           ;
-; 10                                         ; 2                           ;
-+--------------------------------------------+-----------------------------+
-
-
-+---------------------------------------------------------------------------+
-; LAB Signals Sourced                                                       ;
-+---------------------------------------------+-----------------------------+
-; Number of Signals Sourced  (Average = 6.40) ; Number of LABs  (Total = 5) ;
-+---------------------------------------------+-----------------------------+
-; 0                                           ; 0                           ;
-; 1                                           ; 1                           ;
-; 2                                           ; 1                           ;
-; 3                                           ; 0                           ;
-; 4                                           ; 0                           ;
-; 5                                           ; 0                           ;
-; 6                                           ; 0                           ;
-; 7                                           ; 0                           ;
-; 8                                           ; 0                           ;
-; 9                                           ; 1                           ;
-; 10                                          ; 2                           ;
-+---------------------------------------------+-----------------------------+
-
-
-+-------------------------------------------------------------------------------+
-; LAB Signals Sourced Out                                                       ;
-+-------------------------------------------------+-----------------------------+
-; Number of Signals Sourced Out  (Average = 6.40) ; Number of LABs  (Total = 5) ;
-+-------------------------------------------------+-----------------------------+
-; 0                                               ; 0                           ;
-; 1                                               ; 1                           ;
-; 2                                               ; 1                           ;
-; 3                                               ; 0                           ;
-; 4                                               ; 0                           ;
-; 5                                               ; 0                           ;
-; 6                                               ; 0                           ;
-; 7                                               ; 0                           ;
-; 8                                               ; 0                           ;
-; 9                                               ; 1                           ;
-; 10                                              ; 2                           ;
-+-------------------------------------------------+-----------------------------+
-
-
-+----------------------------------------------------------------------------+
-; LAB Distinct Inputs                                                        ;
-+----------------------------------------------+-----------------------------+
-; Number of Distinct Inputs  (Average = 13.80) ; Number of LABs  (Total = 5) ;
-+----------------------------------------------+-----------------------------+
-; 0                                            ; 0                           ;
-; 1                                            ; 0                           ;
-; 2                                            ; 0                           ;
-; 3                                            ; 1                           ;
-; 4                                            ; 0                           ;
-; 5                                            ; 1                           ;
-; 6                                            ; 0                           ;
-; 7                                            ; 0                           ;
-; 8                                            ; 0                           ;
-; 9                                            ; 0                           ;
-; 10                                           ; 0                           ;
-; 11                                           ; 0                           ;
-; 12                                           ; 0                           ;
-; 13                                           ; 0                           ;
-; 14                                           ; 0                           ;
-; 15                                           ; 0                           ;
-; 16                                           ; 0                           ;
-; 17                                           ; 0                           ;
-; 18                                           ; 0                           ;
-; 19                                           ; 1                           ;
-; 20                                           ; 0                           ;
-; 21                                           ; 2                           ;
-+----------------------------------------------+-----------------------------+
++-----------------------------------------+
+; Routing Usage Summary                   ;
++-----------------------+-----------------+
+; Routing Resource Type ; Usage           ;
++-----------------------+-----------------+
+; C4s                   ; 0 / 784 ( 0 % ) ;
+; Direct links          ; 0 / 888 ( 0 % ) ;
+; Global clocks         ; 0 / 4 ( 0 % )   ;
+; LAB clocks            ; 0 / 32 ( 0 % )  ;
+; LUT chains            ; 0 / 216 ( 0 % ) ;
+; Local interconnects   ; 0 / 888 ( 0 % ) ;
+; R4s                   ; 0 / 704 ( 0 % ) ;
++-----------------------+-----------------+
 
 
 +-------------------------------------------------------------------------+
@@ -933,14 +447,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------+
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
-Info (119004): Automatically selected device 5M570ZF256C4 for design custom-riscv
+Info (119004): Automatically selected device 5M40ZE64C4 for design custom-riscv
 Info (119005): Fitting design with smaller device may be possible, but smaller device must be specified
 Info (171003): Fitter is performing an Auto Fit compilation, which may decrease Fitter effort to reduce compilation time
 Warning (292013): Feature LogicLock is only available with a valid subscription license. You can purchase a software subscription to gain full access to this feature.
 Info (176444): Device migration not selected. If you intend to use device migration later, you may need to change the pin assignments as they may be incompatible with other devices
-    Info (176445): Device 5M1270ZF256C4 is compatible
-    Info (176445): Device 5M2210ZF256C4 is compatible
-Critical Warning (169085): No exact pin location assignment(s) for 97 pins of 97 total pins. For the list of pins please refer to the I/O Assignment Warnings table in the fitter report.
+    Info (176445): Device 5M80ZE64C4 is compatible
+    Info (176445): Device 5M160ZE64C4 is compatible
+Critical Warning (169085): No exact pin location assignment(s) for 30 pins of 30 total pins. For the list of pins please refer to the I/O Assignment Warnings table in the fitter report.
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'custom-riscv.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
 Info (332144): No user constrained base clocks found in the design
 Info (332096): The command derive_clocks did not find any clocks to derive.  No clocks were created or changed.
@@ -956,12 +470,12 @@ Info (186468): Started processing fast register assignments
 Info (186469): Finished processing fast register assignments
 Info (176235): Finished register packing
 Info (176214): Statistics of I/O pins that need to be placed that use the same VCCIO and VREF, before I/O pin placement
-    Info (176211): Number of I/O pins in group: 97 (unused VREF, 3.3V VCCIO, 65 input, 32 output, 0 bidirectional)
+    Info (176211): Number of I/O pins in group: 30 (unused VREF, 3.3V VCCIO, 13 input, 17 output, 0 bidirectional)
         Info (176212): I/O standards used: 3.3-V LVTTL.
 Info (176215): I/O bank details before I/O pin placement
     Info (176214): Statistics of I/O banks
-        Info (176213): I/O bank number 1 does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  78 pins available
-        Info (176213): I/O bank number 2 does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  81 pins available
+        Info (176213): I/O bank number 1 does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  27 pins available
+        Info (176213): I/O bank number 2 does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  27 pins available
 Info (171121): Fitter preparation operations ending: elapsed time is 00:00:00
 Info (14896): Fitter has disabled Advanced Physical Optimization because it is not supported for the current family.
 Info (170189): Fitter placement preparation operations beginning
@@ -970,19 +484,19 @@ Info (170191): Fitter placement operations beginning
 Info (170137): Fitter placement was successful
 Info (170192): Fitter placement operations ending: elapsed time is 00:00:00
 Info (170193): Fitter routing operations beginning
-Info (170195): Router estimated average interconnect usage is 4% of the available device resources
-    Info (170196): Router estimated peak interconnect usage is 4% of the available device resources in the region that extends from location X0_Y0 to location X13_Y8
+Info (170195): Router estimated average interconnect usage is 0% of the available device resources
+    Info (170196): Router estimated peak interconnect usage is 0% of the available device resources in the region that extends from location X0_Y0 to location X8_Y5
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
     Info (170200): Optimizations that may affect the design's timing were skipped
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:00
-Info (11888): Total time spent on timing analysis during the Fitter is 0.08 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.05 seconds.
 Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:00
 Warning (169174): The Reserve All Unused Pins setting has not been specified, and will default to 'As output driving ground'.
 Info (144001): Generated suppressed messages file D:/custom-riscv/output_files/custom-riscv.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 7 warnings
-    Info: Peak virtual memory: 5333 megabytes
-    Info: Processing ended: Wed Jun 26 10:42:48 2024
+    Info: Peak virtual memory: 5428 megabytes
+    Info: Processing ended: Sun Jun 30 21:15:17 2024
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:02
 

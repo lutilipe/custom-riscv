@@ -9,7 +9,7 @@ use ieee.numeric_std.all;
 
 entity somador is
 	generic (
-		largura_dado : natural := 32
+		largura_dado : natural
 	);
 
 	port (

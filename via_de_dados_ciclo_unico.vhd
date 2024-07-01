@@ -311,7 +311,7 @@ BEGIN
 	opcode <= aux_instrucao(6 DOWNTO 0);
 	funct3 <= aux_instrucao(14 DOWNTO 12);
 	funct7 <= aux_instrucao(31 DOWNTO 25);
-	saida  <= aux_alu_out;
+	saida  <= aux_mux_data;
 
  
 END ARCHITECTURE comportamento;

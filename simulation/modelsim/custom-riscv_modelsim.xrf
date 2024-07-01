@@ -1,4 +1,5 @@
 vendor_name = ModelSim
+source_file = 1, D:/custom-riscv/tb_processador_ciclo_unico.vhd
 source_file = 1, D:/custom-riscv/unidade_de_controle_ciclo_unico.vhd
 source_file = 1, D:/custom-riscv/processador_ciclo_unico.vhd
 source_file = 1, D:/custom-riscv/tb_imm_gen.vhd
@@ -22,6 +23,7 @@ source_file = 1, D:/custom-riscv/tb_registrador.vhd
 source_file = 1, D:/custom-riscv/tb_pc.vhd
 source_file = 1, D:/custom-riscv/tb_memd.vhd
 source_file = 1, D:/custom-riscv/tb_memi.vhd
+source_file = 1, D:/custom-riscv/tb_unidade_de_controle_ciclo_unico.vhd
 source_file = 1, d:/quartus/libraries/vhdl/ieee/prmtvs_b.vhd
 source_file = 1, d:/quartus/libraries/vhdl/ieee/prmtvs_p.vhd
 source_file = 1, d:/quartus/libraries/vhdl/ieee/timing_b.vhd

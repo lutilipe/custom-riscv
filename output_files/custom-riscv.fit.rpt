@@ -1,5 +1,5 @@
 Fitter report for custom-riscv
-Sun Jun 30 21:15:17 2024
+Sun Jun 30 23:30:29 2024
 Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
 
 
@@ -20,10 +20,17 @@ Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
  12. I/O Assignment Warnings
  13. Fitter Resource Utilization by Entity
  14. Delay Chain Summary
- 15. Routing Usage Summary
- 16. Fitter Device Options
- 17. Fitter Messages
- 18. Fitter Suppressed Messages
+ 15. Control Signals
+ 16. Global & Other Fast Signals
+ 17. Routing Usage Summary
+ 18. LAB Logic Elements
+ 19. LAB-wide Signals
+ 20. LAB Signals Sourced
+ 21. LAB Signals Sourced Out
+ 22. LAB Distinct Inputs
+ 23. Fitter Device Options
+ 24. Fitter Messages
+ 25. Fitter Suppressed Messages
 
 
 
@@ -50,15 +57,15 @@ https://fpgasoftware.intel.com/eula.
 +------------------------------------------------------------------------+
 ; Fitter Summary                                                         ;
 +-----------------------+------------------------------------------------+
-; Fitter Status         ; Successful - Sun Jun 30 21:15:17 2024          ;
+; Fitter Status         ; Successful - Sun Jun 30 23:30:28 2024          ;
 ; Quartus Prime Version ; 22.1std.1 Build 917 02/14/2023 SC Lite Edition ;
 ; Revision Name         ; custom-riscv                                   ;
-; Top-level Entity Name ; via_de_dados_ciclo_unico                       ;
+; Top-level Entity Name ; processador_ciclo_unico                        ;
 ; Family                ; MAX V                                          ;
-; Device                ; 5M40ZE64C4                                     ;
+; Device                ; 5M160ZT100C4                                   ;
 ; Timing Models         ; Final                                          ;
-; Total logic elements  ; 0 / 40 ( 0 % )                                 ;
-; Total pins            ; 30 / 54 ( 56 % )                               ;
+; Total logic elements  ; 117 / 160 ( 73 % )                             ;
+; Total pins            ; 34 / 79 ( 43 % )                               ;
 ; Total virtual pins    ; 0                                              ;
 ; UFM blocks            ; 0 / 1 ( 0 % )                                  ;
 +-----------------------+------------------------------------------------+
@@ -119,11 +126,12 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 8           ;
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Average used               ; 1.02        ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ;   0.6%      ;
 +----------------------------+-------------+
 
 
@@ -133,95 +141,103 @@ https://fpgasoftware.intel.com/eula.
 The pin-out file can be found in D:/custom-riscv/output_files/custom-riscv.pin.
 
 
-+------------------------------------------------------------------+
-; Fitter Resource Usage Summary                                    ;
-+---------------------------------------------+--------------------+
-; Resource                                    ; Usage              ;
-+---------------------------------------------+--------------------+
-; Total logic elements                        ; 0 / 40 ( 0 % )     ;
-;     -- Combinational with no register       ; 0                  ;
-;     -- Register only                        ; 0                  ;
-;     -- Combinational with a register        ; 0                  ;
-;                                             ;                    ;
-; Logic element usage by number of LUT inputs ;                    ;
-;     -- 4 input functions                    ; 0                  ;
-;     -- 3 input functions                    ; 0                  ;
-;     -- 2 input functions                    ; 0                  ;
-;     -- 1 input functions                    ; 0                  ;
-;     -- 0 input functions                    ; 0                  ;
-;                                             ;                    ;
-; Logic elements by mode                      ;                    ;
-;     -- normal mode                          ; 0                  ;
-;     -- arithmetic mode                      ; 0                  ;
-;     -- qfbk mode                            ; 0                  ;
-;     -- register cascade mode                ; 0                  ;
-;     -- synchronous clear/load mode          ; 0                  ;
-;     -- asynchronous clear/load mode         ; 0                  ;
-;                                             ;                    ;
-; Total registers                             ; 0 / 40 ( 0 % )     ;
-; Total LABs                                  ; 0 / 4 ( 0 % )      ;
-; Logic elements in carry chains              ; 0                  ;
-; Virtual pins                                ; 0                  ;
-; I/O pins                                    ; 30 / 54 ( 56 % )   ;
-;     -- Clock pins                           ; 2 / 4 ( 50 % )     ;
-;                                             ;                    ;
-; UFM blocks                                  ; 0 / 1 ( 0 % )      ;
-;                                             ;                    ;
-;     -- Total Fixed Point DSP Blocks         ; 0                  ;
-;     -- Total Floating Point DSP Blocks      ; 0                  ;
-;                                             ;                    ;
-; Global signals                              ; 0                  ;
-;     -- Global clocks                        ; 0 / 4 ( 0 % )      ;
-; JTAGs                                       ; 0 / 1 ( 0 % )      ;
-; Average interconnect usage (total/H/V)      ; 0.0% / 0.0% / 0.0% ;
-; Peak interconnect usage (total/H/V)         ; 0.0% / 0.0% / 0.0% ;
-+---------------------------------------------+--------------------+
++---------------------------------------------------------------------+
+; Fitter Resource Usage Summary                                       ;
++---------------------------------------------+-----------------------+
+; Resource                                    ; Usage                 ;
++---------------------------------------------+-----------------------+
+; Total logic elements                        ; 117 / 160 ( 73 % )    ;
+;     -- Combinational with no register       ; 69                    ;
+;     -- Register only                        ; 0                     ;
+;     -- Combinational with a register        ; 48                    ;
+;                                             ;                       ;
+; Logic element usage by number of LUT inputs ;                       ;
+;     -- 4 input functions                    ; 39                    ;
+;     -- 3 input functions                    ; 63                    ;
+;     -- 2 input functions                    ; 14                    ;
+;     -- 1 input functions                    ; 1                     ;
+;     -- 0 input functions                    ; 0                     ;
+;                                             ;                       ;
+; Logic elements by mode                      ;                       ;
+;     -- normal mode                          ; 74                    ;
+;     -- arithmetic mode                      ; 43                    ;
+;     -- qfbk mode                            ; 15                    ;
+;     -- register cascade mode                ; 0                     ;
+;     -- synchronous clear/load mode          ; 15                    ;
+;     -- asynchronous clear/load mode         ; 13                    ;
+;                                             ;                       ;
+; Total registers                             ; 48 / 160 ( 30 % )     ;
+; Total LABs                                  ; 14 / 16 ( 88 % )      ;
+; Logic elements in carry chains              ; 45                    ;
+; Virtual pins                                ; 0                     ;
+; I/O pins                                    ; 34 / 79 ( 43 % )      ;
+;     -- Clock pins                           ; 4 / 4 ( 100 % )       ;
+;                                             ;                       ;
+; UFM blocks                                  ; 0 / 1 ( 0 % )         ;
+;                                             ;                       ;
+;     -- Total Fixed Point DSP Blocks         ; 0                     ;
+;     -- Total Floating Point DSP Blocks      ; 0                     ;
+;                                             ;                       ;
+; Global signals                              ; 2                     ;
+;     -- Global clocks                        ; 2 / 4 ( 50 % )        ;
+; JTAGs                                       ; 0 / 1 ( 0 % )         ;
+; Average interconnect usage (total/H/V)      ; 16.1% / 16.8% / 15.3% ;
+; Peak interconnect usage (total/H/V)         ; 16.1% / 16.8% / 15.3% ;
+; Maximum fan-out                             ; 96                    ;
+; Highest non-global fan-out                  ; 96                    ;
+; Total fan-out                               ; 488                   ;
+; Average fan-out                             ; 3.23                  ;
++---------------------------------------------+-----------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Input Pins                                                                                                                                                                                                                       ;
-+----------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+-----------------+----------+--------------+--------------+----------------------+----------------+
-; Name     ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Cell number ; Combinational Fan-Out ; Registered Fan-Out ; Global ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard ; Location assigned by ; Slow Slew Rate ;
-+----------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+-----------------+----------+--------------+--------------+----------------------+----------------+
-; ALUOp[0] ; 31    ; 1        ; 6            ; 0            ; 0           ; 0                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; ALUOp[1] ; 46    ; 2        ; 8            ; 4            ; 3           ; 0                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; ALUOp[2] ; 3     ; 1        ; 1            ; 3            ; 0           ; 0                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; ALUOp[3] ; 50    ; 2        ; 6            ; 5            ; 3           ; 0                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; ALUSrc   ; 61    ; 2        ; 2            ; 5            ; 0           ; 0                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; branch   ; 36    ; 2        ; 8            ; 1            ; 2           ; 0                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; clock    ; 44    ; 2        ; 8            ; 3            ; 0           ; 0                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; jump     ; 53    ; 2        ; 5            ; 5            ; 2           ; 0                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; memRead  ; 43    ; 2        ; 8            ; 3            ; 1           ; 0                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; memToReg ; 54    ; 2        ; 4            ; 5            ; 0           ; 0                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; memWrite ; 37    ; 2        ; 8            ; 1            ; 1           ; 0                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; regWrite ; 42    ; 2        ; 8            ; 3            ; 4           ; 0                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-; reset    ; 35    ; 2        ; 8            ; 1            ; 3           ; 0                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
-+----------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+-----------------+----------+--------------+--------------+----------------------+----------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Input Pins                                                                                                                                                                                                                          ;
++-------------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+-----------------+----------+--------------+--------------+----------------------+----------------+
+; Name        ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Cell number ; Combinational Fan-Out ; Registered Fan-Out ; Global ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard ; Location assigned by ; Slow Slew Rate ;
++-------------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+-----------------+----------+--------------+--------------+----------------------+----------------+
+; Chave_reset ; 12    ; 1        ; 1            ; 3            ; 3           ; 16                    ; 0                  ; yes    ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
+; Clock       ; 14    ; 1        ; 1            ; 2            ; 0           ; 48                    ; 0                  ; yes    ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Fitter               ; no             ;
++-------------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+-----------------+----------+--------------+--------------+----------------------+----------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Output Pins                                                                                                                                                                                                                                                                                                                  ;
-+------------+-------+----------+--------------+--------------+-------------+-----------------+----------------+-----------------+------------+---------------+----------+--------------+--------------+------------------+------------------------+----------------------+-------+----------------------+---------------------+
-; Name       ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Cell number ; Output Register ; Slow Slew Rate ; PCI I/O Enabled ; Open Drain ; TRI Primitive ; Bus Hold ; Weak Pull Up ; I/O Standard ; Current Strength ; Fast Output Connection ; Location assigned by ; Load  ; Output Enable Source ; Output Enable Group ;
-+------------+-------+----------+--------------+--------------+-------------+-----------------+----------------+-----------------+------------+---------------+----------+--------------+--------------+------------------+------------------------+----------------------+-------+----------------------+---------------------+
-; funct3[12] ; 34    ; 2        ; 8            ; 1            ; 4           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; funct3[13] ; 47    ; 2        ; 8            ; 4            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; funct3[14] ; 58    ; 2        ; 3            ; 5            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; funct7[25] ; 10    ; 1        ; 1            ; 2            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; funct7[26] ; 13    ; 1        ; 1            ; 1            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; funct7[27] ; 18    ; 1        ; 2            ; 0            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; funct7[28] ; 7     ; 1        ; 1            ; 3            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; funct7[29] ; 45    ; 2        ; 8            ; 4            ; 4           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; funct7[30] ; 21    ; 1        ; 2            ; 0            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; funct7[31] ; 59    ; 2        ; 3            ; 5            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; opcode[0]  ; 32    ; 1        ; 7            ; 0            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; opcode[1]  ; 1     ; 1        ; 1            ; 4            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; opcode[2]  ; 20    ; 1        ; 2            ; 0            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; opcode[3]  ; 33    ; 1        ; 7            ; 0            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; opcode[4]  ; 4     ; 1        ; 1            ; 3            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; opcode[5]  ; 48    ; 2        ; 8            ; 4            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; opcode[6]  ; 63    ; 2        ; 2            ; 5            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-+------------+-------+----------+--------------+--------------+-------------+-----------------+----------------+-----------------+------------+---------------+----------+--------------+--------------+------------------+------------------------+----------------------+-------+----------------------+---------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Output Pins                                                                                                                                                                                                                                                                                                                                ;
++--------------------------+-------+----------+--------------+--------------+-------------+-----------------+----------------+-----------------+------------+---------------+----------+--------------+--------------+------------------+------------------------+----------------------+-------+----------------------+---------------------+
+; Name                     ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Cell number ; Output Register ; Slow Slew Rate ; PCI I/O Enabled ; Open Drain ; TRI Primitive ; Bus Hold ; Weak Pull Up ; I/O Standard ; Current Strength ; Fast Output Connection ; Location assigned by ; Load  ; Output Enable Source ; Output Enable Group ;
++--------------------------+-------+----------+--------------+--------------+-------------+-----------------+----------------+-----------------+------------+---------------+----------+--------------+--------------+------------------+------------------------+----------------------+-------+----------------------+---------------------+
+; Leds_vermelhos_saida[0]  ; 6     ; 1        ; 1            ; 3            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[10] ; 15    ; 1        ; 1            ; 2            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[11] ; 30    ; 1        ; 3            ; 0            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[12] ; 3     ; 1        ; 1            ; 4            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[13] ; 5     ; 1        ; 1            ; 4            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[14] ; 8     ; 1        ; 1            ; 3            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; yes                    ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[15] ; 91    ; 2        ; 4            ; 5            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[16] ; 36    ; 1        ; 4            ; 0            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[17] ; 47    ; 1        ; 6            ; 0            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[18] ; 89    ; 2        ; 4            ; 5            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; yes                    ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[19] ; 39    ; 1        ; 5            ; 0            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[1]  ; 16    ; 1        ; 1            ; 2            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[20] ; 40    ; 1        ; 5            ; 0            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[21] ; 41    ; 1        ; 5            ; 0            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[22] ; 57    ; 2        ; 8            ; 2            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[23] ; 42    ; 1        ; 5            ; 0            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[24] ; 62    ; 2        ; 8            ; 2            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[25] ; 61    ; 2        ; 8            ; 2            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[26] ; 64    ; 2        ; 8            ; 3            ; 4           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[27] ; 69    ; 2        ; 8            ; 3            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[28] ; 68    ; 2        ; 8            ; 3            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[29] ; 84    ; 2        ; 6            ; 5            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[2]  ; 17    ; 1        ; 1            ; 2            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; yes                    ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[30] ; 67    ; 2        ; 8            ; 3            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[31] ; 66    ; 2        ; 8            ; 3            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[3]  ; 95    ; 2        ; 3            ; 5            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[4]  ; 7     ; 1        ; 1            ; 3            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[5]  ; 2     ; 1        ; 1            ; 4            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[6]  ; 38    ; 1        ; 4            ; 0            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[7]  ; 37    ; 1        ; 4            ; 0            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[8]  ; 90    ; 2        ; 4            ; 5            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[9]  ; 34    ; 1        ; 3            ; 0            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
++--------------------------+-------+----------+--------------+--------------+-------------+-----------------+----------------+-----------------+------------+---------------+----------+--------------+--------------+------------------+------------------------+----------------------+-------+----------------------+---------------------+
 
 
 +------------------------------------------------------------+
@@ -229,82 +245,117 @@ The pin-out file can be found in D:/custom-riscv/output_files/custom-riscv.pin.
 +----------+------------------+---------------+--------------+
 ; I/O Bank ; Usage            ; VCCIO Voltage ; VREF Voltage ;
 +----------+------------------+---------------+--------------+
-; 1        ; 12 / 27 ( 44 % ) ; 3.3V          ; --           ;
-; 2        ; 18 / 27 ( 67 % ) ; 3.3V          ; --           ;
+; 1        ; 21 / 38 ( 55 % ) ; 3.3V          ; --           ;
+; 2        ; 13 / 41 ( 32 % ) ; 3.3V          ; --           ;
 +----------+------------------+---------------+--------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------+
-; All Package Pins                                                                                                                             ;
-+----------+------------+----------+----------------+--------+--------------+---------+------------+-----------------+----------+--------------+
-; Location ; Pad Number ; I/O Bank ; Pin Name/Usage ; Dir.   ; I/O Standard ; Voltage ; I/O Type   ; User Assignment ; Bus Hold ; Weak Pull Up ;
-+----------+------------+----------+----------------+--------+--------------+---------+------------+-----------------+----------+--------------+
-; 1        ; 2          ; 1        ; opcode[1]      ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; 2        ; 3          ; 1        ; GND*           ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; 3        ; 4          ; 1        ; ALUOp[2]       ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; 4        ; 5          ; 1        ; opcode[4]      ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; 5        ; 6          ; 1        ; GND*           ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; 6        ;            ; 1        ; VCCIO1         ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
-; 7        ; 7          ; 1        ; funct7[28]     ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; 8        ;            ;          ; VCCINT         ; power  ;              ; 1.8V    ; --         ;                 ; --       ; --           ;
-; 9        ; 8          ; 1        ; GND*           ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; 10       ; 11         ; 1        ; funct7[25]     ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; 11       ; 13         ; 1        ; GND*           ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; 12       ; 14         ; 1        ; GND*           ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; 13       ; 15         ; 1        ; funct7[26]     ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; 14       ; 16         ; 1        ; #TMS           ; input  ;              ;         ; --         ;                 ; --       ; --           ;
-; 15       ; 17         ; 1        ; #TDI           ; input  ;              ;         ; --         ;                 ; --       ; --           ;
-; 16       ; 18         ; 1        ; #TCK           ; input  ;              ;         ; --         ;                 ; --       ; --           ;
-; 17       ; 19         ; 1        ; #TDO           ; output ;              ;         ; --         ;                 ; --       ; --           ;
-; 18       ; 20         ; 1        ; funct7[27]     ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; 19       ; 21         ; 1        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; 20       ; 22         ; 1        ; opcode[2]      ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; 21       ; 23         ; 1        ; funct7[30]     ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; 22       ; 24         ; 1        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; 23       ;            ; 1        ; VCCIO1         ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
-; 24       ; 25         ; 1        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; 25       ; 26         ; 1        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; 26       ; 33         ; 1        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; 27       ; 34         ; 1        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; 28       ; 35         ; 1        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; 29       ; 36         ; 1        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; 30       ; 37         ; 1        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; 31       ; 38         ; 1        ; ALUOp[0]       ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; 32       ; 39         ; 1        ; opcode[0]      ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; 33       ; 40         ; 1        ; opcode[3]      ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; 34       ; 42         ; 2        ; funct3[12]     ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; 35       ; 43         ; 2        ; reset          ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; 36       ; 44         ; 2        ; branch         ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; 37       ; 45         ; 2        ; memWrite       ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; 38       ; 47         ; 2        ; GND*           ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; 39       ;            ; 2        ; VCCIO2         ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
-; 40       ; 50         ; 2        ; GND*           ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; 41       ;            ;          ; VCCINT         ; power  ;              ; 1.8V    ; --         ;                 ; --       ; --           ;
-; 42       ; 51         ; 2        ; regWrite       ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; 43       ; 54         ; 2        ; memRead        ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; 44       ; 55         ; 2        ; clock          ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; 45       ; 56         ; 2        ; funct7[29]     ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; 46       ; 57         ; 2        ; ALUOp[1]       ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; 47       ; 58         ; 2        ; funct3[13]     ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; 48       ; 59         ; 2        ; opcode[5]      ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; 49       ; 67         ; 2        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; 50       ; 68         ; 2        ; ALUOp[3]       ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; 51       ; 69         ; 2        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; 52       ; 70         ; 2        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; 53       ; 71         ; 2        ; jump           ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; 54       ; 73         ; 2        ; memToReg       ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; 55       ; 75         ; 2        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; 56       ; 76         ; 2        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; 57       ;            ; 2        ; VCCIO2         ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
-; 58       ; 77         ; 2        ; funct3[14]     ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; 59       ; 78         ; 2        ; funct7[31]     ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; 60       ; 79         ; 2        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; 61       ; 80         ; 2        ; ALUSrc         ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; 62       ; 81         ; 2        ; GND*           ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; 63       ; 82         ; 2        ; opcode[6]      ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; 64       ; 1          ; 1        ; GND*           ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; EPAD     ;            ;          ; GND            ;        ;              ;         ; --         ;                 ; --       ; --           ;
-+----------+------------+----------+----------------+--------+--------------+---------+------------+-----------------+----------+--------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------+
+; All Package Pins                                                                                                                                       ;
++----------+------------+----------+--------------------------+--------+--------------+---------+------------+-----------------+----------+--------------+
+; Location ; Pad Number ; I/O Bank ; Pin Name/Usage           ; Dir.   ; I/O Standard ; Voltage ; I/O Type   ; User Assignment ; Bus Hold ; Weak Pull Up ;
++----------+------------+----------+--------------------------+--------+--------------+---------+------------+-----------------+----------+--------------+
+; 1        ;            ;          ; GND                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
+; 2        ; 0          ; 1        ; Leds_vermelhos_saida[5]  ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; 3        ; 1          ; 1        ; Leds_vermelhos_saida[12] ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; 4        ; 2          ; 1        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; 5        ; 3          ; 1        ; Leds_vermelhos_saida[13] ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; 6        ; 4          ; 1        ; Leds_vermelhos_saida[0]  ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; 7        ; 5          ; 1        ; Leds_vermelhos_saida[4]  ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; 8        ; 6          ; 1        ; Leds_vermelhos_saida[14] ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; 9        ;            ; 1        ; VCCIO1                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
+; 10       ;            ;          ; GND                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
+; 11       ;            ;          ; GND                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
+; 12       ; 7          ; 1        ; Chave_reset              ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; 13       ;            ;          ; VCCINT                   ; power  ;              ; 1.8V    ; --         ;                 ; --       ; --           ;
+; 14       ; 8          ; 1        ; Clock                    ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; 15       ; 9          ; 1        ; Leds_vermelhos_saida[10] ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; 16       ; 10         ; 1        ; Leds_vermelhos_saida[1]  ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; 17       ; 11         ; 1        ; Leds_vermelhos_saida[2]  ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; 18       ; 12         ; 1        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; 19       ; 13         ; 1        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; 20       ; 14         ; 1        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; 21       ; 15         ; 1        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; 22       ; 16         ; 1        ; #TMS                     ; input  ;              ;         ; --         ;                 ; --       ; --           ;
+; 23       ; 17         ; 1        ; #TDI                     ; input  ;              ;         ; --         ;                 ; --       ; --           ;
+; 24       ; 18         ; 1        ; #TCK                     ; input  ;              ;         ; --         ;                 ; --       ; --           ;
+; 25       ; 19         ; 1        ; #TDO                     ; output ;              ;         ; --         ;                 ; --       ; --           ;
+; 26       ; 20         ; 1        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; 27       ; 21         ; 1        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; 28       ; 22         ; 1        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; 29       ; 23         ; 1        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; 30       ; 24         ; 1        ; Leds_vermelhos_saida[11] ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; 31       ;            ; 1        ; VCCIO1                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
+; 32       ;            ;          ; GND                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
+; 33       ; 25         ; 1        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; 34       ; 26         ; 1        ; Leds_vermelhos_saida[9]  ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; 35       ; 27         ; 1        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; 36       ; 28         ; 1        ; Leds_vermelhos_saida[16] ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; 37       ; 29         ; 1        ; Leds_vermelhos_saida[7]  ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; 38       ; 30         ; 1        ; Leds_vermelhos_saida[6]  ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; 39       ; 31         ; 1        ; Leds_vermelhos_saida[19] ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; 40       ; 32         ; 1        ; Leds_vermelhos_saida[20] ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; 41       ; 33         ; 1        ; Leds_vermelhos_saida[21] ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; 42       ; 34         ; 1        ; Leds_vermelhos_saida[23] ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; 43       ; 35         ; 1        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; 44       ; 36         ; 1        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; 45       ;            ; 1        ; VCCIO1                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
+; 46       ;            ;          ; GND                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
+; 47       ; 37         ; 1        ; Leds_vermelhos_saida[17] ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; 48       ; 38         ; 1        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; 49       ; 39         ; 1        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; 50       ; 40         ; 1        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; 51       ; 41         ; 1        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; 52       ; 42         ; 2        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; 53       ; 43         ; 2        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; 54       ; 44         ; 2        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; 55       ; 45         ; 2        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; 56       ; 46         ; 2        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; 57       ; 47         ; 2        ; Leds_vermelhos_saida[22] ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; 58       ; 48         ; 2        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; 59       ;            ; 2        ; VCCIO2                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
+; 60       ;            ;          ; GND                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
+; 61       ; 49         ; 2        ; Leds_vermelhos_saida[25] ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; 62       ; 50         ; 2        ; Leds_vermelhos_saida[24] ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; 63       ;            ;          ; VCCINT                   ; power  ;              ; 1.8V    ; --         ;                 ; --       ; --           ;
+; 64       ; 51         ; 2        ; Leds_vermelhos_saida[26] ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; 65       ;            ;          ; GND                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
+; 66       ; 52         ; 2        ; Leds_vermelhos_saida[31] ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; 67       ; 53         ; 2        ; Leds_vermelhos_saida[30] ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; 68       ; 54         ; 2        ; Leds_vermelhos_saida[28] ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; 69       ; 55         ; 2        ; Leds_vermelhos_saida[27] ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; 70       ; 56         ; 2        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; 71       ; 57         ; 2        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; 72       ; 58         ; 2        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; 73       ; 59         ; 2        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; 74       ; 60         ; 2        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; 75       ; 61         ; 2        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; 76       ; 62         ; 2        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; 77       ; 63         ; 2        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; 78       ; 64         ; 2        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; 79       ;            ;          ; GND                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
+; 80       ;            ; 2        ; VCCIO2                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
+; 81       ; 65         ; 2        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; 82       ; 66         ; 2        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; 83       ; 67         ; 2        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; 84       ; 68         ; 2        ; Leds_vermelhos_saida[29] ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; 85       ; 69         ; 2        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; 86       ; 70         ; 2        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; 87       ; 71         ; 2        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; 88       ; 72         ; 2        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; 89       ; 73         ; 2        ; Leds_vermelhos_saida[18] ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; 90       ; 74         ; 2        ; Leds_vermelhos_saida[8]  ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; 91       ; 75         ; 2        ; Leds_vermelhos_saida[15] ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; 92       ; 76         ; 2        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; 93       ;            ;          ; GND                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
+; 94       ;            ; 2        ; VCCIO2                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
+; 95       ; 77         ; 2        ; Leds_vermelhos_saida[3]  ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; 96       ; 78         ; 2        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; 97       ; 79         ; 2        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; 98       ; 80         ; 2        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; 99       ; 81         ; 2        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; 100      ; 82         ; 2        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
++----------+------------+----------+--------------------------+--------+--------------+---------+------------+-----------------+----------+--------------+
 Note: Pin directions (input, output or bidir) are based on device operating in user mode.
 
 
@@ -327,105 +378,249 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 Note: User assignments will override these defaults. The user specified values are listed in the Output Pins and Bidir Pins tables.
 
 
-+------------------------------------------+
-; I/O Assignment Warnings                  ;
-+------------+-----------------------------+
-; Pin Name   ; Reason                      ;
-+------------+-----------------------------+
-; clock      ; Missing location assignment ;
-; reset      ; Missing location assignment ;
-; branch     ; Missing location assignment ;
-; jump       ; Missing location assignment ;
-; memRead    ; Missing location assignment ;
-; memWrite   ; Missing location assignment ;
-; regWrite   ; Missing location assignment ;
-; ALUSrc     ; Missing location assignment ;
-; memToReg   ; Missing location assignment ;
-; ALUOp[0]   ; Missing location assignment ;
-; ALUOp[1]   ; Missing location assignment ;
-; ALUOp[2]   ; Missing location assignment ;
-; ALUOp[3]   ; Missing location assignment ;
-; opcode[0]  ; Missing location assignment ;
-; opcode[1]  ; Missing location assignment ;
-; opcode[2]  ; Missing location assignment ;
-; opcode[3]  ; Missing location assignment ;
-; opcode[4]  ; Missing location assignment ;
-; opcode[5]  ; Missing location assignment ;
-; opcode[6]  ; Missing location assignment ;
-; funct3[12] ; Missing location assignment ;
-; funct3[13] ; Missing location assignment ;
-; funct3[14] ; Missing location assignment ;
-; funct7[25] ; Missing location assignment ;
-; funct7[26] ; Missing location assignment ;
-; funct7[27] ; Missing location assignment ;
-; funct7[28] ; Missing location assignment ;
-; funct7[29] ; Missing location assignment ;
-; funct7[30] ; Missing location assignment ;
-; funct7[31] ; Missing location assignment ;
-+------------+-----------------------------+
++--------------------------------------------------------+
+; I/O Assignment Warnings                                ;
++--------------------------+-----------------------------+
+; Pin Name                 ; Reason                      ;
++--------------------------+-----------------------------+
+; Leds_vermelhos_saida[0]  ; Missing location assignment ;
+; Leds_vermelhos_saida[1]  ; Missing location assignment ;
+; Leds_vermelhos_saida[2]  ; Missing location assignment ;
+; Leds_vermelhos_saida[3]  ; Missing location assignment ;
+; Leds_vermelhos_saida[4]  ; Missing location assignment ;
+; Leds_vermelhos_saida[5]  ; Missing location assignment ;
+; Leds_vermelhos_saida[6]  ; Missing location assignment ;
+; Leds_vermelhos_saida[7]  ; Missing location assignment ;
+; Leds_vermelhos_saida[8]  ; Missing location assignment ;
+; Leds_vermelhos_saida[9]  ; Missing location assignment ;
+; Leds_vermelhos_saida[10] ; Missing location assignment ;
+; Leds_vermelhos_saida[11] ; Missing location assignment ;
+; Leds_vermelhos_saida[12] ; Missing location assignment ;
+; Leds_vermelhos_saida[13] ; Missing location assignment ;
+; Leds_vermelhos_saida[14] ; Missing location assignment ;
+; Leds_vermelhos_saida[15] ; Missing location assignment ;
+; Leds_vermelhos_saida[16] ; Missing location assignment ;
+; Leds_vermelhos_saida[17] ; Missing location assignment ;
+; Leds_vermelhos_saida[18] ; Missing location assignment ;
+; Leds_vermelhos_saida[19] ; Missing location assignment ;
+; Leds_vermelhos_saida[20] ; Missing location assignment ;
+; Leds_vermelhos_saida[21] ; Missing location assignment ;
+; Leds_vermelhos_saida[22] ; Missing location assignment ;
+; Leds_vermelhos_saida[23] ; Missing location assignment ;
+; Leds_vermelhos_saida[24] ; Missing location assignment ;
+; Leds_vermelhos_saida[25] ; Missing location assignment ;
+; Leds_vermelhos_saida[26] ; Missing location assignment ;
+; Leds_vermelhos_saida[27] ; Missing location assignment ;
+; Leds_vermelhos_saida[28] ; Missing location assignment ;
+; Leds_vermelhos_saida[29] ; Missing location assignment ;
+; Leds_vermelhos_saida[30] ; Missing location assignment ;
+; Leds_vermelhos_saida[31] ; Missing location assignment ;
+; Clock                    ; Missing location assignment ;
+; Chave_reset              ; Missing location assignment ;
++--------------------------+-----------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Fitter Resource Utilization by Entity                                                                                                                                                                                                                 ;
-+----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------------+--------------------------+--------------+
-; Compilation Hierarchy Node ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name       ; Entity Name              ; Library Name ;
-+----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------------+--------------------------+--------------+
-; |via_de_dados_ciclo_unico  ; 0 (0)       ; 0            ; 0          ; 30   ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |via_de_dados_ciclo_unico ; via_de_dados_ciclo_unico ; work         ;
-+----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------------+--------------------------+--------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fitter Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                                    ;
++-----------------------------------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------------------------------------------------------------------------------------------------+--------------------------+--------------+
+; Compilation Hierarchy Node                                ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name                                                                                           ; Entity Name              ; Library Name ;
++-----------------------------------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------------------------------------------------------------------------------------------------+--------------------------+--------------+
+; |processador_ciclo_unico                                  ; 117 (0)     ; 48           ; 0          ; 34   ; 0            ; 69 (0)       ; 0 (0)             ; 48 (0)           ; 45 (0)          ; 15 (0)     ; |processador_ciclo_unico                                                                                      ; processador_ciclo_unico  ; work         ;
+;    |via_de_dados_ciclo_unico:via_dados|                   ; 117 (0)     ; 48           ; 0          ; 0    ; 0            ; 69 (0)       ; 0 (0)             ; 48 (0)           ; 45 (0)          ; 15 (0)     ; |processador_ciclo_unico|via_de_dados_ciclo_unico:via_dados                                                   ; via_de_dados_ciclo_unico ; work         ;
+;       |banco_registradores:instancia_banco_registradores| ; 32 (32)     ; 32           ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 32 (32)          ; 0 (0)           ; 0 (0)      ; |processador_ciclo_unico|via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores ; banco_registradores      ; work         ;
+;       |memi:instancia_mem_instrucao|                      ; 8 (8)       ; 3            ; 0          ; 0    ; 0            ; 5 (5)        ; 0 (0)             ; 3 (3)            ; 0 (0)           ; 0 (0)      ; |processador_ciclo_unico|via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao                      ; memi                     ; work         ;
+;       |mux21:instancia_mux_ula|                           ; 17 (17)     ; 0            ; 0          ; 0    ; 0            ; 17 (17)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 15 (15)    ; |processador_ciclo_unico|via_de_dados_ciclo_unico:via_dados|mux21:instancia_mux_ula                           ; mux21                    ; work         ;
+;       |pc:instancia_pc|                                   ; 13 (13)     ; 13           ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 13 (13)          ; 13 (13)         ; 0 (0)      ; |processador_ciclo_unico|via_de_dados_ciclo_unico:via_dados|pc:instancia_pc                                   ; pc                       ; work         ;
+;       |ula:instancia_ula|                                 ; 47 (47)     ; 0            ; 0          ; 0    ; 0            ; 47 (47)      ; 0 (0)             ; 0 (0)            ; 32 (32)         ; 0 (0)      ; |processador_ciclo_unico|via_de_dados_ciclo_unico:via_dados|ula:instancia_ula                                 ; ula                      ; work         ;
++-----------------------------------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------------------------------------------------------------------------------------------------+--------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+---------------------------------------+
-; Delay Chain Summary                   ;
-+------------+----------+---------------+
-; Name       ; Pin Type ; Pad to Core 0 ;
-+------------+----------+---------------+
-; clock      ; Input    ; (0)           ;
-; reset      ; Input    ; (0)           ;
-; branch     ; Input    ; (0)           ;
-; jump       ; Input    ; (0)           ;
-; memRead    ; Input    ; (0)           ;
-; memWrite   ; Input    ; (0)           ;
-; regWrite   ; Input    ; (0)           ;
-; ALUSrc     ; Input    ; (0)           ;
-; memToReg   ; Input    ; (0)           ;
-; ALUOp[0]   ; Input    ; (0)           ;
-; ALUOp[1]   ; Input    ; (0)           ;
-; ALUOp[2]   ; Input    ; (0)           ;
-; ALUOp[3]   ; Input    ; (0)           ;
-; opcode[0]  ; Output   ; --            ;
-; opcode[1]  ; Output   ; --            ;
-; opcode[2]  ; Output   ; --            ;
-; opcode[3]  ; Output   ; --            ;
-; opcode[4]  ; Output   ; --            ;
-; opcode[5]  ; Output   ; --            ;
-; opcode[6]  ; Output   ; --            ;
-; funct3[12] ; Output   ; --            ;
-; funct3[13] ; Output   ; --            ;
-; funct3[14] ; Output   ; --            ;
-; funct7[25] ; Output   ; --            ;
-; funct7[26] ; Output   ; --            ;
-; funct7[27] ; Output   ; --            ;
-; funct7[28] ; Output   ; --            ;
-; funct7[29] ; Output   ; --            ;
-; funct7[30] ; Output   ; --            ;
-; funct7[31] ; Output   ; --            ;
-+------------+----------+---------------+
++-----------------------------------------------------+
+; Delay Chain Summary                                 ;
++--------------------------+----------+---------------+
+; Name                     ; Pin Type ; Pad to Core 0 ;
++--------------------------+----------+---------------+
+; Leds_vermelhos_saida[0]  ; Output   ; --            ;
+; Leds_vermelhos_saida[1]  ; Output   ; --            ;
+; Leds_vermelhos_saida[2]  ; Output   ; --            ;
+; Leds_vermelhos_saida[3]  ; Output   ; --            ;
+; Leds_vermelhos_saida[4]  ; Output   ; --            ;
+; Leds_vermelhos_saida[5]  ; Output   ; --            ;
+; Leds_vermelhos_saida[6]  ; Output   ; --            ;
+; Leds_vermelhos_saida[7]  ; Output   ; --            ;
+; Leds_vermelhos_saida[8]  ; Output   ; --            ;
+; Leds_vermelhos_saida[9]  ; Output   ; --            ;
+; Leds_vermelhos_saida[10] ; Output   ; --            ;
+; Leds_vermelhos_saida[11] ; Output   ; --            ;
+; Leds_vermelhos_saida[12] ; Output   ; --            ;
+; Leds_vermelhos_saida[13] ; Output   ; --            ;
+; Leds_vermelhos_saida[14] ; Output   ; --            ;
+; Leds_vermelhos_saida[15] ; Output   ; --            ;
+; Leds_vermelhos_saida[16] ; Output   ; --            ;
+; Leds_vermelhos_saida[17] ; Output   ; --            ;
+; Leds_vermelhos_saida[18] ; Output   ; --            ;
+; Leds_vermelhos_saida[19] ; Output   ; --            ;
+; Leds_vermelhos_saida[20] ; Output   ; --            ;
+; Leds_vermelhos_saida[21] ; Output   ; --            ;
+; Leds_vermelhos_saida[22] ; Output   ; --            ;
+; Leds_vermelhos_saida[23] ; Output   ; --            ;
+; Leds_vermelhos_saida[24] ; Output   ; --            ;
+; Leds_vermelhos_saida[25] ; Output   ; --            ;
+; Leds_vermelhos_saida[26] ; Output   ; --            ;
+; Leds_vermelhos_saida[27] ; Output   ; --            ;
+; Leds_vermelhos_saida[28] ; Output   ; --            ;
+; Leds_vermelhos_saida[29] ; Output   ; --            ;
+; Leds_vermelhos_saida[30] ; Output   ; --            ;
+; Leds_vermelhos_saida[31] ; Output   ; --            ;
+; Clock                    ; Input    ; (0)           ;
+; Chave_reset              ; Input    ; (1)           ;
++--------------------------+----------+---------------+
 
 
-+-----------------------------------------+
-; Routing Usage Summary                   ;
-+-----------------------+-----------------+
-; Routing Resource Type ; Usage           ;
-+-----------------------+-----------------+
-; C4s                   ; 0 / 784 ( 0 % ) ;
-; Direct links          ; 0 / 888 ( 0 % ) ;
-; Global clocks         ; 0 / 4 ( 0 % )   ;
-; LAB clocks            ; 0 / 32 ( 0 % )  ;
-; LUT chains            ; 0 / 216 ( 0 % ) ;
-; Local interconnects   ; 0 / 888 ( 0 % ) ;
-; R4s                   ; 0 / 704 ( 0 % ) ;
-+-----------------------+-----------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Control Signals                                                                                                                                                                      ;
++------------------------------------------------------------------------------+-------------+---------+----------------------------+--------+----------------------+------------------+
+; Name                                                                         ; Location    ; Fan-Out ; Usage                      ; Global ; Global Resource Used ; Global Line Name ;
++------------------------------------------------------------------------------+-------------+---------+----------------------------+--------+----------------------+------------------+
+; Chave_reset                                                                  ; PIN_12      ; 16      ; Async. clear, Clock enable ; yes    ; Global Clock         ; GCLK0            ;
+; Clock                                                                        ; PIN_14      ; 48      ; Clock                      ; yes    ; Global Clock         ; GCLK1            ;
+; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0] ; LC_X3_Y2_N1 ; 64      ; Clock enable               ; no     ; --                   ; --               ;
++------------------------------------------------------------------------------+-------------+---------+----------------------------+--------+----------------------+------------------+
+
+
++----------------------------------------------------------------------------+
+; Global & Other Fast Signals                                                ;
++-------------+----------+---------+----------------------+------------------+
+; Name        ; Location ; Fan-Out ; Global Resource Used ; Global Line Name ;
++-------------+----------+---------+----------------------+------------------+
+; Chave_reset ; PIN_12   ; 16      ; Global Clock         ; GCLK0            ;
+; Clock       ; PIN_14   ; 48      ; Global Clock         ; GCLK1            ;
++-------------+----------+---------+----------------------+------------------+
+
+
++--------------------------------------------+
+; Routing Usage Summary                      ;
++-----------------------+--------------------+
+; Routing Resource Type ; Usage              ;
++-----------------------+--------------------+
+; C4s                   ; 104 / 784 ( 13 % ) ;
+; Direct links          ; 36 / 888 ( 4 % )   ;
+; Global clocks         ; 2 / 4 ( 50 % )     ;
+; LAB clocks            ; 8 / 32 ( 25 % )    ;
+; LUT chains            ; 0 / 216 ( 0 % )    ;
+; Local interconnects   ; 187 / 888 ( 21 % ) ;
+; R4s                   ; 91 / 704 ( 13 % )  ;
++-----------------------+--------------------+
+
+
++---------------------------------------------------------------------------+
+; LAB Logic Elements                                                        ;
++--------------------------------------------+------------------------------+
+; Number of Logic Elements  (Average = 8.36) ; Number of LABs  (Total = 14) ;
++--------------------------------------------+------------------------------+
+; 1                                          ; 0                            ;
+; 2                                          ; 2                            ;
+; 3                                          ; 0                            ;
+; 4                                          ; 0                            ;
+; 5                                          ; 0                            ;
+; 6                                          ; 1                            ;
+; 7                                          ; 0                            ;
+; 8                                          ; 1                            ;
+; 9                                          ; 1                            ;
+; 10                                         ; 9                            ;
++--------------------------------------------+------------------------------+
+
+
++-------------------------------------------------------------------+
+; LAB-wide Signals                                                  ;
++------------------------------------+------------------------------+
+; LAB-wide Signals  (Average = 1.00) ; Number of LABs  (Total = 14) ;
++------------------------------------+------------------------------+
+; 1 Async. clear                     ; 1                            ;
+; 1 Clock                            ; 11                           ;
+; 1 Clock enable                     ; 2                            ;
++------------------------------------+------------------------------+
+
+
++-----------------------------------------------------------------------------+
+; LAB Signals Sourced                                                         ;
++----------------------------------------------+------------------------------+
+; Number of Signals Sourced  (Average = 10.64) ; Number of LABs  (Total = 14) ;
++----------------------------------------------+------------------------------+
+; 0                                            ; 0                            ;
+; 1                                            ; 0                            ;
+; 2                                            ; 1                            ;
+; 3                                            ; 1                            ;
+; 4                                            ; 0                            ;
+; 5                                            ; 0                            ;
+; 6                                            ; 0                            ;
+; 7                                            ; 0                            ;
+; 8                                            ; 0                            ;
+; 9                                            ; 2                            ;
+; 10                                           ; 4                            ;
+; 11                                           ; 0                            ;
+; 12                                           ; 0                            ;
+; 13                                           ; 1                            ;
+; 14                                           ; 3                            ;
+; 15                                           ; 1                            ;
+; 16                                           ; 1                            ;
++----------------------------------------------+------------------------------+
+
+
++--------------------------------------------------------------------------------+
+; LAB Signals Sourced Out                                                        ;
++-------------------------------------------------+------------------------------+
+; Number of Signals Sourced Out  (Average = 9.29) ; Number of LABs  (Total = 14) ;
++-------------------------------------------------+------------------------------+
+; 0                                               ; 0                            ;
+; 1                                               ; 0                            ;
+; 2                                               ; 1                            ;
+; 3                                               ; 1                            ;
+; 4                                               ; 1                            ;
+; 5                                               ; 0                            ;
+; 6                                               ; 1                            ;
+; 7                                               ; 1                            ;
+; 8                                               ; 0                            ;
+; 9                                               ; 1                            ;
+; 10                                              ; 4                            ;
+; 11                                              ; 0                            ;
+; 12                                              ; 0                            ;
+; 13                                              ; 0                            ;
+; 14                                              ; 2                            ;
+; 15                                              ; 1                            ;
+; 16                                              ; 1                            ;
++-------------------------------------------------+------------------------------+
+
+
++-----------------------------------------------------------------------------+
+; LAB Distinct Inputs                                                         ;
++----------------------------------------------+------------------------------+
+; Number of Distinct Inputs  (Average = 10.57) ; Number of LABs  (Total = 14) ;
++----------------------------------------------+------------------------------+
+; 0                                            ; 0                            ;
+; 1                                            ; 0                            ;
+; 2                                            ; 0                            ;
+; 3                                            ; 1                            ;
+; 4                                            ; 0                            ;
+; 5                                            ; 3                            ;
+; 6                                            ; 0                            ;
+; 7                                            ; 1                            ;
+; 8                                            ; 0                            ;
+; 9                                            ; 0                            ;
+; 10                                           ; 4                            ;
+; 11                                           ; 0                            ;
+; 12                                           ; 1                            ;
+; 13                                           ; 1                            ;
+; 14                                           ; 0                            ;
+; 15                                           ; 0                            ;
+; 16                                           ; 1                            ;
+; 17                                           ; 0                            ;
+; 18                                           ; 0                            ;
+; 19                                           ; 0                            ;
+; 20                                           ; 0                            ;
+; 21                                           ; 2                            ;
++----------------------------------------------+------------------------------+
 
 
 +-------------------------------------------------------------------------+
@@ -447,58 +642,63 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------+
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
-Info (119004): Automatically selected device 5M40ZE64C4 for design custom-riscv
+Info (119004): Automatically selected device 5M160ZT100C4 for design custom-riscv
 Info (119005): Fitting design with smaller device may be possible, but smaller device must be specified
 Info (171003): Fitter is performing an Auto Fit compilation, which may decrease Fitter effort to reduce compilation time
 Warning (292013): Feature LogicLock is only available with a valid subscription license. You can purchase a software subscription to gain full access to this feature.
 Info (176444): Device migration not selected. If you intend to use device migration later, you may need to change the pin assignments as they may be incompatible with other devices
-    Info (176445): Device 5M80ZE64C4 is compatible
-    Info (176445): Device 5M160ZE64C4 is compatible
-Critical Warning (169085): No exact pin location assignment(s) for 30 pins of 30 total pins. For the list of pins please refer to the I/O Assignment Warnings table in the fitter report.
+    Info (176445): Device 5M80ZT100C4 is compatible
+    Info (176445): Device 5M240ZT100C4 is compatible
+    Info (176445): Device 5M570ZT100C4 is compatible
+Critical Warning (169085): No exact pin location assignment(s) for 34 pins of 34 total pins. For the list of pins please refer to the I/O Assignment Warnings table in the fitter report.
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'custom-riscv.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
 Info (332144): No user constrained base clocks found in the design
-Info (332096): The command derive_clocks did not find any clocks to derive.  No clocks were created or changed.
-Warning (332068): No clocks defined in design.
 Info (332128): Timing requirements not specified -- optimizing circuit to achieve the following default global requirements
     Info (332127): Assuming a default timing requirement
-Info (332159): No clocks to report
-Warning (332068): No clocks defined in design.
+Info (332111): Found 1 clocks
+    Info (332111):   Period   Clock Name
+    Info (332111): ======== ============
+    Info (332111):    1.000        Clock
 Info (186079): Completed User Assigned Global Signals Promotion Operation
+Info (186215): Automatically promoted signal "Clock" to use Global clock in PIN 14 File: D:/custom-riscv/processador_ciclo_unico.vhd Line: 17
+Info (186216): Automatically promoted some destinations of signal "Chave_reset" to use Global clock in PIN 12 File: D:/custom-riscv/processador_ciclo_unico.vhd Line: 16
+    Info (186217): Destination "via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0]" may be non-global or may not use global clock File: D:/custom-riscv/memi.vhd Line: 29
+    Info (186217): Destination "via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[5]" may be non-global or may not use global clock File: D:/custom-riscv/memi.vhd Line: 29
+    Info (186217): Destination "via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[30]" may be non-global or may not use global clock File: D:/custom-riscv/memi.vhd Line: 29
 Info (186079): Completed Auto Global Promotion Operation
 Info (176234): Starting register packing
 Info (186468): Started processing fast register assignments
 Info (186469): Finished processing fast register assignments
 Info (176235): Finished register packing
 Info (176214): Statistics of I/O pins that need to be placed that use the same VCCIO and VREF, before I/O pin placement
-    Info (176211): Number of I/O pins in group: 30 (unused VREF, 3.3V VCCIO, 13 input, 17 output, 0 bidirectional)
+    Info (176211): Number of I/O pins in group: 32 (unused VREF, 3.3V VCCIO, 0 input, 32 output, 0 bidirectional)
         Info (176212): I/O standards used: 3.3-V LVTTL.
 Info (176215): I/O bank details before I/O pin placement
     Info (176214): Statistics of I/O banks
-        Info (176213): I/O bank number 1 does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  27 pins available
-        Info (176213): I/O bank number 2 does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  27 pins available
+        Info (176213): I/O bank number 1 does not use VREF pins and has undetermined VCCIO pins. 2 total pin(s) used --  36 pins available
+        Info (176213): I/O bank number 2 does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  41 pins available
 Info (171121): Fitter preparation operations ending: elapsed time is 00:00:00
 Info (14896): Fitter has disabled Advanced Physical Optimization because it is not supported for the current family.
 Info (170189): Fitter placement preparation operations beginning
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:00
 Info (170191): Fitter placement operations beginning
 Info (170137): Fitter placement was successful
-Info (170192): Fitter placement operations ending: elapsed time is 00:00:00
+Info (170192): Fitter placement operations ending: elapsed time is 00:00:01
 Info (170193): Fitter routing operations beginning
-Info (170195): Router estimated average interconnect usage is 0% of the available device resources
-    Info (170196): Router estimated peak interconnect usage is 0% of the available device resources in the region that extends from location X0_Y0 to location X8_Y5
+Info (170195): Router estimated average interconnect usage is 10% of the available device resources
+    Info (170196): Router estimated peak interconnect usage is 10% of the available device resources in the region that extends from location X0_Y0 to location X8_Y5
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
-    Info (170200): Optimizations that may affect the design's timing were skipped
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:00
-Info (11888): Total time spent on timing analysis during the Fitter is 0.05 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.28 seconds.
 Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:00
 Warning (169174): The Reserve All Unused Pins setting has not been specified, and will default to 'As output driving ground'.
 Info (144001): Generated suppressed messages file D:/custom-riscv/output_files/custom-riscv.fit.smsg
-Info: Quartus Prime Fitter was successful. 0 errors, 7 warnings
-    Info: Peak virtual memory: 5428 megabytes
-    Info: Processing ended: Sun Jun 30 21:15:17 2024
-    Info: Elapsed time: 00:00:02
-    Info: Total CPU time (on all processors): 00:00:02
+Info: Quartus Prime Fitter was successful. 0 errors, 5 warnings
+    Info: Peak virtual memory: 5436 megabytes
+    Info: Processing ended: Sun Jun 30 23:30:29 2024
+    Info: Elapsed time: 00:00:06
+    Info: Total CPU time (on all processors): 00:00:04
 
 
 +----------------------------+

@@ -14,7 +14,7 @@ use ieee.std_logic_1164.all;
 -- Deslocamento a esquerda: 1010
 -- Deslocamento a direita: 0101
 
-entity controlador is
+entity unidade_de_controle_ciclo_unico is
     port(
         -- entradas
         opcode                                  :   in std_logic_vector(6 downto 0);
@@ -27,12 +27,12 @@ entity controlador is
         --sinal para instrucao b
         branch                                  :   out std_logic;
         --sinal para blocos
-        regWrite, memWrite, memRead             :   out std_logic;
+        regWrite, memWrite, memRead, pcWrite    :   out std_logic;
         ALUOp                                   :   out std_logic_vector(3 downto 0)
     );
-end entity controlador;
+end entity unidade_de_controle_ciclo_unico;
 
-architecture behavior of controlador is
+architecture behavior of unidade_de_controle_ciclo_unico is
     --concatenatar functs
     --signal funct  : std_logic_vector(9 downto 0) := funct7 & funct3;
 
@@ -49,6 +49,7 @@ architecture behavior of controlador is
                         memWrite <= '0';
                         memToReg <= '1';
                         jump <= '0';
+                        pcWrite <= '1';
                         memRead <= '1';
                         ALUOp <="0010"; --somar
                     
@@ -57,9 +58,10 @@ architecture behavior of controlador is
                         regWrite <= '1';
                         branch <= '0';
                         memWrite <= '0';
-                        memToReg <= "0";
+                        memToReg <= '0';
                         jump <= '0';
-                        memRead <= "0";
+                        memRead <= '0';
+                        pcWrite <= '1';
                         case funct3 is
                             when "000" => ALUOp <= "0010";  -- addi usar adição
                             when "010" => ALUOp <= "0111";  -- slti usar menor que
@@ -79,6 +81,7 @@ architecture behavior of controlador is
                         memToReg <= '0';
                         jump <= '0';
                         memRead <= '0';
+                        pcWrite <= '1';
                         --definir operação da alu
                         case funct is
                             when "0000000000" => ALUOp <= "0010";  -- adição
@@ -99,6 +102,7 @@ architecture behavior of controlador is
                         memToReg <= '0';
                         jump <= '0';
                         memRead <= '0';
+                        pcWrite <= '1';
                         ALUOp <="0010"; --somar
 
                     when "1100011" =>   -- instrucao tipo B
@@ -108,6 +112,7 @@ architecture behavior of controlador is
                         memWrite <= '0';
                         memToReg <= '0';
                         jump <= '0';
+                        pcWrite <= '1';
                         memRead <= '0';
                         -- para todos os casos fazer uma sub e então decidir
                         case funct3 is
@@ -126,6 +131,7 @@ architecture behavior of controlador is
                         memToReg <= '0';
                         jump <= '1';
                         memRead <= '0';
+                        pcWrite <= '1';
                         ALUOp <="0010"; -- adicionar
 
                     when "1100111" =>   -- instrucao jalr
@@ -136,6 +142,7 @@ architecture behavior of controlador is
                         memToReg <= '0';
                         jump <= '1';
                         memRead <= '0';
+                        pcWrite <= '1';
                         ALUOp <="0010"; -- somar
 
                     when others => 
@@ -146,6 +153,7 @@ architecture behavior of controlador is
                         memToReg <= '0';
                         jump <= '0';
                         memRead <= '0';
+                        pcWrite <= '1';
                         ALUOp <="1111"; -- faz nada
 
                 end case;

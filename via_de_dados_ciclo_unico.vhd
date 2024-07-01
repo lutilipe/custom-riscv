@@ -28,10 +28,12 @@ ENTITY via_de_dados_ciclo_unico IS
 		regWrite : IN std_logic;
 		ALUSrc   : IN std_logic;
 		memToReg : IN std_logic;
+		pcWrite  : IN std_logic;
 		ALUOp    : IN std_logic_vector(ula_ctrl_width - 1 DOWNTO 0);
 		opcode   : OUT std_logic_vector(6 DOWNTO 0);
 		funct3   : OUT std_logic_vector(14 DOWNTO 12);
-		funct7   : OUT std_logic_vector(31 DOWNTO 25)
+		funct7   : OUT std_logic_vector(31 DOWNTO 25);
+		saida    : OUT std_logic_vector(data_width - 1 downto 0)
 	);
 END ENTITY via_de_dados_ciclo_unico;
 
@@ -148,7 +150,6 @@ ARCHITECTURE comportamento OF via_de_dados_ciclo_unico IS
 	-- componentes onde serão usados.
 	-- Veja os exemplos abaixo:
 
-	SIGNAL aux_we             : std_logic;
 	SIGNAL aux_pc_out         : std_logic_vector(pc_width - 1 DOWNTO 0);
 	SIGNAL aux_novo_pc        : std_logic_vector(pc_width - 1 DOWNTO 0);
 	SIGNAL aux_out_sum_pc     : std_logic_vector(pc_width - 1 DOWNTO 0);
@@ -163,7 +164,7 @@ ARCHITECTURE comportamento OF via_de_dados_ciclo_unico IS
 
 	SIGNAL aux_data_outrs     : std_logic_vector(data_width - 1 DOWNTO 0);
 	SIGNAL aux_data_outrt     : std_logic_vector(data_width - 1 DOWNTO 0);
-	SIGNAL aux_data_in        : std_logic_vector(data_width - 1 DOWNTO 0);
+	SIGNAL aux_alu_out        : std_logic_vector(data_width - 1 DOWNTO 0);
 	SIGNAL aux_mux_data       : std_logic_vector(data_width - 1 DOWNTO 0);
 	SIGNAL aux_mem_dado_out   : std_logic_vector(data_width - 1 DOWNTO 0);
 	
@@ -183,7 +184,7 @@ BEGIN
 		entrada => aux_novo_pc, 
 		saida   => aux_pc_out, 
 		clk     => clock, 
-		we      => aux_we, 
+		we      => pcWrite, 
 		reset   => reset
 	);
 
@@ -276,7 +277,7 @@ BEGIN
 						entrada_a => aux_data_outrs, 
 						entrada_b => aux_out_mux_ula, 
 						seletor   => ALUOp, 
-						saida     => aux_data_in,
+						saida     => aux_alu_out,
 						zero		 => aux_zero_ula
 	);
  
@@ -291,7 +292,7 @@ BEGIN
 			mem_write      => memWrite, 
 			mem_read       => memRead, 
 			write_data_mem => aux_data_outrt, 
-			adress_mem     => aux_data_in, 
+			adress_mem     => aux_alu_out, 
 			read_data_mem  => aux_mem_dado_out
 		);
  
@@ -301,7 +302,7 @@ BEGIN
 				largura_dado => data_width
 				)
 				PORT MAP(
-					dado_ent_0 => aux_data_in, 
+					dado_ent_0 => aux_alu_out, 
 					dado_ent_1 => aux_mem_dado_out, 
 					sele_ent   => memToReg, 
 					dado_sai   => aux_mux_data
@@ -310,5 +311,7 @@ BEGIN
 	opcode <= aux_instrucao(6 DOWNTO 0);
 	funct3 <= aux_instrucao(14 DOWNTO 12);
 	funct7 <= aux_instrucao(31 DOWNTO 25);
+	saida  <= aux_alu_out;
+
  
 END ARCHITECTURE comportamento;

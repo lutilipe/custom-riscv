@@ -1,5 +1,5 @@
 Timing Analyzer report for custom-riscv
-Sun Jun 30 21:15:21 2024
+Sun Jun 30 23:30:35 2024
 Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
 
 
@@ -16,11 +16,19 @@ Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
   8. Recovery Summary
   9. Removal Summary
  10. Minimum Pulse Width Summary
- 11. Clock Transfers
- 12. Report TCCS
- 13. Report RSKM
- 14. Unconstrained Paths Summary
- 15. Timing Analyzer Messages
+ 11. Setup: 'Clock'
+ 12. Hold: 'Clock'
+ 13. Setup Transfers
+ 14. Hold Transfers
+ 15. Report TCCS
+ 16. Report RSKM
+ 17. Unconstrained Paths Summary
+ 18. Clock Status Summary
+ 19. Unconstrained Input Ports
+ 20. Unconstrained Output Ports
+ 21. Unconstrained Input Ports
+ 22. Unconstrained Output Ports
+ 23. Timing Analyzer Messages
 
 
 
@@ -51,7 +59,7 @@ https://fpgasoftware.intel.com/eula.
 ; Timing Analyzer       ; Legacy Timing Analyzer                                 ;
 ; Revision Name         ; custom-riscv                                           ;
 ; Device Family         ; MAX V                                                  ;
-; Device Name           ; 5M40ZE64C4                                             ;
+; Device Name           ; 5M160ZT100C4                                           ;
 ; Timing Models         ; Final                                                  ;
 ; Delay Model           ; Slow Model                                             ;
 ; Rise/Fall Delays      ; Unavailable                                            ;
@@ -74,28 +82,41 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-----------
-; Clocks ;
-----------
-No clocks to report.
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                            ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets   ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------+
+; Clock      ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { Clock } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------+
 
 
-----------------
-; Fmax Summary ;
-----------------
-No paths to report.
++-------------------------------------------------+
+; Fmax Summary                                    ;
++-----------+-----------------+------------+------+
+; Fmax      ; Restricted Fmax ; Clock Name ; Note ;
++-----------+-----------------+------------+------+
+; 72.81 MHz ; 72.81 MHz       ; Clock      ;      ;
++-----------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
 
------------------
-; Setup Summary ;
------------------
-No paths to report.
++---------------------------------+
+; Setup Summary                   ;
++-------+---------+---------------+
+; Clock ; Slack   ; End Point TNS ;
++-------+---------+---------------+
+; Clock ; -12.734 ; -438.722      ;
++-------+---------+---------------+
 
 
-----------------
-; Hold Summary ;
-----------------
-No paths to report.
++-------------------------------+
+; Hold Summary                  ;
++-------+-------+---------------+
+; Clock ; Slack ; End Point TNS ;
++-------+-------+---------------+
+; Clock ; 2.334 ; 0.000         ;
++-------+-------+---------------+
 
 
 --------------------
@@ -110,16 +131,249 @@ No paths to report.
 No paths to report.
 
 
--------------------------------
-; Minimum Pulse Width Summary ;
--------------------------------
-No paths to report.
++--------------------------------+
+; Minimum Pulse Width Summary    ;
++-------+--------+---------------+
+; Clock ; Slack  ; End Point TNS ;
++-------+--------+---------------+
+; Clock ; -2.289 ; -2.289        ;
++-------+--------+---------------+
 
 
--------------------
-; Clock Transfers ;
--------------------
-Nothing to report.
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'Clock'                                                                                                                                                                                                                                                                ;
++---------+-----------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack   ; From Node                                                                                     ; To Node                                                                                       ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++---------+-----------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; -12.734 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~49 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 13.474     ;
+; -12.345 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~58 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 13.085     ;
+; -12.341 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[5]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~58 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 13.081     ;
+; -12.303 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[5]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~49 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 13.043     ;
+; -12.218 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[5]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~45 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 12.958     ;
+; -12.178 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~53 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 12.918     ;
+; -12.128 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[5]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~47 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 12.868     ;
+; -12.044 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~47 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 12.784     ;
+; -12.040 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~63 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 12.780     ;
+; -12.036 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[5]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~63 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 12.776     ;
+; -12.030 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~48 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 12.770     ;
+; -11.989 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[5]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~48 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 12.729     ;
+; -11.951 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[5]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~53 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 12.691     ;
+; -11.938 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~51 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 12.678     ;
+; -11.878 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[5]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~44 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 12.618     ;
+; -11.849 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~54 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 12.589     ;
+; -11.845 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[5]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~54 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 12.585     ;
+; -11.803 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~45 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 12.543     ;
+; -11.752 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[5]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~41 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 12.492     ;
+; -11.692 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[5]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~39 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 12.432     ;
+; -11.661 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~59 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 12.401     ;
+; -11.657 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[5]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~59 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 12.397     ;
+; -11.643 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~52 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 12.383     ;
+; -11.632 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~62 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 12.372     ;
+; -11.628 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[5]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~62 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 12.368     ;
+; -11.595 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~50 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 12.335     ;
+; -11.572 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~57 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 12.312     ;
+; -11.568 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[5]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~57 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 12.308     ;
+; -11.539 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~55 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 12.279     ;
+; -11.535 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[5]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~55 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 12.275     ;
+; -11.507 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[5]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~51 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 12.247     ;
+; -11.476 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~56 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 12.216     ;
+; -11.472 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[5]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~56 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 12.212     ;
+; -11.463 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~44 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 12.203     ;
+; -11.453 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~42 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~49 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 12.193     ;
+; -11.435 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~65 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 12.175     ;
+; -11.431 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[5]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~65 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 12.171     ;
+; -11.420 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~44 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~49 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 12.160     ;
+; -11.415 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~41 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 12.155     ;
+; -11.388 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~61 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 12.128     ;
+; -11.385 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[5]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~46 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 12.125     ;
+; -11.384 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[5]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~61 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 12.124     ;
+; -11.375 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~60 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 12.115     ;
+; -11.371 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[5]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~60 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 12.111     ;
+; -11.368 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~42 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~45 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 12.108     ;
+; -11.355 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~39 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 12.095     ;
+; -11.291 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[5]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~52 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 12.031     ;
+; -11.278 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~42 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~47 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 12.018     ;
+; -11.243 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~45 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~49 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 11.983     ;
+; -11.198 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~43 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~49 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 11.938     ;
+; -11.164 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[5]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~50 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 11.904     ;
+; -11.139 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~42 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~48 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 11.879     ;
+; -11.133 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~64 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 11.873     ;
+; -11.129 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[5]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~64 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 11.869     ;
+; -11.113 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~43 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~45 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 11.853     ;
+; -11.064 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~42 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~58 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 11.804     ;
+; -11.031 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~44 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~58 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 11.771     ;
+; -11.028 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~42 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~44 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 11.768     ;
+; -11.023 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~69 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 11.763     ;
+; -11.023 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~43 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~47 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 11.763     ;
+; -11.019 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[5]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~69 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 11.759     ;
+; -10.977 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~68 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 11.717     ;
+; -10.973 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[5]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~68 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 11.713     ;
+; -10.970 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~46 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 11.710     ;
+; -10.897 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~42 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~53 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 11.637     ;
+; -10.884 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~43 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~48 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 11.624     ;
+; -10.864 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~44 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~53 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 11.604     ;
+; -10.854 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~45 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~58 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 11.594     ;
+; -10.809 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~43 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~58 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 11.549     ;
+; -10.806 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~55 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~63 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 11.546     ;
+; -10.804 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~40 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~49 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 11.544     ;
+; -10.785 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[5]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~40 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 11.525     ;
+; -10.773 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~43 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~44 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 11.513     ;
+; -10.759 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~42 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~63 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 11.499     ;
+; -10.730 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~44 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~47 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 11.470     ;
+; -10.726 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~44 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~63 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 11.466     ;
+; -10.721 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~55 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~58 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 11.461     ;
+; -10.719 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~40 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~45 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 11.459     ;
+; -10.716 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~44 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~48 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 11.456     ;
+; -10.710 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~67 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 11.450     ;
+; -10.706 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[5]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~67 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 11.446     ;
+; -10.699 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~66 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 11.439     ;
+; -10.698 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~47 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~49 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 11.438     ;
+; -10.695 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[5]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~66 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 11.435     ;
+; -10.687 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~45 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~53 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 11.427     ;
+; -10.657 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~42 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~51 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 11.397     ;
+; -10.642 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~43 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~53 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 11.382     ;
+; -10.639 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~38 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~49 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 11.379     ;
+; -10.629 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~40 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~47 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 11.369     ;
+; -10.624 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~44 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~51 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 11.364     ;
+; -10.611 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~48 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~49 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 11.351     ;
+; -10.570 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~44 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~45 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 11.310     ;
+; -10.568 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~42 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~54 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 11.308     ;
+; -10.554 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~38 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~45 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 11.294     ;
+; -10.553 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~45 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~47 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 11.293     ;
+; -10.553 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~49 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~58 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 11.293     ;
+; -10.549 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~45 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~63 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 11.289     ;
+; -10.544 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~53 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~58 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 11.284     ;
+; -10.539 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~45 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~48 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 11.279     ;
+; -10.535 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~44 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~54 ; Clock        ; Clock       ; 1.000        ; 0.000      ; 11.275     ;
++---------+-----------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'Clock'                                                                                                                                                                                                                                                               ;
++-------+-----------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                                                                     ; To Node                                                                                       ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-----------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 2.334 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[1]                                   ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[30]                 ; Clock        ; Clock       ; 0.000        ; 0.000      ; 2.408      ;
+; 2.813 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[5]                                   ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[5]                                   ; Clock        ; Clock       ; 0.000        ; 0.000      ; 2.887      ;
+; 2.833 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[6]                                   ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[6]                                   ; Clock        ; Clock       ; 0.000        ; 0.000      ; 2.907      ;
+; 2.843 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[3]                                   ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[3]                                   ; Clock        ; Clock       ; 0.000        ; 0.000      ; 2.917      ;
+; 2.850 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[7]                                   ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[7]                                   ; Clock        ; Clock       ; 0.000        ; 0.000      ; 2.924      ;
+; 2.850 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[8]                                   ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[8]                                   ; Clock        ; Clock       ; 0.000        ; 0.000      ; 2.924      ;
+; 2.928 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[4]                                   ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[4]                                   ; Clock        ; Clock       ; 0.000        ; 0.000      ; 3.002      ;
+; 2.962 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[9]                                   ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[9]                                   ; Clock        ; Clock       ; 0.000        ; 0.000      ; 3.036      ;
+; 2.981 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[10]                                  ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[10]                                  ; Clock        ; Clock       ; 0.000        ; 0.000      ; 3.055      ;
+; 2.981 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[11]                                  ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[11]                                  ; Clock        ; Clock       ; 0.000        ; 0.000      ; 3.055      ;
+; 2.982 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[12]                                  ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[12]                                  ; Clock        ; Clock       ; 0.000        ; 0.000      ; 3.056      ;
+; 2.993 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[2]                                   ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[2]                                   ; Clock        ; Clock       ; 0.000        ; 0.000      ; 3.067      ;
+; 3.000 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[1]                                   ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[1]                                   ; Clock        ; Clock       ; 0.000        ; 0.000      ; 3.074      ;
+; 3.009 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[0]                                   ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[0]                                   ; Clock        ; Clock       ; 0.000        ; 0.000      ; 3.083      ;
+; 3.010 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[0]                                   ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[30]                 ; Clock        ; Clock       ; 0.000        ; 0.000      ; 3.084      ;
+; 3.396 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~54 ; Clock        ; Clock       ; 0.000        ; 0.000      ; 3.470      ;
+; 3.396 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~57 ; Clock        ; Clock       ; 0.000        ; 0.000      ; 3.470      ;
+; 3.396 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~44 ; Clock        ; Clock       ; 0.000        ; 0.000      ; 3.470      ;
+; 3.396 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~45 ; Clock        ; Clock       ; 0.000        ; 0.000      ; 3.470      ;
+; 3.472 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~47 ; Clock        ; Clock       ; 0.000        ; 0.000      ; 3.546      ;
+; 3.539 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[5]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~54 ; Clock        ; Clock       ; 0.000        ; 0.000      ; 3.613      ;
+; 3.547 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[5]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~57 ; Clock        ; Clock       ; 0.000        ; 0.000      ; 3.621      ;
+; 3.554 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[6]                                   ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[7]                                   ; Clock        ; Clock       ; 0.000        ; 0.000      ; 3.628      ;
+; 3.564 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[3]                                   ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[4]                                   ; Clock        ; Clock       ; 0.000        ; 0.000      ; 3.638      ;
+; 3.571 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[7]                                   ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[8]                                   ; Clock        ; Clock       ; 0.000        ; 0.000      ; 3.645      ;
+; 3.571 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[8]                                   ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[9]                                   ; Clock        ; Clock       ; 0.000        ; 0.000      ; 3.645      ;
+; 3.667 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[6]                                   ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[8]                                   ; Clock        ; Clock       ; 0.000        ; 0.000      ; 3.741      ;
+; 3.677 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[3]                                   ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[5]                                   ; Clock        ; Clock       ; 0.000        ; 0.000      ; 3.751      ;
+; 3.684 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[8]                                   ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[10]                                  ; Clock        ; Clock       ; 0.000        ; 0.000      ; 3.758      ;
+; 3.684 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[7]                                   ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[9]                                   ; Clock        ; Clock       ; 0.000        ; 0.000      ; 3.758      ;
+; 3.715 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[5]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~62 ; Clock        ; Clock       ; 0.000        ; 0.000      ; 3.789      ;
+; 3.716 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[5]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~55 ; Clock        ; Clock       ; 0.000        ; 0.000      ; 3.790      ;
+; 3.716 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[5]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~61 ; Clock        ; Clock       ; 0.000        ; 0.000      ; 3.790      ;
+; 3.720 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[5]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~58 ; Clock        ; Clock       ; 0.000        ; 0.000      ; 3.794      ;
+; 3.721 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[5]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~59 ; Clock        ; Clock       ; 0.000        ; 0.000      ; 3.795      ;
+; 3.723 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[5]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~60 ; Clock        ; Clock       ; 0.000        ; 0.000      ; 3.797      ;
+; 3.754 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[2]                                   ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[5]                  ; Clock        ; Clock       ; 0.000        ; 0.000      ; 3.828      ;
+; 3.769 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~63 ; Clock        ; Clock       ; 0.000        ; 0.000      ; 3.843      ;
+; 3.780 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[6]                                   ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[9]                                   ; Clock        ; Clock       ; 0.000        ; 0.000      ; 3.854      ;
+; 3.793 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[4]                                   ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[5]                                   ; Clock        ; Clock       ; 0.000        ; 0.000      ; 3.867      ;
+; 3.797 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[7]                                   ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[10]                                  ; Clock        ; Clock       ; 0.000        ; 0.000      ; 3.871      ;
+; 3.827 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[9]                                   ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[10]                                  ; Clock        ; Clock       ; 0.000        ; 0.000      ; 3.901      ;
+; 3.846 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[11]                                  ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[12]                                  ; Clock        ; Clock       ; 0.000        ; 0.000      ; 3.920      ;
+; 3.858 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[2]                                   ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[3]                                   ; Clock        ; Clock       ; 0.000        ; 0.000      ; 3.932      ;
+; 3.865 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[1]                                   ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[2]                                   ; Clock        ; Clock       ; 0.000        ; 0.000      ; 3.939      ;
+; 3.893 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[6]                                   ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[10]                                  ; Clock        ; Clock       ; 0.000        ; 0.000      ; 3.967      ;
+; 3.913 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[5]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~48 ; Clock        ; Clock       ; 0.000        ; 0.000      ; 3.987      ;
+; 3.942 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~56 ; Clock        ; Clock       ; 0.000        ; 0.000      ; 4.016      ;
+; 3.951 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~53 ; Clock        ; Clock       ; 0.000        ; 0.000      ; 4.025      ;
+; 3.951 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[5]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~49 ; Clock        ; Clock       ; 0.000        ; 0.000      ; 4.025      ;
+; 3.971 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[2]                                   ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[4]                                   ; Clock        ; Clock       ; 0.000        ; 0.000      ; 4.045      ;
+; 3.978 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[1]                                   ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[3]                                   ; Clock        ; Clock       ; 0.000        ; 0.000      ; 4.052      ;
+; 4.034 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[5]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~45 ; Clock        ; Clock       ; 0.000        ; 0.000      ; 4.108      ;
+; 4.066 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[12]                                  ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[30]                 ; Clock        ; Clock       ; 0.000        ; 0.000      ; 4.140      ;
+; 4.084 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[2]                                   ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[5]                                   ; Clock        ; Clock       ; 0.000        ; 0.000      ; 4.158      ;
+; 4.091 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[1]                                   ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[4]                                   ; Clock        ; Clock       ; 0.000        ; 0.000      ; 4.165      ;
+; 4.117 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~67 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~67 ; Clock        ; Clock       ; 0.000        ; 0.000      ; 4.191      ;
+; 4.187 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[8]                                   ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[12]                                  ; Clock        ; Clock       ; 0.000        ; 0.000      ; 4.261      ;
+; 4.187 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[8]                                   ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[11]                                  ; Clock        ; Clock       ; 0.000        ; 0.000      ; 4.261      ;
+; 4.204 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[1]                                   ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[5]                                   ; Clock        ; Clock       ; 0.000        ; 0.000      ; 4.278      ;
+; 4.212 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~69 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~69 ; Clock        ; Clock       ; 0.000        ; 0.000      ; 4.286      ;
+; 4.214 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~38 ; Clock        ; Clock       ; 0.000        ; 0.000      ; 4.288      ;
+; 4.214 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~41 ; Clock        ; Clock       ; 0.000        ; 0.000      ; 4.288      ;
+; 4.214 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~42 ; Clock        ; Clock       ; 0.000        ; 0.000      ; 4.288      ;
+; 4.225 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[10]                                  ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[12]                                  ; Clock        ; Clock       ; 0.000        ; 0.000      ; 4.299      ;
+; 4.225 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[10]                                  ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[11]                                  ; Clock        ; Clock       ; 0.000        ; 0.000      ; 4.299      ;
+; 4.253 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[0]                                   ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[4]                                   ; Clock        ; Clock       ; 0.000        ; 0.000      ; 4.327      ;
+; 4.253 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[0]                                   ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[5]                                   ; Clock        ; Clock       ; 0.000        ; 0.000      ; 4.327      ;
+; 4.253 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[0]                                   ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[1]                                   ; Clock        ; Clock       ; 0.000        ; 0.000      ; 4.327      ;
+; 4.253 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[0]                                   ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[2]                                   ; Clock        ; Clock       ; 0.000        ; 0.000      ; 4.327      ;
+; 4.253 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[0]                                   ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[3]                                   ; Clock        ; Clock       ; 0.000        ; 0.000      ; 4.327      ;
+; 4.298 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[12]                                  ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0]                  ; Clock        ; Clock       ; 0.000        ; 0.000      ; 4.372      ;
+; 4.298 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~39 ; Clock        ; Clock       ; 0.000        ; 0.000      ; 4.372      ;
+; 4.298 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~40 ; Clock        ; Clock       ; 0.000        ; 0.000      ; 4.372      ;
+; 4.298 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~48 ; Clock        ; Clock       ; 0.000        ; 0.000      ; 4.372      ;
+; 4.298 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~49 ; Clock        ; Clock       ; 0.000        ; 0.000      ; 4.372      ;
+; 4.300 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[7]                                   ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[12]                                  ; Clock        ; Clock       ; 0.000        ; 0.000      ; 4.374      ;
+; 4.300 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[7]                                   ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[11]                                  ; Clock        ; Clock       ; 0.000        ; 0.000      ; 4.374      ;
+; 4.305 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[5]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~63 ; Clock        ; Clock       ; 0.000        ; 0.000      ; 4.379      ;
+; 4.330 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[9]                                   ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[12]                                  ; Clock        ; Clock       ; 0.000        ; 0.000      ; 4.404      ;
+; 4.330 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[9]                                   ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[11]                                  ; Clock        ; Clock       ; 0.000        ; 0.000      ; 4.404      ;
+; 4.340 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[30]                 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~57 ; Clock        ; Clock       ; 0.000        ; 0.000      ; 4.414      ;
+; 4.345 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[30]                 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~54 ; Clock        ; Clock       ; 0.000        ; 0.000      ; 4.419      ;
+; 4.350 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~43 ; Clock        ; Clock       ; 0.000        ; 0.000      ; 4.424      ;
+; 4.350 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~50 ; Clock        ; Clock       ; 0.000        ; 0.000      ; 4.424      ;
+; 4.350 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~51 ; Clock        ; Clock       ; 0.000        ; 0.000      ; 4.424      ;
+; 4.350 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~52 ; Clock        ; Clock       ; 0.000        ; 0.000      ; 4.424      ;
+; 4.383 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[5]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~47 ; Clock        ; Clock       ; 0.000        ; 0.000      ; 4.457      ;
+; 4.395 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~68 ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~68 ; Clock        ; Clock       ; 0.000        ; 0.000      ; 4.469      ;
+; 4.396 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[6]                                   ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[12]                                  ; Clock        ; Clock       ; 0.000        ; 0.000      ; 4.470      ;
+; 4.396 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[6]                                   ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[11]                                  ; Clock        ; Clock       ; 0.000        ; 0.000      ; 4.470      ;
+; 4.431 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[3]                                   ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[30]                 ; Clock        ; Clock       ; 0.000        ; 0.000      ; 4.505      ;
+; 4.453 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[5]                                   ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[6]                                   ; Clock        ; Clock       ; 0.000        ; 0.000      ; 4.527      ;
+; 4.453 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[5]                                   ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[7]                                   ; Clock        ; Clock       ; 0.000        ; 0.000      ; 4.527      ;
+; 4.453 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[5]                                   ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[8]                                   ; Clock        ; Clock       ; 0.000        ; 0.000      ; 4.527      ;
+; 4.453 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[5]                                   ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[9]                                   ; Clock        ; Clock       ; 0.000        ; 0.000      ; 4.527      ;
+; 4.453 ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[5]                                   ; via_de_dados_ciclo_unico:via_dados|pc:instancia_pc|saida[10]                                  ; Clock        ; Clock       ; 0.000        ; 0.000      ; 4.527      ;
+; 4.465 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~55 ; Clock        ; Clock       ; 0.000        ; 0.000      ; 4.539      ;
+; 4.465 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~58 ; Clock        ; Clock       ; 0.000        ; 0.000      ; 4.539      ;
+; 4.465 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0]                  ; via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores|banco~59 ; Clock        ; Clock       ; 0.000        ; 0.000      ; 4.539      ;
++-------+-----------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; Clock      ; Clock    ; 3964     ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; Clock      ; Clock    ; 3964     ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
 
 ---------------
@@ -141,11 +395,118 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +---------------------------------+-------+------+
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
-; Unconstrained Input Ports       ; 0     ; 0    ;
-; Unconstrained Input Port Paths  ; 0     ; 0    ;
-; Unconstrained Output Ports      ; 0     ; 0    ;
-; Unconstrained Output Port Paths ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 1     ; 1    ;
+; Unconstrained Input Port Paths  ; 16    ; 16   ;
+; Unconstrained Output Ports      ; 32    ; 32   ;
+; Unconstrained Output Port Paths ; 624   ; 624  ;
 +---------------------------------+-------+------+
+
+
++-------------------------------------+
+; Clock Status Summary                ;
++--------+-------+------+-------------+
+; Target ; Clock ; Type ; Status      ;
++--------+-------+------+-------------+
+; Clock  ; Clock ; Base ; Constrained ;
++--------+-------+------+-------------+
+
+
++----------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                          ;
++-------------+--------------------------------------------------------------------------------------+
+; Input Port  ; Comment                                                                              ;
++-------------+--------------------------------------------------------------------------------------+
+; Chave_reset ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+--------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                                       ;
++--------------------------+---------------------------------------------------------------------------------------+
+; Output Port              ; Comment                                                                               ;
++--------------------------+---------------------------------------------------------------------------------------+
+; Leds_vermelhos_saida[0]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[1]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[2]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[3]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[4]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[5]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[6]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[7]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[8]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[9]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[10] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[11] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[12] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[13] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[14] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[15] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[16] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[17] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[18] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[19] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[20] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[21] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[22] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[23] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[24] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[25] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[26] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[27] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[28] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[29] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[30] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[31] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++--------------------------+---------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                          ;
++-------------+--------------------------------------------------------------------------------------+
+; Input Port  ; Comment                                                                              ;
++-------------+--------------------------------------------------------------------------------------+
+; Chave_reset ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+--------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                                       ;
++--------------------------+---------------------------------------------------------------------------------------+
+; Output Port              ; Comment                                                                               ;
++--------------------------+---------------------------------------------------------------------------------------+
+; Leds_vermelhos_saida[0]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[1]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[2]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[3]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[4]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[5]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[6]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[7]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[8]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[9]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[10] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[11] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[12] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[13] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[14] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[15] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[16] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[17] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[18] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[19] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[20] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[21] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[22] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[23] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[24] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[25] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[26] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[27] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[28] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[29] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[30] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; Leds_vermelhos_saida[31] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++--------------------------+---------------------------------------------------------------------------------------+
 
 
 +--------------------------+
@@ -154,7 +515,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
-    Info: Processing started: Sun Jun 30 21:15:20 2024
+    Info: Processing started: Sun Jun 30 23:30:33 2024
 Info: Command: quartus_sta custom-riscv -c custom-riscv
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -163,24 +524,32 @@ Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'custom-riscv.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
 Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
-Info (332096): The command derive_clocks did not find any clocks to derive.  No clocks were created or changed.
-Warning (332068): No clocks defined in design.
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name Clock Clock
 Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
-Info (332159): No clocks to report
-Info (332140): No fmax paths to report
 Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
-Info (332140): No Setup paths to report
-Info (332140): No Hold paths to report
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -12.734
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):   -12.734            -438.722 Clock 
+Info (332146): Worst-case hold slack is 2.334
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     2.334               0.000 Clock 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Info (332140): No Minimum Pulse Width paths to report
+Info (332146): Worst-case minimum pulse width slack is -2.289
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.289              -2.289 Clock 
 Info (332001): The selected device family is not supported by the report_metastability command.
-Info (332101): Design is fully constrained for setup requirements
-Info (332101): Design is fully constrained for hold requirements
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 3 warnings
-    Info: Peak virtual memory: 4681 megabytes
-    Info: Processing ended: Sun Jun 30 21:15:21 2024
-    Info: Elapsed time: 00:00:01
+    Info: Peak virtual memory: 4685 megabytes
+    Info: Processing ended: Sun Jun 30 23:30:35 2024
+    Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:01
 
 

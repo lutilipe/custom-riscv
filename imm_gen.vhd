@@ -1,12 +1,13 @@
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
-USE IEEE.STD_LOGIC_ARITH.ALL;
 USE IEEE.STD_LOGIC_UNSIGNED.ALL;
+USE IEEE.NUMERIC_STD.ALL;
+
 
 ENTITY imm_gen IS
 	GENERIC (
 		data_width  : NATURAL;
-      instr_width : NATURAL
+      		instr_width : NATURAL
 	);
 	PORT (
 		instrucao   : IN std_logic_vector(instr_width - 1 DOWNTO 0);
@@ -24,13 +25,13 @@ ARCHITECTURE comportamental OF imm_gen IS
 BEGIN
 	opcode <= instrucao(6 DOWNTO 0);
 
-	imm_i <= std_logic_vector(resize(instrucao(31 DOWNTO 20), imm_i'length));
+	imm_i <= std_logic_vector(resize(unsigned(instrucao(31 DOWNTO 20)), instr_width));
 
-	imm_s <= std_logic_vector(resize(instrucao(31 DOWNTO 25) & instrucao(11 DOWNTO 7), imm_i'length));
+	imm_s <= std_logic_vector(resize(unsigned(instrucao(31 DOWNTO 25) & instrucao(11 DOWNTO 7)), instr_width));
 
-	imm_b <= std_logic_vector(resize(instrucao(31 DOWNTO 25) & instrucao(11 DOWNTO 7), imm_i'length));
+	imm_b <= std_logic_vector(resize(unsigned(instrucao(31 DOWNTO 25) & instrucao(11 DOWNTO 7)), instr_width));
 
-	imm_j <= std_logic_vector(resize(instrucao(31 DOWNTO 12), imm_i'length));
+	imm_j <= std_logic_vector(resize(unsigned(instrucao(31 DOWNTO 12)), instr_width));
 
 	PROCESS (opcode, instrucao, imm_i, imm_s, imm_b, imm_j)
 	BEGIN

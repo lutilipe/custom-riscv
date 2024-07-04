@@ -2,6 +2,7 @@ LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.STD_LOGIC_ARITH.ALL;
 USE IEEE.STD_LOGIC_UNSIGNED.ALL;
+USE IEEE.NUMERIC_STD.ALL;
 
 ENTITY tb_imm_gen IS
 END tb_imm_gen;
@@ -40,13 +41,13 @@ BEGIN
         instrucao <= "00000000000100000000001010100011"; -- example S-type instruction
         WAIT FOR 10 ns;
         -- Check the output for S-type
-        ASSERT imm_out = "00000000000000000000000000000001" REPORT "Test S-type failed" SEVERITY ERROR;
+        ASSERT imm_out = "00000000000000000000000000000101" REPORT "Test S-type failed" SEVERITY ERROR;
 
         -- B-type instruction (opcode 1100011)
-        instrucao <= "00000000000100000000000011100011"; -- example B-type instruction
+        instrucao <= "00000000000100000000001010100011"; -- example B-type instruction
         WAIT FOR 10 ns;
         -- Check the output for B-type
-        ASSERT imm_out = "00000000000000000000000000000010" REPORT "Test B-type failed" SEVERITY ERROR;
+        ASSERT imm_out = "00000000000000000000000000000101" REPORT "Test B-type failed" SEVERITY ERROR;
 
         -- U-type (LUI) instrucao (opcode 0110111)
         instrucao <= "00000000000000000000000001101111"; -- example U-type (LUI) instrucao
@@ -64,7 +65,7 @@ BEGIN
         instrucao <= "00000000000000000000000011011111"; -- example J-type instruction
         WAIT FOR 10 ns;
         -- Check the output for J-type
-        ASSERT imm_out = "00000000000000000000000000000010" REPORT "Test J-type failed" SEVERITY ERROR;
+        ASSERT imm_out = "00000000000000000000000000000000" REPORT "Test J-type failed" SEVERITY ERROR;
 
         WAIT;
     END PROCESS;

@@ -13,25 +13,25 @@
 # Modifying modelsim.ini
 # vcom -93 -work altera {d:/quartus/eda/sim_lib/altera_syn_attributes.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:09:48 on Jul 07,2024
+# Start time: 20:50:07 on Jul 07,2024
 # vcom -reportprogress 300 -93 -work altera d:/quartus/eda/sim_lib/altera_syn_attributes.vhd 
 # -- Loading package STANDARD
 # -- Compiling package altera_syn_attributes
-# End time: 16:09:49 on Jul 07,2024, Elapsed time: 0:00:01
+# End time: 20:50:07 on Jul 07,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work altera {d:/quartus/eda/sim_lib/altera_standard_functions.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:09:49 on Jul 07,2024
+# Start time: 20:50:08 on Jul 07,2024
 # vcom -reportprogress 300 -93 -work altera d:/quartus/eda/sim_lib/altera_standard_functions.vhd 
 # -- Loading package STANDARD
 # -- Compiling package altera_standard_functions
 # -- Compiling package body altera_standard_functions
 # -- Loading package altera_standard_functions
-# End time: 16:09:49 on Jul 07,2024, Elapsed time: 0:00:00
+# End time: 20:50:08 on Jul 07,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work altera {d:/quartus/eda/sim_lib/alt_dspbuilder_package.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:09:49 on Jul 07,2024
+# Start time: 20:50:08 on Jul 07,2024
 # vcom -reportprogress 300 -93 -work altera d:/quartus/eda/sim_lib/alt_dspbuilder_package.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -40,11 +40,11 @@
 # -- Compiling package alt_dspbuilder_package
 # -- Compiling package body alt_dspbuilder_package
 # -- Loading package alt_dspbuilder_package
-# End time: 16:09:50 on Jul 07,2024, Elapsed time: 0:00:01
+# End time: 20:50:08 on Jul 07,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work altera {d:/quartus/eda/sim_lib/altera_europa_support_lib.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:09:50 on Jul 07,2024
+# Start time: 20:50:08 on Jul 07,2024
 # vcom -reportprogress 300 -93 -work altera d:/quartus/eda/sim_lib/altera_europa_support_lib.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -55,11 +55,11 @@
 # -- Compiling package altera_europa_support_lib
 # -- Compiling package body altera_europa_support_lib
 # -- Loading package altera_europa_support_lib
-# End time: 16:09:50 on Jul 07,2024, Elapsed time: 0:00:00
+# End time: 20:50:08 on Jul 07,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work altera {d:/quartus/eda/sim_lib/altera_primitives_components.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:09:50 on Jul 07,2024
+# Start time: 20:50:09 on Jul 07,2024
 # vcom -reportprogress 300 -93 -work altera d:/quartus/eda/sim_lib/altera_primitives_components.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -69,11 +69,11 @@
 # -- Compiling package dffeas_pack
 # -- Loading package dffeas_pack
 # -- Compiling package altera_primitives_components
-# End time: 16:09:50 on Jul 07,2024, Elapsed time: 0:00:00
+# End time: 20:50:09 on Jul 07,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work altera {d:/quartus/eda/sim_lib/altera_primitives.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:09:50 on Jul 07,2024
+# Start time: 20:50:09 on Jul 07,2024
 # vcom -reportprogress 300 -93 -work altera d:/quartus/eda/sim_lib/altera_primitives.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -161,7 +161,7 @@
 # -- Compiling architecture BEHAVIOR of alt_bidir_diff
 # -- Compiling entity alt_bidir_buf
 # -- Compiling architecture BEHAVIOR of alt_bidir_buf
-# End time: 16:09:51 on Jul 07,2024, Elapsed time: 0:00:01
+# End time: 20:50:09 on Jul 07,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vlib vhdl_libs/lpm
@@ -172,17 +172,17 @@
 # Modifying modelsim.ini
 # vcom -93 -work lpm {d:/quartus/eda/sim_lib/220pack.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:09:51 on Jul 07,2024
+# Start time: 20:50:10 on Jul 07,2024
 # vcom -reportprogress 300 -93 -work lpm d:/quartus/eda/sim_lib/220pack.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling package LPM_COMPONENTS
-# End time: 16:09:52 on Jul 07,2024, Elapsed time: 0:00:01
+# End time: 20:50:10 on Jul 07,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work lpm {d:/quartus/eda/sim_lib/220model.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:09:52 on Jul 07,2024
+# Start time: 20:50:10 on Jul 07,2024
 # vcom -reportprogress 300 -93 -work lpm d:/quartus/eda/sim_lib/220model.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -278,7 +278,7 @@
 # -- Compiling architecture LPM_SYN of LPM_OUTpad
 # -- Compiling entity LPM_BIpad
 # -- Compiling architecture LPM_SYN of LPM_BIpad
-# End time: 16:09:53 on Jul 07,2024, Elapsed time: 0:00:01
+# End time: 20:50:11 on Jul 07,2024, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # 
 # vlib vhdl_libs/sgate
@@ -289,7 +289,7 @@
 # Modifying modelsim.ini
 # vcom -93 -work sgate {d:/quartus/eda/sim_lib/sgate_pack.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:09:53 on Jul 07,2024
+# Start time: 20:50:11 on Jul 07,2024
 # vcom -reportprogress 300 -93 -work sgate d:/quartus/eda/sim_lib/sgate_pack.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -297,11 +297,11 @@
 # -- Compiling package sgate_pack
 # -- Compiling package body sgate_pack
 # -- Loading package sgate_pack
-# End time: 16:09:54 on Jul 07,2024, Elapsed time: 0:00:01
+# End time: 20:50:12 on Jul 07,2024, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vcom -93 -work sgate {d:/quartus/eda/sim_lib/sgate.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:09:54 on Jul 07,2024
+# Start time: 20:50:12 on Jul 07,2024
 # vcom -reportprogress 300 -93 -work sgate d:/quartus/eda/sim_lib/sgate.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -351,7 +351,7 @@
 # -- Compiling architecture sim_arch of oper_bus_mux
 # -- Compiling entity oper_latch
 # -- Compiling architecture sim_arch of oper_latch
-# End time: 16:09:54 on Jul 07,2024, Elapsed time: 0:00:00
+# End time: 20:50:12 on Jul 07,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vlib vhdl_libs/altera_mf
@@ -362,17 +362,17 @@
 # Modifying modelsim.ini
 # vcom -93 -work altera_mf {d:/quartus/eda/sim_lib/altera_mf_components.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:09:55 on Jul 07,2024
+# Start time: 20:50:13 on Jul 07,2024
 # vcom -reportprogress 300 -93 -work altera_mf d:/quartus/eda/sim_lib/altera_mf_components.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling package altera_mf_components
-# End time: 16:09:58 on Jul 07,2024, Elapsed time: 0:00:03
+# End time: 20:50:13 on Jul 07,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work altera_mf {d:/quartus/eda/sim_lib/altera_mf.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:09:58 on Jul 07,2024
+# Start time: 20:50:13 on Jul 07,2024
 # vcom -reportprogress 300 -93 -work altera_mf d:/quartus/eda/sim_lib/altera_mf.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -611,7 +611,7 @@
 # -- Compiling architecture sim_sld_virtual_jtag_basic of sld_virtual_jtag_basic
 # -- Compiling entity altsource_probe
 # -- Compiling architecture sim_altsource_probe of altsource_probe
-# End time: 16:10:01 on Jul 07,2024, Elapsed time: 0:00:03
+# End time: 20:50:16 on Jul 07,2024, Elapsed time: 0:00:03
 # Errors: 0, Warnings: 0
 # 
 # vlib vhdl_libs/altera_lnsim
@@ -622,21 +622,21 @@
 # Modifying modelsim.ini
 # vlog -sv -work altera_lnsim {d:/quartus/eda/sim_lib/mentor/altera_lnsim_for_vhdl.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:10:02 on Jul 07,2024
+# Start time: 20:50:17 on Jul 07,2024
 # vlog -reportprogress 300 -sv -work altera_lnsim d:/quartus/eda/sim_lib/mentor/altera_lnsim_for_vhdl.sv 
 # 
 # Top level modules:
-# End time: 16:10:05 on Jul 07,2024, Elapsed time: 0:00:03
+# End time: 20:50:18 on Jul 07,2024, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vcom -93 -work altera_lnsim {d:/quartus/eda/sim_lib/altera_lnsim_components.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:10:05 on Jul 07,2024
+# Start time: 20:50:18 on Jul 07,2024
 # vcom -reportprogress 300 -93 -work altera_lnsim d:/quartus/eda/sim_lib/altera_lnsim_components.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling package altera_lnsim_components
-# End time: 16:10:05 on Jul 07,2024, Elapsed time: 0:00:00
+# End time: 20:50:18 on Jul 07,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vlib vhdl_libs/maxv
@@ -647,7 +647,7 @@
 # Modifying modelsim.ini
 # vcom -93 -work maxv {d:/quartus/eda/sim_lib/maxv_atoms.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:10:05 on Jul 07,2024
+# Start time: 20:50:19 on Jul 07,2024
 # vcom -reportprogress 300 -93 -work maxv d:/quartus/eda/sim_lib/maxv_atoms.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -691,11 +691,11 @@
 # ** Warning: d:/quartus/eda/sim_lib/maxv_atoms.vhd(3345): (vcom-1288) VITAL timing generic "tpd_datainglitch_dataout" port specification "datainglitch" does not denote a port.
 # (1076.4 section 4.3.2.1.3)
 # -- Compiling architecture behave of maxv_routing_wire
-# End time: 16:10:06 on Jul 07,2024, Elapsed time: 0:00:01
+# End time: 20:50:19 on Jul 07,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 1
 # vcom -93 -work maxv {d:/quartus/eda/sim_lib/maxv_components.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:10:07 on Jul 07,2024
+# Start time: 20:50:19 on Jul 07,2024
 # vcom -reportprogress 300 -93 -work maxv d:/quartus/eda/sim_lib/maxv_components.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -704,7 +704,7 @@
 # -- Loading package VITAL_Primitives
 # -- Loading package maxv_atom_pack
 # -- Compiling package maxv_components
-# End time: 16:10:07 on Jul 07,2024, Elapsed time: 0:00:00
+# End time: 20:50:19 on Jul 07,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # if {[file exists rtl_work]} {
@@ -718,29 +718,29 @@
 # 
 # vcom -93 -work work {D:/custom-riscv/unidade_de_controle_ciclo_unico.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:10:07 on Jul 07,2024
+# Start time: 20:50:19 on Jul 07,2024
 # vcom -reportprogress 300 -93 -work work D:/custom-riscv/unidade_de_controle_ciclo_unico.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity unidade_de_controle_ciclo_unico
 # -- Compiling architecture behavior of unidade_de_controle_ciclo_unico
-# End time: 16:10:08 on Jul 07,2024, Elapsed time: 0:00:01
+# End time: 20:50:19 on Jul 07,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {D:/custom-riscv/processador_ciclo_unico.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:10:08 on Jul 07,2024
+# Start time: 20:50:20 on Jul 07,2024
 # vcom -reportprogress 300 -93 -work work D:/custom-riscv/processador_ciclo_unico.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity processador_ciclo_unico
 # -- Compiling architecture comportamento of processador_ciclo_unico
-# End time: 16:10:08 on Jul 07,2024, Elapsed time: 0:00:00
+# End time: 20:50:20 on Jul 07,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {D:/custom-riscv/imm_gen.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:10:08 on Jul 07,2024
+# Start time: 20:50:20 on Jul 07,2024
 # vcom -reportprogress 300 -93 -work work D:/custom-riscv/imm_gen.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -750,33 +750,33 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity imm_gen
 # -- Compiling architecture comportamental of imm_gen
-# End time: 16:10:08 on Jul 07,2024, Elapsed time: 0:00:00
+# End time: 20:50:20 on Jul 07,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {D:/custom-riscv/mux21.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:10:08 on Jul 07,2024
+# Start time: 20:50:20 on Jul 07,2024
 # vcom -reportprogress 300 -93 -work work D:/custom-riscv/mux21.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity mux21
 # -- Compiling architecture dataflow of mux21
-# End time: 16:10:08 on Jul 07,2024, Elapsed time: 0:00:00
+# End time: 20:50:20 on Jul 07,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {D:/custom-riscv/via_de_dados_ciclo_unico.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:10:08 on Jul 07,2024
+# Start time: 20:50:20 on Jul 07,2024
 # vcom -reportprogress 300 -93 -work work D:/custom-riscv/via_de_dados_ciclo_unico.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity via_de_dados_ciclo_unico
 # -- Compiling architecture comportamento of via_de_dados_ciclo_unico
-# End time: 16:10:08 on Jul 07,2024, Elapsed time: 0:00:00
+# End time: 20:50:20 on Jul 07,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {D:/custom-riscv/ula.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:10:08 on Jul 07,2024
+# Start time: 20:50:21 on Jul 07,2024
 # vcom -reportprogress 300 -93 -work work D:/custom-riscv/ula.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -784,11 +784,11 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity ula
 # -- Compiling architecture comportamental of ula
-# End time: 16:10:09 on Jul 07,2024, Elapsed time: 0:00:01
+# End time: 20:50:21 on Jul 07,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {D:/custom-riscv/somador.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:10:09 on Jul 07,2024
+# Start time: 20:50:21 on Jul 07,2024
 # vcom -reportprogress 300 -93 -work work D:/custom-riscv/somador.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -796,22 +796,22 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity somador
 # -- Compiling architecture dataflow of somador
-# End time: 16:10:09 on Jul 07,2024, Elapsed time: 0:00:00
+# End time: 20:50:21 on Jul 07,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {D:/custom-riscv/pc.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:10:09 on Jul 07,2024
+# Start time: 20:50:21 on Jul 07,2024
 # vcom -reportprogress 300 -93 -work work D:/custom-riscv/pc.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity pc
 # -- Compiling architecture comportamental of pc
-# End time: 16:10:09 on Jul 07,2024, Elapsed time: 0:00:00
+# End time: 20:50:21 on Jul 07,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {D:/custom-riscv/memi.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:10:09 on Jul 07,2024
+# Start time: 20:50:21 on Jul 07,2024
 # vcom -reportprogress 300 -93 -work work D:/custom-riscv/memi.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -820,11 +820,11 @@
 # -- Compiling entity memi
 # -- Compiling architecture comportamental of memi
 # ** Warning: D:/custom-riscv/memi.vhd(35): (vcom-1074) Non-locally static OTHERS choice is allowed only if it is the only choice of the only association.
-# End time: 16:10:09 on Jul 07,2024, Elapsed time: 0:00:00
+# End time: 20:50:21 on Jul 07,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 1
 # vcom -93 -work work {D:/custom-riscv/memd.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:10:09 on Jul 07,2024
+# Start time: 20:50:21 on Jul 07,2024
 # vcom -reportprogress 300 -93 -work work D:/custom-riscv/memd.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -832,11 +832,11 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity memd
 # -- Compiling architecture comportamental of memd
-# End time: 16:10:09 on Jul 07,2024, Elapsed time: 0:00:00
+# End time: 20:50:21 on Jul 07,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {D:/custom-riscv/banco_registradores.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:10:10 on Jul 07,2024
+# Start time: 20:50:22 on Jul 07,2024
 # vcom -reportprogress 300 -93 -work work D:/custom-riscv/banco_registradores.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -844,31 +844,35 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity banco_registradores
 # -- Compiling architecture comportamental of banco_registradores
-# End time: 16:10:10 on Jul 07,2024, Elapsed time: 0:00:00
+# End time: 20:50:22 on Jul 07,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
-# vcom -93 -work work {D:/custom-riscv/tb_memd.vhd}
+# vcom -93 -work work {D:/custom-riscv/tb_imm_gen.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:10:10 on Jul 07,2024
-# vcom -reportprogress 300 -93 -work work D:/custom-riscv/tb_memd.vhd 
+# Start time: 20:50:22 on Jul 07,2024
+# vcom -reportprogress 300 -93 -work work D:/custom-riscv/tb_imm_gen.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
 # -- Loading package NUMERIC_STD
-# -- Compiling entity tb_memd
-# -- Compiling architecture behavior of tb_memd
-# End time: 16:10:10 on Jul 07,2024, Elapsed time: 0:00:00
+# -- Compiling entity tb_imm_gen
+# -- Compiling architecture behavior of tb_imm_gen
+# End time: 20:50:22 on Jul 07,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
-# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L maxv -L rtl_work -L work -voptargs="+acc"  tb_memd
-# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L maxv -L rtl_work -L work -voptargs=""+acc"" tb_memd 
-# Start time: 16:10:10 on Jul 07,2024
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L maxv -L rtl_work -L work -voptargs="+acc"  tb_imm_gen
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L maxv -L rtl_work -L work -voptargs=""+acc"" tb_imm_gen 
+# Start time: 20:50:22 on Jul 07,2024
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
 # Loading ieee.numeric_std(body)
-# Loading work.tb_memd(behavior)
-# Loading work.memd(comportamental)
+# Loading work.tb_imm_gen(behavior)
+# Loading work.imm_gen(comportamental)
 # 
 # add wave *
 # view structure
@@ -876,5 +880,17 @@
 # view signals
 # .main_pane.objects.interior.cs.body.tree
 # run 100 ns
-# End time: 16:11:20 on Jul 07,2024, Elapsed time: 0:01:10
-# Errors: 0, Warnings: 0
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_imm_gen
+# ** Error: I-type instruction failed
+#    Time: 0 ps  Iteration: 0  Instance: /tb_imm_gen
+# ** Error: S-type instruction failed
+#    Time: 10 ns  Iteration: 0  Instance: /tb_imm_gen
+# ** Error: J-type instruction failed
+#    Time: 30 ns  Iteration: 0  Instance: /tb_imm_gen
+# ** Error: UJ-type instruction failed
+#    Time: 40 ns  Iteration: 0  Instance: /tb_imm_gen
+# ** Error: Default case failed
+#    Time: 50 ns  Iteration: 0  Instance: /tb_imm_gen
+# End time: 20:50:57 on Jul 07,2024, Elapsed time: 0:00:35
+# Errors: 5, Warnings: 1

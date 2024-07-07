@@ -24,9 +24,9 @@ V@`JZBcB_ImhTni@5NBoLZ1
 !s100 BOZJ9oC5mbmF<GeFW`hQa2
 Z7 OV;C;2020.1;71
 31
-Z8 !s110 1720379410
+Z8 !s110 1720396222
 !i10b 1
-Z9 !s108 1720379410.000000
+Z9 !s108 1720396222.000000
 Z10 !s90 -reportprogress|300|-93|-work|work|D:/custom-riscv/banco_registradores.vhd|
 Z11 !s107 D:/custom-riscv/banco_registradores.vhd|
 !i113 1
@@ -53,7 +53,7 @@ R11
 R12
 R13
 Eimm_gen
-Z14 w1720368458
+Z14 w1720395449
 R2
 Z15 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
 Z16 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
@@ -69,9 +69,9 @@ VEd6DeTSaIkE=5JUf3VKRS1
 !s100 ^nlT1D?`I7kn>O[_Ph_[<2
 R7
 31
-Z19 !s110 1720379408
+Z19 !s110 1720396220
 !i10b 1
-Z20 !s108 1720379408.000000
+Z20 !s108 1720396220.000000
 Z21 !s90 -reportprogress|300|-93|-work|work|D:/custom-riscv/imm_gen.vhd|
 Z22 !s107 D:/custom-riscv/imm_gen.vhd|
 !i113 1
@@ -114,9 +114,9 @@ VTk@H6Vd7X;3DQJiZEmIUV3
 !s100 D_f9PXh4oMc^`zMoEceFI2
 R7
 31
-Z26 !s110 1720379409
+Z26 !s110 1720396221
 !i10b 1
-Z27 !s108 1720379409.000000
+Z27 !s108 1720396221.000000
 Z28 !s90 -reportprogress|300|-93|-work|work|D:/custom-riscv/memd.vhd|
 Z29 !s107 D:/custom-riscv/memd.vhd|
 !i113 1
@@ -351,46 +351,50 @@ R55
 !i113 1
 R12
 R13
-Etb_memd
-Z56 w1720377339
+Etb_imm_gen
+Z56 w1720396193
 R2
+R15
+R16
 R3
 R4
 !i122 11
 R0
-Z57 8D:/custom-riscv/tb_memd.vhd
-Z58 FD:/custom-riscv/tb_memd.vhd
+Z57 8D:/custom-riscv/tb_imm_gen.vhd
+Z58 FD:/custom-riscv/tb_imm_gen.vhd
 l0
-R33
-VQMUXd1Do68:DT:kWiJKOW0
-!s100 zb=nGHH1Q22?H0^c7YR9l2
+L6 1
+V@Q<?m6X:K5eTz0Q;=JLEd2
+!s100 j3`hl:EGVg9o0I^Yc[RYR2
 R7
 31
 R8
 !i10b 1
 R9
-Z59 !s90 -reportprogress|300|-93|-work|work|D:/custom-riscv/tb_memd.vhd|
-!s107 D:/custom-riscv/tb_memd.vhd|
+Z59 !s90 -reportprogress|300|-93|-work|work|D:/custom-riscv/tb_imm_gen.vhd|
+!s107 D:/custom-riscv/tb_imm_gen.vhd|
 !i113 1
 R12
 R13
 Abehavior
 R2
+R15
+R16
 R3
 R4
-DEx4 work 7 tb_memd 0 22 QMUXd1Do68:DT:kWiJKOW0
+DEx4 work 10 tb_imm_gen 0 22 @Q<?m6X:K5eTz0Q;=JLEd2
 !i122 11
-l38
-L13 82
-VWn4CW:3c^REjHW[R`Yobb2
-!s100 inB<2C7`hnPYC>JnA3>`B1
+l31
+L9 83
+V55>HUodAW<@26>Wg@^?@B3
+!s100 Y_B>ZdaCYnO4AAfF5l[YM2
 R7
 31
 R8
 !i10b 1
 R9
 R59
-Z60 !s107 D:/custom-riscv/tb_memd.vhd|
+Z60 !s107 D:/custom-riscv/tb_imm_gen.vhd|
 !i113 1
 R12
 R13
@@ -411,7 +415,7 @@ R7
 31
 R26
 !i10b 1
-R20
+R27
 Z64 !s90 -reportprogress|300|-93|-work|work|D:/custom-riscv/ula.vhd|
 Z65 !s107 D:/custom-riscv/ula.vhd|
 !i113 1
@@ -431,7 +435,7 @@ R7
 31
 R26
 !i10b 1
-R20
+R27
 R64
 R65
 !i113 1
@@ -451,11 +455,11 @@ V0]3ZI:S:8DEhEONMPjeRe1
 !s100 E32C`mhl>aO0ZOBmLa^711
 R7
 31
-R19
+Z69 !s110 1720396219
 !i10b 1
-Z69 !s108 1720379407.000000
-Z70 !s90 -reportprogress|300|-93|-work|work|D:/custom-riscv/unidade_de_controle_ciclo_unico.vhd|
-Z71 !s107 D:/custom-riscv/unidade_de_controle_ciclo_unico.vhd|
+Z70 !s108 1720396219.000000
+Z71 !s90 -reportprogress|300|-93|-work|work|D:/custom-riscv/unidade_de_controle_ciclo_unico.vhd|
+Z72 !s107 D:/custom-riscv/unidade_de_controle_ciclo_unico.vhd|
 !i113 1
 R12
 R13
@@ -470,22 +474,22 @@ VFSdA[j:eaE^QeZn10D=mS1
 !s100 fb[Y4A7gJ6hR:W?ZNCCY>0
 R7
 31
-R19
-!i10b 1
 R69
+!i10b 1
 R70
 R71
+R72
 !i113 1
 R12
 R13
 Evia_de_dados_ciclo_unico
-Z72 w1719802400
+Z73 w1719802400
 R3
 R4
 !i122 4
 R0
-Z73 8D:/custom-riscv/via_de_dados_ciclo_unico.vhd
-Z74 FD:/custom-riscv/via_de_dados_ciclo_unico.vhd
+Z74 8D:/custom-riscv/via_de_dados_ciclo_unico.vhd
+Z75 FD:/custom-riscv/via_de_dados_ciclo_unico.vhd
 l0
 R33
 V;?KA;_Rb]GFLkkh@ObBCV0
@@ -495,8 +499,8 @@ R7
 R19
 !i10b 1
 R20
-Z75 !s90 -reportprogress|300|-93|-work|work|D:/custom-riscv/via_de_dados_ciclo_unico.vhd|
-Z76 !s107 D:/custom-riscv/via_de_dados_ciclo_unico.vhd|
+Z76 !s90 -reportprogress|300|-93|-work|work|D:/custom-riscv/via_de_dados_ciclo_unico.vhd|
+Z77 !s107 D:/custom-riscv/via_de_dados_ciclo_unico.vhd|
 !i113 1
 R12
 R13
@@ -514,8 +518,8 @@ R7
 R19
 !i10b 1
 R20
-R75
 R76
+R77
 !i113 1
 R12
 R13

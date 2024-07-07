@@ -55,9 +55,9 @@ vcom -93 -work work {D:/custom-riscv/memi.vhd}
 vcom -93 -work work {D:/custom-riscv/memd.vhd}
 vcom -93 -work work {D:/custom-riscv/banco_registradores.vhd}
 
-vcom -93 -work work {D:/custom-riscv/tb_memd.vhd}
+vcom -93 -work work {D:/custom-riscv/tb_imm_gen.vhd}
 
-vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L maxv -L rtl_work -L work -voptargs="+acc"  tb_memd
+vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L maxv -L rtl_work -L work -voptargs="+acc"  tb_imm_gen
 
 add wave *
 view structure

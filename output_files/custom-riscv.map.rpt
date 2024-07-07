@@ -1,5 +1,5 @@
 Analysis & Synthesis report for custom-riscv
-Sun Jul  7 15:40:58 2024
+Sun Jul  7 20:04:01 2024
 Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
 
 
@@ -59,12 +59,12 @@ https://fpgasoftware.intel.com/eula.
 +------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                 ;
 +-----------------------------+------------------------------------------------+
-; Analysis & Synthesis Status ; Successful - Sun Jul  7 15:40:58 2024          ;
+; Analysis & Synthesis Status ; Successful - Sun Jul  7 20:04:01 2024          ;
 ; Quartus Prime Version       ; 22.1std.1 Build 917 02/14/2023 SC Lite Edition ;
 ; Revision Name               ; custom-riscv                                   ;
 ; Top-level Entity Name       ; processador_ciclo_unico                        ;
 ; Family                      ; MAX V                                          ;
-; Total logic elements        ; 149                                            ;
+; Total logic elements        ; 252                                            ;
 ; Total pins                  ; 34                                             ;
 ; Total virtual pins          ; 0                                              ;
 ; UFM blocks                  ; 0 / 1 ( 0 % )                                  ;
@@ -176,39 +176,39 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+-----------------+-----------------+-----------------------------------------------------+---------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                                                                                ;
-+---------------------------------------------+------------------------------------------------------------------------------+
-; Resource                                    ; Usage                                                                        ;
-+---------------------------------------------+------------------------------------------------------------------------------+
-; Total logic elements                        ; 149                                                                          ;
-;     -- Combinational with no register       ; 101                                                                          ;
-;     -- Register only                        ; 32                                                                           ;
-;     -- Combinational with a register        ; 16                                                                           ;
-;                                             ;                                                                              ;
-; Logic element usage by number of LUT inputs ;                                                                              ;
-;     -- 4 input functions                    ; 39                                                                           ;
-;     -- 3 input functions                    ; 63                                                                           ;
-;     -- 2 input functions                    ; 14                                                                           ;
-;     -- 1 input functions                    ; 1                                                                            ;
-;     -- 0 input functions                    ; 0                                                                            ;
-;                                             ;                                                                              ;
-; Logic elements by mode                      ;                                                                              ;
-;     -- normal mode                          ; 106                                                                          ;
-;     -- arithmetic mode                      ; 43                                                                           ;
-;     -- qfbk mode                            ; 0                                                                            ;
-;     -- register cascade mode                ; 0                                                                            ;
-;     -- synchronous clear/load mode          ; 0                                                                            ;
-;     -- asynchronous clear/load mode         ; 13                                                                           ;
-;                                             ;                                                                              ;
-; Total registers                             ; 48                                                                           ;
-; Total logic cells in carry chains           ; 45                                                                           ;
-; I/O pins                                    ; 34                                                                           ;
-; Maximum fan-out node                        ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0] ;
-; Maximum fan-out                             ; 96                                                                           ;
-; Total fan-out                               ; 534                                                                          ;
-; Average fan-out                             ; 2.92                                                                         ;
-+---------------------------------------------+------------------------------------------------------------------------------+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Total logic elements                        ; 252   ;
+;     -- Combinational with no register       ; 107   ;
+;     -- Register only                        ; 127   ;
+;     -- Combinational with a register        ; 18    ;
+;                                             ;       ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 103   ;
+;     -- 3 input functions                    ; 6     ;
+;     -- 2 input functions                    ; 15    ;
+;     -- 1 input functions                    ; 1     ;
+;     -- 0 input functions                    ; 0     ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 240   ;
+;     -- arithmetic mode                      ; 12    ;
+;     -- qfbk mode                            ; 0     ;
+;     -- register cascade mode                ; 0     ;
+;     -- synchronous clear/load mode          ; 0     ;
+;     -- asynchronous clear/load mode         ; 13    ;
+;                                             ;       ;
+; Total registers                             ; 145   ;
+; Total logic cells in carry chains           ; 13    ;
+; I/O pins                                    ; 34    ;
+; Maximum fan-out node                        ; Clock ;
+; Maximum fan-out                             ; 145   ;
+; Total fan-out                               ; 910   ;
+; Average fan-out                             ; 3.18  ;
++---------------------------------------------+-------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -216,13 +216,12 @@ https://fpgasoftware.intel.com/eula.
 +-----------------------------------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------------------------------------------------------------------------------------------------+--------------------------+--------------+
 ; Compilation Hierarchy Node                                ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name                                                                                           ; Entity Name              ; Library Name ;
 +-----------------------------------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------------------------------------------------------------------------------------------------+--------------------------+--------------+
-; |processador_ciclo_unico                                  ; 149 (0)     ; 48           ; 0          ; 34   ; 0            ; 101 (0)      ; 32 (0)            ; 16 (0)           ; 45 (0)          ; 0 (0)      ; |processador_ciclo_unico                                                                                      ; processador_ciclo_unico  ; work         ;
-;    |via_de_dados_ciclo_unico:via_dados|                   ; 149 (0)     ; 48           ; 0          ; 0    ; 0            ; 101 (0)      ; 32 (0)            ; 16 (0)           ; 45 (0)          ; 0 (0)      ; |processador_ciclo_unico|via_de_dados_ciclo_unico:via_dados                                                   ; via_de_dados_ciclo_unico ; work         ;
-;       |banco_registradores:instancia_banco_registradores| ; 32 (32)     ; 32           ; 0          ; 0    ; 0            ; 0 (0)        ; 32 (32)           ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |processador_ciclo_unico|via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores ; banco_registradores      ; work         ;
-;       |memi:instancia_mem_instrucao|                      ; 8 (8)       ; 3            ; 0          ; 0    ; 0            ; 5 (5)        ; 0 (0)             ; 3 (3)            ; 0 (0)           ; 0 (0)      ; |processador_ciclo_unico|via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao                      ; memi                     ; work         ;
-;       |mux21:instancia_mux_ula|                           ; 32 (32)     ; 0            ; 0          ; 0    ; 0            ; 32 (32)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |processador_ciclo_unico|via_de_dados_ciclo_unico:via_dados|mux21:instancia_mux_ula                           ; mux21                    ; work         ;
+; |processador_ciclo_unico                                  ; 252 (0)     ; 145          ; 0          ; 34   ; 0            ; 107 (0)      ; 127 (0)           ; 18 (0)           ; 13 (0)          ; 0 (0)      ; |processador_ciclo_unico                                                                                      ; processador_ciclo_unico  ; work         ;
+;    |via_de_dados_ciclo_unico:via_dados|                   ; 252 (0)     ; 145          ; 0          ; 0    ; 0            ; 107 (0)      ; 127 (0)           ; 18 (0)           ; 13 (0)          ; 0 (0)      ; |processador_ciclo_unico|via_de_dados_ciclo_unico:via_dados                                                   ; via_de_dados_ciclo_unico ; work         ;
+;       |banco_registradores:instancia_banco_registradores| ; 192 (192)   ; 126          ; 0          ; 0    ; 0            ; 66 (66)      ; 126 (126)         ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |processador_ciclo_unico|via_de_dados_ciclo_unico:via_dados|banco_registradores:instancia_banco_registradores ; banco_registradores      ; work         ;
+;       |memi:instancia_mem_instrucao|                      ; 12 (12)     ; 6            ; 0          ; 0    ; 0            ; 6 (6)        ; 1 (1)             ; 5 (5)            ; 0 (0)           ; 0 (0)      ; |processador_ciclo_unico|via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao                      ; memi                     ; work         ;
 ;       |pc:instancia_pc|                                   ; 13 (13)     ; 13           ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 13 (13)          ; 13 (13)         ; 0 (0)      ; |processador_ciclo_unico|via_de_dados_ciclo_unico:via_dados|pc:instancia_pc                                   ; pc                       ; work         ;
-;       |ula:instancia_ula|                                 ; 64 (64)     ; 0            ; 0          ; 0    ; 0            ; 64 (64)      ; 0 (0)             ; 0 (0)            ; 32 (32)         ; 0 (0)      ; |processador_ciclo_unico|via_de_dados_ciclo_unico:via_dados|ula:instancia_ula                                 ; ula                      ; work         ;
+;       |ula:instancia_ula|                                 ; 35 (35)     ; 0            ; 0          ; 0    ; 0            ; 35 (35)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |processador_ciclo_unico|via_de_dados_ciclo_unico:via_dados|ula:instancia_ula                                 ; ula                      ; work         ;
 +-----------------------------------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------------------------------------------------------------------------------------------------+--------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -5232,7 +5231,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|rom[8035][5]  ; Stuck at GND due to stuck port data_in ;
 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|rom[8035][6]  ; Stuck at GND due to stuck port data_in ;
 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|rom[8035][7]  ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 263197                                    ;                                        ;
+; Total Number of Removed Registers = 263100                                    ;                                        ;
 +-------------------------------------------------------------------------------+----------------------------------------+
 * Table truncated at 5000 items. To change the number of removed registers reported, set the "Number of Removed Registers Reported" option under Assignments->Settings->Analysis and Synthesis Settings->More Settings
 
@@ -5252,12 +5251,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 48    ;
+; Total registers                              ; 145   ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 13    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 35    ;
+; Number of registers using Clock Enable       ; 132   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -5267,8 +5266,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                          ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------+
+; 8:1                ; 32 bits   ; 160 LEs       ; 96 LEs               ; 64 LEs                 ; No         ; |processador_ciclo_unico|via_de_dados_ciclo_unico:via_dados|ula:instancia_ula|Mux19 ;
 ; 1:1                ; 64 bits   ; 0 LEs         ; 0 LEs                ; 0 LEs                  ; No         ; |processador_ciclo_unico|via_de_dados_ciclo_unico:via_dados|ula:instancia_ula|Add0  ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |processador_ciclo_unico|via_de_dados_ciclo_unico:via_dados|ula:instancia_ula|Mux30 ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------+
 
 
@@ -5438,13 +5437,11 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
-    Info: Processing started: Sun Jul  7 15:38:16 2024
+    Info: Processing started: Sun Jul  7 19:59:30 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off custom-riscv -c custom-riscv
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
-Info (12021): Found 2 design units, including 1 entities, in source file tb_processador_ciclo_unico.vhd
-    Info (12022): Found design unit 1: tb_processador_ciclo_unico-estimulos File: D:/custom-riscv/tb_processador_ciclo_unico.vhd Line: 14
-    Info (12023): Found entity 1: tb_processador_ciclo_unico File: D:/custom-riscv/tb_processador_ciclo_unico.vhd Line: 11
+Info (12021): Found 0 design units, including 0 entities, in source file tb_processador_ciclo_unico.vhd
 Info (12021): Found 2 design units, including 1 entities, in source file unidade_de_controle_ciclo_unico.vhd
     Info (12022): Found design unit 1: unidade_de_controle_ciclo_unico-behavior File: D:/custom-riscv/unidade_de_controle_ciclo_unico.vhd Line: 35
     Info (12023): Found entity 1: unidade_de_controle_ciclo_unico File: D:/custom-riscv/unidade_de_controle_ciclo_unico.vhd Line: 17
@@ -5452,8 +5449,8 @@ Info (12021): Found 2 design units, including 1 entities, in source file process
     Info (12022): Found design unit 1: processador_ciclo_unico-comportamento File: D:/custom-riscv/processador_ciclo_unico.vhd Line: 21
     Info (12023): Found entity 1: processador_ciclo_unico File: D:/custom-riscv/processador_ciclo_unico.vhd Line: 8
 Info (12021): Found 2 design units, including 1 entities, in source file tb_imm_gen.vhd
-    Info (12022): Found design unit 1: tb_imm_gen-comportamental File: D:/custom-riscv/tb_imm_gen.vhd Line: 10
-    Info (12023): Found entity 1: tb_imm_gen File: D:/custom-riscv/tb_imm_gen.vhd Line: 7
+    Info (12022): Found design unit 1: tb_imm_gen-behavior File: D:/custom-riscv/tb_imm_gen.vhd Line: 9
+    Info (12023): Found entity 1: tb_imm_gen File: D:/custom-riscv/tb_imm_gen.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file imm_gen.vhd
     Info (12022): Found design unit 1: imm_gen-comportamental File: D:/custom-riscv/imm_gen.vhd Line: 18
     Info (12023): Found entity 1: imm_gen File: D:/custom-riscv/imm_gen.vhd Line: 7
@@ -5517,15 +5514,15 @@ Info (12128): Elaborating entity "mux21" for hierarchy "via_de_dados_ciclo_unico
 Info (12128): Elaborating entity "ula" for hierarchy "via_de_dados_ciclo_unico:via_dados|ula:instancia_ula" File: D:/custom-riscv/via_de_dados_ciclo_unico.vhd Line: 275
 Info (12128): Elaborating entity "memd" for hierarchy "via_de_dados_ciclo_unico:via_dados|memd:instancia_mem_dados" File: D:/custom-riscv/via_de_dados_ciclo_unico.vhd Line: 284
 Info (12128): Elaborating entity "unidade_de_controle_ciclo_unico" for hierarchy "unidade_de_controle_ciclo_unico:controle" File: D:/custom-riscv/processador_ciclo_unico.vhd Line: 104
-Info (17049): 992 registers lost all their fanouts during netlist optimizations.
-Info (21057): Implemented 183 device resources after synthesis - the final resource count might be different
+Info (17049): 770 registers lost all their fanouts during netlist optimizations.
+Info (21057): Implemented 286 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
     Info (21059): Implemented 32 output pins
-    Info (21061): Implemented 149 logic cells
+    Info (21061): Implemented 252 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 5185 megabytes
-    Info: Processing ended: Sun Jul  7 15:40:58 2024
-    Info: Elapsed time: 00:02:42
-    Info: Total CPU time (on all processors): 00:02:58
+    Info: Peak virtual memory: 5923 megabytes
+    Info: Processing ended: Sun Jul  7 20:04:01 2024
+    Info: Elapsed time: 00:04:31
+    Info: Total CPU time (on all processors): 00:04:47
 
 

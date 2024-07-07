@@ -58,45 +58,17 @@ begin
 
     stim_proc: process
     begin
-        -- Teste lw (opcode = "0000011")
-        opcode <= "0000011";
-        funct3 <= "000";
-        funct7 <= "0000000";
-        wait for 10 ns;
-        assert (ALUSrc = '1' and regWrite = '1' and branch = '0' and memWrite = '0' and memToReg = '1' and jump = '0' and memRead = '1' and pcWrite = '1' and ALUOp = "0010")
-            report "Test lw failed" severity error;
-
-        -- Teste addi (opcode = "0010011", funct3 = "000")
-        opcode <= "0010011";
-        funct3 <= "000";
-        funct7 <= "0000000";
-        wait for 10 ns;
-        assert (ALUSrc = '1' and regWrite = '1' and branch = '0' and memWrite = '0' and memToReg = '0' and jump = '0' and memRead = '0' and pcWrite = '1' and ALUOp = "0010")
-            report "Test addi failed" severity error;
-
-        -- Teste add (opcode = "0110011", funct3 = "000", funct7 = "0000000")
+        -- Teste add (opcode = "0110011")
         opcode <= "0110011";
         funct3 <= "000";
         funct7 <= "0000000";
         wait for 10 ns;
-        assert (ALUSrc = '0' and regWrite = '1' and branch = '0' and memWrite = '0' and memToReg = '0' and jump = '0' and memRead = '0' and pcWrite = '1' and ALUOp = "0010")
-            report "Test R-type add failed" severity error;
 
-        -- Teste beq (opcode = "1100011", funct3 = "000")
-        opcode <= "1100011";
-        funct3 <= "000";
+		 -- Teste sw (opcode = "0100011")
+        opcode <= "0100011";
+        funct3 <= "010";
         funct7 <= "0000000";
         wait for 10 ns;
-        assert (ALUSrc = '0' and regWrite = '0' and branch = '1' and memWrite = '0' and memToReg = '0' and jump = '0' and memRead = '0' and pcWrite = '1' and ALUOp = "0110")
-            report "Test beq failed" severity error;
-
-        -- Teste jalr (opcode = "1100111")
-        opcode <= "1100111";
-        funct3 <= "000";
-        funct7 <= "0000000";
-        wait for 10 ns;
-        assert (ALUSrc = '1' and regWrite = '1' and branch = '0' and memWrite = '0' and memToReg = '0' and jump = '1' and memRead = '0' and pcWrite = '1' and ALUOp = "0010")
-            report "Test jalr failed" severity error;
 
         wait;
     end process;

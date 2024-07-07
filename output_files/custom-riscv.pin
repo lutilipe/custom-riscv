@@ -59,107 +59,107 @@
  ---------------------------------------------------------------------------------
 
 Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
-CHIP  "custom-riscv"  ASSIGNED TO AN: 5M160ZT100C4
+CHIP  "custom-riscv"  ASSIGNED TO AN: 5M570ZM100C4
 
 Pin Name/Usage               : Location  : Dir.   : I/O Standard      : Voltage : I/O Bank  : User Assignment
 -------------------------------------------------------------------------------------------------------------
-GND                          : 1         : gnd    :                   :         :           :                
-GND*                         : 2         :        :                   :         : 1         :                
-GND*                         : 3         :        :                   :         : 1         :                
-GND*                         : 4         :        :                   :         : 1         :                
-GND*                         : 5         :        :                   :         : 1         :                
-GND*                         : 6         :        :                   :         : 1         :                
-GND*                         : 7         :        :                   :         : 1         :                
-GND*                         : 8         :        :                   :         : 1         :                
-VCCIO1                       : 9         : power  :                   : 3.3V    : 1         :                
-GND                          : 10        : gnd    :                   :         :           :                
-GND                          : 11        : gnd    :                   :         :           :                
-Chave_reset                  : 12        : input  : 3.3-V LVTTL       :         : 1         : N              
-VCCINT                       : 13        : power  :                   : 1.8V    :           :                
-Clock                        : 14        : input  : 3.3-V LVTTL       :         : 1         : N              
-Leds_vermelhos_saida[7]      : 15        : output : 3.3-V LVTTL       :         : 1         : N              
-Leds_vermelhos_saida[1]      : 16        : output : 3.3-V LVTTL       :         : 1         : N              
-Leds_vermelhos_saida[2]      : 17        : output : 3.3-V LVTTL       :         : 1         : N              
-Leds_vermelhos_saida[10]     : 18        : output : 3.3-V LVTTL       :         : 1         : N              
-GND*                         : 19        :        :                   :         : 1         :                
-GND*                         : 20        :        :                   :         : 1         :                
-GND*                         : 21        :        :                   :         : 1         :                
-TMS                          : 22        : input  :                   :         : 1         :                
-TDI                          : 23        : input  :                   :         : 1         :                
-TCK                          : 24        : input  :                   :         : 1         :                
-TDO                          : 25        : output :                   :         : 1         :                
-Leds_vermelhos_saida[3]      : 26        : output : 3.3-V LVTTL       :         : 1         : N              
-Leds_vermelhos_saida[16]     : 27        : output : 3.3-V LVTTL       :         : 1         : N              
-Leds_vermelhos_saida[5]      : 28        : output : 3.3-V LVTTL       :         : 1         : N              
-Leds_vermelhos_saida[18]     : 29        : output : 3.3-V LVTTL       :         : 1         : N              
-Leds_vermelhos_saida[4]      : 30        : output : 3.3-V LVTTL       :         : 1         : N              
-VCCIO1                       : 31        : power  :                   : 3.3V    : 1         :                
-GND                          : 32        : gnd    :                   :         :           :                
-Leds_vermelhos_saida[0]      : 33        : output : 3.3-V LVTTL       :         : 1         : N              
-GND*                         : 34        :        :                   :         : 1         :                
-Leds_vermelhos_saida[6]      : 35        : output : 3.3-V LVTTL       :         : 1         : N              
-Leds_vermelhos_saida[24]     : 36        : output : 3.3-V LVTTL       :         : 1         : N              
-Leds_vermelhos_saida[15]     : 37        : output : 3.3-V LVTTL       :         : 1         : N              
-Leds_vermelhos_saida[9]      : 38        : output : 3.3-V LVTTL       :         : 1         : N              
-Leds_vermelhos_saida[13]     : 39        : output : 3.3-V LVTTL       :         : 1         : N              
-Leds_vermelhos_saida[14]     : 40        : output : 3.3-V LVTTL       :         : 1         : N              
-Leds_vermelhos_saida[22]     : 41        : output : 3.3-V LVTTL       :         : 1         : N              
-Leds_vermelhos_saida[17]     : 42        : output : 3.3-V LVTTL       :         : 1         : N              
-Leds_vermelhos_saida[31]     : 43        : output : 3.3-V LVTTL       :         : 1         : N              
-Leds_vermelhos_saida[27]     : 44        : output : 3.3-V LVTTL       :         : 1         : N              
-VCCIO1                       : 45        : power  :                   : 3.3V    : 1         :                
-GND                          : 46        : gnd    :                   :         :           :                
-Leds_vermelhos_saida[26]     : 47        : output : 3.3-V LVTTL       :         : 1         : N              
-Leds_vermelhos_saida[29]     : 48        : output : 3.3-V LVTTL       :         : 1         : N              
-Leds_vermelhos_saida[30]     : 49        : output : 3.3-V LVTTL       :         : 1         : N              
-GND*                         : 50        :        :                   :         : 1         :                
-GND*                         : 51        :        :                   :         : 1         :                
-GND*                         : 52        :        :                   :         : 2         :                
-GND*                         : 53        :        :                   :         : 2         :                
-GND*                         : 54        :        :                   :         : 2         :                
-GND*                         : 55        :        :                   :         : 2         :                
-Leds_vermelhos_saida[28]     : 56        : output : 3.3-V LVTTL       :         : 2         : N              
-Leds_vermelhos_saida[20]     : 57        : output : 3.3-V LVTTL       :         : 2         : N              
-Leds_vermelhos_saida[19]     : 58        : output : 3.3-V LVTTL       :         : 2         : N              
-VCCIO2                       : 59        : power  :                   : 3.3V    : 2         :                
-GND                          : 60        : gnd    :                   :         :           :                
-Leds_vermelhos_saida[23]     : 61        : output : 3.3-V LVTTL       :         : 2         : N              
-Leds_vermelhos_saida[21]     : 62        : output : 3.3-V LVTTL       :         : 2         : N              
-VCCINT                       : 63        : power  :                   : 1.8V    :           :                
-Leds_vermelhos_saida[25]     : 64        : output : 3.3-V LVTTL       :         : 2         : N              
-GND                          : 65        : gnd    :                   :         :           :                
-GND*                         : 66        :        :                   :         : 2         :                
-GND*                         : 67        :        :                   :         : 2         :                
-GND*                         : 68        :        :                   :         : 2         :                
-GND*                         : 69        :        :                   :         : 2         :                
-GND*                         : 70        :        :                   :         : 2         :                
-GND*                         : 71        :        :                   :         : 2         :                
-GND*                         : 72        :        :                   :         : 2         :                
-GND*                         : 73        :        :                   :         : 2         :                
-GND*                         : 74        :        :                   :         : 2         :                
-GND*                         : 75        :        :                   :         : 2         :                
-GND*                         : 76        :        :                   :         : 2         :                
-GND*                         : 77        :        :                   :         : 2         :                
-GND*                         : 78        :        :                   :         : 2         :                
-GND                          : 79        : gnd    :                   :         :           :                
-VCCIO2                       : 80        : power  :                   : 3.3V    : 2         :                
-GND*                         : 81        :        :                   :         : 2         :                
-GND*                         : 82        :        :                   :         : 2         :                
-GND*                         : 83        :        :                   :         : 2         :                
-GND*                         : 84        :        :                   :         : 2         :                
-GND*                         : 85        :        :                   :         : 2         :                
-Leds_vermelhos_saida[11]     : 86        : output : 3.3-V LVTTL       :         : 2         : N              
-GND*                         : 87        :        :                   :         : 2         :                
-GND*                         : 88        :        :                   :         : 2         :                
-Leds_vermelhos_saida[12]     : 89        : output : 3.3-V LVTTL       :         : 2         : N              
-GND*                         : 90        :        :                   :         : 2         :                
-Leds_vermelhos_saida[8]      : 91        : output : 3.3-V LVTTL       :         : 2         : N              
-GND*                         : 92        :        :                   :         : 2         :                
-GND                          : 93        : gnd    :                   :         :           :                
-VCCIO2                       : 94        : power  :                   : 3.3V    : 2         :                
-GND*                         : 95        :        :                   :         : 2         :                
-GND*                         : 96        :        :                   :         : 2         :                
-GND*                         : 97        :        :                   :         : 2         :                
-GND*                         : 98        :        :                   :         : 2         :                
-GND*                         : 99        :        :                   :         : 2         :                
-GND*                         : 100       :        :                   :         : 2         :                
+GND*                         : A1        :        :                   :         : 2         :                
+Leds_vermelhos_saida[27]     : A2        : output : 3.3-V LVTTL       :         : 2         : N              
+Leds_vermelhos_saida[18]     : A3        : output : 3.3-V LVTTL       :         : 2         : N              
+GND                          : A4        : gnd    :                   :         :           :                
+Leds_vermelhos_saida[12]     : A5        : output : 3.3-V LVTTL       :         : 2         : N              
+Leds_vermelhos_saida[23]     : A6        : output : 3.3-V LVTTL       :         : 2         : N              
+Leds_vermelhos_saida[22]     : A7        : output : 3.3-V LVTTL       :         : 2         : N              
+Leds_vermelhos_saida[13]     : A8        : output : 3.3-V LVTTL       :         : 2         : N              
+Leds_vermelhos_saida[1]      : A9        : output : 3.3-V LVTTL       :         : 2         : N              
+Leds_vermelhos_saida[9]      : A10       : output : 3.3-V LVTTL       :         : 2         : N              
+GND*                         : A11       :        :                   :         : 2         :                
+GND*                         : B1        :        :                   :         : 1         :                
+GND*                         : B2        :        :                   :         : 2         :                
+Leds_vermelhos_saida[20]     : B3        : output : 3.3-V LVTTL       :         : 2         : N              
+Leds_vermelhos_saida[25]     : B4        : output : 3.3-V LVTTL       :         : 2         : N              
+Leds_vermelhos_saida[14]     : B5        : output : 3.3-V LVTTL       :         : 2         : N              
+Leds_vermelhos_saida[11]     : B6        : output : 3.3-V LVTTL       :         : 2         : N              
+Leds_vermelhos_saida[2]      : B7        : output : 3.3-V LVTTL       :         : 2         : N              
+Leds_vermelhos_saida[3]      : B8        : output : 3.3-V LVTTL       :         : 2         : N              
+Leds_vermelhos_saida[6]      : B9        : output : 3.3-V LVTTL       :         : 2         : N              
+Leds_vermelhos_saida[8]      : B10       : output : 3.3-V LVTTL       :         : 2         : N              
+Leds_vermelhos_saida[4]      : B11       : output : 3.3-V LVTTL       :         : 2         : N              
+GND*                         : C1        :        :                   :         : 1         :                
+GND*                         : C2        :        :                   :         : 1         :                
+VCCIO2                       : C4        : power  :                   : 3.3V    : 2         :                
+GND                          : C5        : gnd    :                   :         :           :                
+Leds_vermelhos_saida[16]     : C6        : output : 3.3-V LVTTL       :         : 2         : N              
+VCCINT                       : C7        : power  :                   : 1.8V    :           :                
+VCCIO2                       : C8        : power  :                   : 3.3V    : 2         :                
+GND*                         : C10       :        :                   :         : 2         :                
+Leds_vermelhos_saida[5]      : C11       : output : 3.3-V LVTTL       :         : 2         : N              
+GND*                         : D1        :        :                   :         : 1         :                
+GND*                         : D2        :        :                   :         : 1         :                
+GND*                         : D3        :        :                   :         : 1         :                
+GND                          : D5        : gnd    :                   :         :           :                
+GND                          : D7        : gnd    :                   :         :           :                
+GND*                         : D9        :        :                   :         : 2         :                
+Leds_vermelhos_saida[10]     : D10       : output : 3.3-V LVTTL       :         : 2         : N              
+Leds_vermelhos_saida[7]      : D11       : output : 3.3-V LVTTL       :         : 2         : N              
+Chave_reset                  : E1        : input  : 3.3-V LVTTL       :         : 1         : N              
+GND                          : E2        : gnd    :                   :         :           :                
+VCCIO1                       : E3        : power  :                   : 3.3V    : 1         :                
+GND                          : E4        : gnd    :                   :         :           :                
+GND                          : E8        : gnd    :                   :         :           :                
+VCCINT                       : E9        : power  :                   : 1.8V    :           :                
+GND*                         : E10       :        :                   :         : 2         :                
+GND*                         : E11       :        :                   :         : 2         :                
+GND*                         : F1        :        :                   :         : 1         :                
+Clock                        : F2        : input  : 3.3-V LVTTL       :         : 1         : N              
+GND*                         : F3        :        :                   :         : 1         :                
+GND*                         : F9        :        :                   :         : 2         :                
+GND*                         : F10       :        :                   :         : 2         :                
+GND*                         : F11       :        :                   :         : 2         :                
+GND*                         : G1        :        :                   :         : 1         :                
+GND*                         : G2        :        :                   :         : 1         :                
+VCCINT                       : G3        : power  :                   : 1.8V    :           :                
+GND                          : G4        : gnd    :                   :         :           :                
+GND                          : G8        : gnd    :                   :         :           :                
+VCCIO2                       : G9        : power  :                   : 3.3V    : 2         :                
+GND*                         : G10       :        :                   :         : 2         :                
+GND*                         : G11       :        :                   :         : 2         :                
+GND*                         : H1        :        :                   :         : 1         :                
+GND*                         : H2        :        :                   :         : 1         :                
+GND*                         : H3        :        :                   :         : 1         :                
+GND                          : H5        : gnd    :                   :         :           :                
+GND                          : H7        : gnd    :                   :         :           :                
+GND*                         : H9        :        :                   :         : 2         :                
+GND*                         : H10       :        :                   :         : 2         :                
+GND*                         : H11       :        :                   :         : 2         :                
+TMS                          : J1        : input  :                   :         : 1         :                
+TDI                          : J2        : input  :                   :         : 1         :                
+VCCIO1                       : J4        : power  :                   : 3.3V    : 1         :                
+GND                          : J5        : gnd    :                   :         :           :                
+Leds_vermelhos_saida[31]     : J6        : output : 3.3-V LVTTL       :         : 1         : N              
+VCCINT                       : J7        : power  :                   : 1.8V    :           :                
+VCCIO1                       : J8        : power  :                   : 3.3V    : 1         :                
+GND*                         : J10       :        :                   :         : 2         :                
+GND*                         : J11       :        :                   :         : 2         :                
+TCK                          : K1        : input  :                   :         : 1         :                
+TDO                          : K2        : output :                   :         : 1         :                
+GND*                         : K3        :        :                   :         : 1         :                
+GND*                         : K4        :        :                   :         : 1         :                
+Leds_vermelhos_saida[26]     : K5        : output : 3.3-V LVTTL       :         : 1         : N              
+Leds_vermelhos_saida[15]     : K6        : output : 3.3-V LVTTL       :         : 1         : N              
+Leds_vermelhos_saida[21]     : K7        : output : 3.3-V LVTTL       :         : 1         : N              
+Leds_vermelhos_saida[0]      : K8        : output : 3.3-V LVTTL       :         : 1         : N              
+GND*                         : K9        :        :                   :         : 1         :                
+GND*                         : K10       :        :                   :         : 1         :                
+GND*                         : K11       :        :                   :         : 2         :                
+GND*                         : L1        :        :                   :         : 1         :                
+GND*                         : L2        :        :                   :         : 1         :                
+Leds_vermelhos_saida[19]     : L3        : output : 3.3-V LVTTL       :         : 1         : N              
+Leds_vermelhos_saida[28]     : L4        : output : 3.3-V LVTTL       :         : 1         : N              
+Leds_vermelhos_saida[30]     : L5        : output : 3.3-V LVTTL       :         : 1         : N              
+Leds_vermelhos_saida[29]     : L6        : output : 3.3-V LVTTL       :         : 1         : N              
+Leds_vermelhos_saida[17]     : L7        : output : 3.3-V LVTTL       :         : 1         : N              
+Leds_vermelhos_saida[24]     : L8        : output : 3.3-V LVTTL       :         : 1         : N              
+GND*                         : L9        :        :                   :         : 1         :                
+GND*                         : L10       :        :                   :         : 1         :                
+GND*                         : L11       :        :                   :         : 1         :                

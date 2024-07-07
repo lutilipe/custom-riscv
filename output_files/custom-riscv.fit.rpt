@@ -1,5 +1,5 @@
 Fitter report for custom-riscv
-Sun Jun 30 23:57:18 2024
+Sun Jul  7 15:41:03 2024
 Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
 
 
@@ -10,27 +10,28 @@ Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
   2. Fitter Summary
   3. Fitter Settings
   4. Parallel Compilation
-  5. Pin-Out File
-  6. Fitter Resource Usage Summary
-  7. Input Pins
-  8. Output Pins
-  9. I/O Bank Usage
- 10. All Package Pins
- 11. Output Pin Default Load For Reported TCO
- 12. I/O Assignment Warnings
- 13. Fitter Resource Utilization by Entity
- 14. Delay Chain Summary
- 15. Control Signals
- 16. Global & Other Fast Signals
- 17. Routing Usage Summary
- 18. LAB Logic Elements
- 19. LAB-wide Signals
- 20. LAB Signals Sourced
- 21. LAB Signals Sourced Out
- 22. LAB Distinct Inputs
- 23. Fitter Device Options
- 24. Fitter Messages
- 25. Fitter Suppressed Messages
+  5. Ignored Assignments
+  6. Pin-Out File
+  7. Fitter Resource Usage Summary
+  8. Input Pins
+  9. Output Pins
+ 10. I/O Bank Usage
+ 11. All Package Pins
+ 12. Output Pin Default Load For Reported TCO
+ 13. I/O Assignment Warnings
+ 14. Fitter Resource Utilization by Entity
+ 15. Delay Chain Summary
+ 16. Control Signals
+ 17. Global & Other Fast Signals
+ 18. Routing Usage Summary
+ 19. LAB Logic Elements
+ 20. LAB-wide Signals
+ 21. LAB Signals Sourced
+ 22. LAB Signals Sourced Out
+ 23. LAB Distinct Inputs
+ 24. Fitter Device Options
+ 25. Fitter Messages
+ 26. Fitter Suppressed Messages
 
 
 
@@ -57,7 +58,7 @@ https://fpgasoftware.intel.com/eula.
 +------------------------------------------------------------------------+
 ; Fitter Summary                                                         ;
 +-----------------------+------------------------------------------------+
-; Fitter Status         ; Successful - Sun Jun 30 23:57:18 2024          ;
+; Fitter Status         ; Successful - Sun Jul  7 15:41:03 2024          ;
 ; Quartus Prime Version ; 22.1std.1 Build 917 02/14/2023 SC Lite Edition ;
 ; Revision Name         ; custom-riscv                                   ;
 ; Top-level Entity Name ; processador_ciclo_unico                        ;
@@ -126,13 +127,319 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 8           ;
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 1.01        ;
+; Average used               ; 1.02        ;
 ; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
 ;     Processors 2-4         ;   0.5%      ;
 +----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Ignored Assignments                                                                                              ;
++--------------+-------------------------+--------------+-----------------+-----------------------+----------------+
+; Name         ; Ignored Entity          ; Ignored From ; Ignored To      ; Ignored Value         ; Ignored Source ;
++--------------+-------------------------+--------------+-----------------+-----------------------+----------------+
+; Location     ;                         ;              ; ADC_CLK_10      ; PIN_N5                ; QSF Assignment ;
+; Location     ;                         ;              ; ARDUINO_IO[0]   ; PIN_AB5               ; QSF Assignment ;
+; Location     ;                         ;              ; ARDUINO_IO[10]  ; PIN_AB19              ; QSF Assignment ;
+; Location     ;                         ;              ; ARDUINO_IO[11]  ; PIN_AA19              ; QSF Assignment ;
+; Location     ;                         ;              ; ARDUINO_IO[12]  ; PIN_Y19               ; QSF Assignment ;
+; Location     ;                         ;              ; ARDUINO_IO[13]  ; PIN_AB20              ; QSF Assignment ;
+; Location     ;                         ;              ; ARDUINO_IO[14]  ; PIN_AB21              ; QSF Assignment ;
+; Location     ;                         ;              ; ARDUINO_IO[15]  ; PIN_AA20              ; QSF Assignment ;
+; Location     ;                         ;              ; ARDUINO_IO[1]   ; PIN_AB6               ; QSF Assignment ;
+; Location     ;                         ;              ; ARDUINO_IO[2]   ; PIN_AB7               ; QSF Assignment ;
+; Location     ;                         ;              ; ARDUINO_IO[3]   ; PIN_AB8               ; QSF Assignment ;
+; Location     ;                         ;              ; ARDUINO_IO[4]   ; PIN_AB9               ; QSF Assignment ;
+; Location     ;                         ;              ; ARDUINO_IO[5]   ; PIN_Y10               ; QSF Assignment ;
+; Location     ;                         ;              ; ARDUINO_IO[6]   ; PIN_AA11              ; QSF Assignment ;
+; Location     ;                         ;              ; ARDUINO_IO[7]   ; PIN_AA12              ; QSF Assignment ;
+; Location     ;                         ;              ; ARDUINO_IO[8]   ; PIN_AB17              ; QSF Assignment ;
+; Location     ;                         ;              ; ARDUINO_IO[9]   ; PIN_AA17              ; QSF Assignment ;
+; Location     ;                         ;              ; ARDUINO_RESET_N ; PIN_F16               ; QSF Assignment ;
+; Location     ;                         ;              ; DRAM_ADDR[0]    ; PIN_U17               ; QSF Assignment ;
+; Location     ;                         ;              ; DRAM_ADDR[10]   ; PIN_T20               ; QSF Assignment ;
+; Location     ;                         ;              ; DRAM_ADDR[11]   ; PIN_P20               ; QSF Assignment ;
+; Location     ;                         ;              ; DRAM_ADDR[12]   ; PIN_R20               ; QSF Assignment ;
+; Location     ;                         ;              ; DRAM_ADDR[1]    ; PIN_W19               ; QSF Assignment ;
+; Location     ;                         ;              ; DRAM_ADDR[2]    ; PIN_V18               ; QSF Assignment ;
+; Location     ;                         ;              ; DRAM_ADDR[3]    ; PIN_U18               ; QSF Assignment ;
+; Location     ;                         ;              ; DRAM_ADDR[4]    ; PIN_U19               ; QSF Assignment ;
+; Location     ;                         ;              ; DRAM_ADDR[5]    ; PIN_T18               ; QSF Assignment ;
+; Location     ;                         ;              ; DRAM_ADDR[6]    ; PIN_T19               ; QSF Assignment ;
+; Location     ;                         ;              ; DRAM_ADDR[7]    ; PIN_R18               ; QSF Assignment ;
+; Location     ;                         ;              ; DRAM_ADDR[8]    ; PIN_P18               ; QSF Assignment ;
+; Location     ;                         ;              ; DRAM_ADDR[9]    ; PIN_P19               ; QSF Assignment ;
+; Location     ;                         ;              ; DRAM_BA[0]      ; PIN_T21               ; QSF Assignment ;
+; Location     ;                         ;              ; DRAM_BA[1]      ; PIN_T22               ; QSF Assignment ;
+; Location     ;                         ;              ; DRAM_CAS_N      ; PIN_U21               ; QSF Assignment ;
+; Location     ;                         ;              ; DRAM_CKE        ; PIN_N22               ; QSF Assignment ;
+; Location     ;                         ;              ; DRAM_CLK        ; PIN_L14               ; QSF Assignment ;
+; Location     ;                         ;              ; DRAM_CS_N       ; PIN_U20               ; QSF Assignment ;
+; Location     ;                         ;              ; DRAM_DQ[0]      ; PIN_Y21               ; QSF Assignment ;
+; Location     ;                         ;              ; DRAM_DQ[10]     ; PIN_H21               ; QSF Assignment ;
+; Location     ;                         ;              ; DRAM_DQ[11]     ; PIN_H22               ; QSF Assignment ;
+; Location     ;                         ;              ; DRAM_DQ[12]     ; PIN_G22               ; QSF Assignment ;
+; Location     ;                         ;              ; DRAM_DQ[13]     ; PIN_G20               ; QSF Assignment ;
+; Location     ;                         ;              ; DRAM_DQ[14]     ; PIN_G19               ; QSF Assignment ;
+; Location     ;                         ;              ; DRAM_DQ[15]     ; PIN_F22               ; QSF Assignment ;
+; Location     ;                         ;              ; DRAM_DQ[1]      ; PIN_Y20               ; QSF Assignment ;
+; Location     ;                         ;              ; DRAM_DQ[2]      ; PIN_AA22              ; QSF Assignment ;
+; Location     ;                         ;              ; DRAM_DQ[3]      ; PIN_AA21              ; QSF Assignment ;
+; Location     ;                         ;              ; DRAM_DQ[4]      ; PIN_Y22               ; QSF Assignment ;
+; Location     ;                         ;              ; DRAM_DQ[5]      ; PIN_W22               ; QSF Assignment ;
+; Location     ;                         ;              ; DRAM_DQ[6]      ; PIN_W20               ; QSF Assignment ;
+; Location     ;                         ;              ; DRAM_DQ[7]      ; PIN_V21               ; QSF Assignment ;
+; Location     ;                         ;              ; DRAM_DQ[8]      ; PIN_P21               ; QSF Assignment ;
+; Location     ;                         ;              ; DRAM_DQ[9]      ; PIN_J22               ; QSF Assignment ;
+; Location     ;                         ;              ; DRAM_LDQM       ; PIN_V22               ; QSF Assignment ;
+; Location     ;                         ;              ; DRAM_RAS_N      ; PIN_U22               ; QSF Assignment ;
+; Location     ;                         ;              ; DRAM_UDQM       ; PIN_J21               ; QSF Assignment ;
+; Location     ;                         ;              ; DRAM_WE_N       ; PIN_V20               ; QSF Assignment ;
+; Location     ;                         ;              ; GSENSOR_CS_N    ; PIN_AB16              ; QSF Assignment ;
+; Location     ;                         ;              ; GSENSOR_INT[1]  ; PIN_Y14               ; QSF Assignment ;
+; Location     ;                         ;              ; GSENSOR_INT[2]  ; PIN_Y13               ; QSF Assignment ;
+; Location     ;                         ;              ; GSENSOR_SCLK    ; PIN_AB15              ; QSF Assignment ;
+; Location     ;                         ;              ; GSENSOR_SDI     ; PIN_V11               ; QSF Assignment ;
+; Location     ;                         ;              ; GSENSOR_SDO     ; PIN_V12               ; QSF Assignment ;
+; Location     ;                         ;              ; HEX0[0]         ; PIN_C14               ; QSF Assignment ;
+; Location     ;                         ;              ; HEX0[1]         ; PIN_E15               ; QSF Assignment ;
+; Location     ;                         ;              ; HEX0[2]         ; PIN_C15               ; QSF Assignment ;
+; Location     ;                         ;              ; HEX0[3]         ; PIN_C16               ; QSF Assignment ;
+; Location     ;                         ;              ; HEX0[4]         ; PIN_E16               ; QSF Assignment ;
+; Location     ;                         ;              ; HEX0[5]         ; PIN_D17               ; QSF Assignment ;
+; Location     ;                         ;              ; HEX0[6]         ; PIN_C17               ; QSF Assignment ;
+; Location     ;                         ;              ; HEX0[7]         ; PIN_D15               ; QSF Assignment ;
+; Location     ;                         ;              ; HEX1[0]         ; PIN_C18               ; QSF Assignment ;
+; Location     ;                         ;              ; HEX1[1]         ; PIN_D18               ; QSF Assignment ;
+; Location     ;                         ;              ; HEX1[2]         ; PIN_E18               ; QSF Assignment ;
+; Location     ;                         ;              ; HEX1[3]         ; PIN_B16               ; QSF Assignment ;
+; Location     ;                         ;              ; HEX1[4]         ; PIN_A17               ; QSF Assignment ;
+; Location     ;                         ;              ; HEX1[5]         ; PIN_A18               ; QSF Assignment ;
+; Location     ;                         ;              ; HEX1[6]         ; PIN_B17               ; QSF Assignment ;
+; Location     ;                         ;              ; HEX1[7]         ; PIN_A16               ; QSF Assignment ;
+; Location     ;                         ;              ; HEX2[0]         ; PIN_B20               ; QSF Assignment ;
+; Location     ;                         ;              ; HEX2[1]         ; PIN_A20               ; QSF Assignment ;
+; Location     ;                         ;              ; HEX2[2]         ; PIN_B19               ; QSF Assignment ;
+; Location     ;                         ;              ; HEX2[3]         ; PIN_A21               ; QSF Assignment ;
+; Location     ;                         ;              ; HEX2[4]         ; PIN_B21               ; QSF Assignment ;
+; Location     ;                         ;              ; HEX2[5]         ; PIN_C22               ; QSF Assignment ;
+; Location     ;                         ;              ; HEX2[6]         ; PIN_B22               ; QSF Assignment ;
+; Location     ;                         ;              ; HEX2[7]         ; PIN_A19               ; QSF Assignment ;
+; Location     ;                         ;              ; HEX3[0]         ; PIN_F21               ; QSF Assignment ;
+; Location     ;                         ;              ; HEX3[1]         ; PIN_E22               ; QSF Assignment ;
+; Location     ;                         ;              ; HEX3[2]         ; PIN_E21               ; QSF Assignment ;
+; Location     ;                         ;              ; HEX3[3]         ; PIN_C19               ; QSF Assignment ;
+; Location     ;                         ;              ; HEX3[4]         ; PIN_C20               ; QSF Assignment ;
+; Location     ;                         ;              ; HEX3[5]         ; PIN_D19               ; QSF Assignment ;
+; Location     ;                         ;              ; HEX3[6]         ; PIN_E17               ; QSF Assignment ;
+; Location     ;                         ;              ; HEX3[7]         ; PIN_D22               ; QSF Assignment ;
+; Location     ;                         ;              ; HEX4[0]         ; PIN_F18               ; QSF Assignment ;
+; Location     ;                         ;              ; HEX4[1]         ; PIN_E20               ; QSF Assignment ;
+; Location     ;                         ;              ; HEX4[2]         ; PIN_E19               ; QSF Assignment ;
+; Location     ;                         ;              ; HEX4[3]         ; PIN_J18               ; QSF Assignment ;
+; Location     ;                         ;              ; HEX4[4]         ; PIN_H19               ; QSF Assignment ;
+; Location     ;                         ;              ; HEX4[5]         ; PIN_F19               ; QSF Assignment ;
+; Location     ;                         ;              ; HEX4[6]         ; PIN_F20               ; QSF Assignment ;
+; Location     ;                         ;              ; HEX4[7]         ; PIN_F17               ; QSF Assignment ;
+; Location     ;                         ;              ; HEX5[0]         ; PIN_J20               ; QSF Assignment ;
+; Location     ;                         ;              ; HEX5[1]         ; PIN_K20               ; QSF Assignment ;
+; Location     ;                         ;              ; HEX5[2]         ; PIN_L18               ; QSF Assignment ;
+; Location     ;                         ;              ; HEX5[3]         ; PIN_N18               ; QSF Assignment ;
+; Location     ;                         ;              ; HEX5[4]         ; PIN_M20               ; QSF Assignment ;
+; Location     ;                         ;              ; HEX5[5]         ; PIN_N19               ; QSF Assignment ;
+; Location     ;                         ;              ; HEX5[6]         ; PIN_N20               ; QSF Assignment ;
+; Location     ;                         ;              ; HEX5[7]         ; PIN_L19               ; QSF Assignment ;
+; Location     ;                         ;              ; KEY[0]          ; PIN_B8                ; QSF Assignment ;
+; Location     ;                         ;              ; KEY[1]          ; PIN_A7                ; QSF Assignment ;
+; Location     ;                         ;              ; LEDR[0]         ; PIN_A8                ; QSF Assignment ;
+; Location     ;                         ;              ; LEDR[1]         ; PIN_A9                ; QSF Assignment ;
+; Location     ;                         ;              ; LEDR[2]         ; PIN_A10               ; QSF Assignment ;
+; Location     ;                         ;              ; LEDR[3]         ; PIN_B10               ; QSF Assignment ;
+; Location     ;                         ;              ; LEDR[4]         ; PIN_D13               ; QSF Assignment ;
+; Location     ;                         ;              ; LEDR[5]         ; PIN_C13               ; QSF Assignment ;
+; Location     ;                         ;              ; LEDR[6]         ; PIN_E14               ; QSF Assignment ;
+; Location     ;                         ;              ; LEDR[7]         ; PIN_D14               ; QSF Assignment ;
+; Location     ;                         ;              ; LEDR[8]         ; PIN_A11               ; QSF Assignment ;
+; Location     ;                         ;              ; LEDR[9]         ; PIN_B11               ; QSF Assignment ;
+; Location     ;                         ;              ; MAX10_CLK1_50   ; PIN_P11               ; QSF Assignment ;
+; Location     ;                         ;              ; MAX10_CLK2_50   ; PIN_N14               ; QSF Assignment ;
+; Location     ;                         ;              ; SW[0]           ; PIN_C10               ; QSF Assignment ;
+; Location     ;                         ;              ; SW[1]           ; PIN_C11               ; QSF Assignment ;
+; Location     ;                         ;              ; SW[2]           ; PIN_D12               ; QSF Assignment ;
+; Location     ;                         ;              ; SW[3]           ; PIN_C12               ; QSF Assignment ;
+; Location     ;                         ;              ; SW[4]           ; PIN_A12               ; QSF Assignment ;
+; Location     ;                         ;              ; SW[5]           ; PIN_B12               ; QSF Assignment ;
+; Location     ;                         ;              ; SW[6]           ; PIN_A13               ; QSF Assignment ;
+; Location     ;                         ;              ; SW[7]           ; PIN_A14               ; QSF Assignment ;
+; Location     ;                         ;              ; SW[8]           ; PIN_B14               ; QSF Assignment ;
+; Location     ;                         ;              ; SW[9]           ; PIN_F15               ; QSF Assignment ;
+; Location     ;                         ;              ; VGA_B[0]        ; PIN_P1                ; QSF Assignment ;
+; Location     ;                         ;              ; VGA_B[1]        ; PIN_T1                ; QSF Assignment ;
+; Location     ;                         ;              ; VGA_B[2]        ; PIN_P4                ; QSF Assignment ;
+; Location     ;                         ;              ; VGA_B[3]        ; PIN_N2                ; QSF Assignment ;
+; Location     ;                         ;              ; VGA_G[0]        ; PIN_W1                ; QSF Assignment ;
+; Location     ;                         ;              ; VGA_G[1]        ; PIN_T2                ; QSF Assignment ;
+; Location     ;                         ;              ; VGA_G[2]        ; PIN_R2                ; QSF Assignment ;
+; Location     ;                         ;              ; VGA_G[3]        ; PIN_R1                ; QSF Assignment ;
+; Location     ;                         ;              ; VGA_HS          ; PIN_N3                ; QSF Assignment ;
+; Location     ;                         ;              ; VGA_R[0]        ; PIN_AA1               ; QSF Assignment ;
+; Location     ;                         ;              ; VGA_R[1]        ; PIN_V1                ; QSF Assignment ;
+; Location     ;                         ;              ; VGA_R[2]        ; PIN_Y2                ; QSF Assignment ;
+; Location     ;                         ;              ; VGA_R[3]        ; PIN_Y1                ; QSF Assignment ;
+; Location     ;                         ;              ; VGA_VS          ; PIN_N1                ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; ADC_CLK_10      ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; ARDUINO_IO[0]   ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; ARDUINO_IO[10]  ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; ARDUINO_IO[11]  ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; ARDUINO_IO[12]  ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; ARDUINO_IO[13]  ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; ARDUINO_IO[14]  ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; ARDUINO_IO[15]  ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; ARDUINO_IO[1]   ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; ARDUINO_IO[2]   ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; ARDUINO_IO[3]   ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; ARDUINO_IO[4]   ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; ARDUINO_IO[5]   ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; ARDUINO_IO[6]   ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; ARDUINO_IO[7]   ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; ARDUINO_IO[8]   ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; ARDUINO_IO[9]   ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; ARDUINO_RESET_N ; 3.3 V SCHMITT TRIGGER ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; DRAM_ADDR[0]    ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; DRAM_ADDR[10]   ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; DRAM_ADDR[11]   ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; DRAM_ADDR[12]   ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; DRAM_ADDR[1]    ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; DRAM_ADDR[2]    ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; DRAM_ADDR[3]    ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; DRAM_ADDR[4]    ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; DRAM_ADDR[5]    ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; DRAM_ADDR[6]    ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; DRAM_ADDR[7]    ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; DRAM_ADDR[8]    ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; DRAM_ADDR[9]    ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; DRAM_BA[0]      ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; DRAM_BA[1]      ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; DRAM_CAS_N      ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; DRAM_CKE        ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; DRAM_CLK        ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; DRAM_CS_N       ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; DRAM_DQ[0]      ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; DRAM_DQ[10]     ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; DRAM_DQ[11]     ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; DRAM_DQ[12]     ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; DRAM_DQ[13]     ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; DRAM_DQ[14]     ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; DRAM_DQ[15]     ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; DRAM_DQ[1]      ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; DRAM_DQ[2]      ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; DRAM_DQ[3]      ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; DRAM_DQ[4]      ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; DRAM_DQ[5]      ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; DRAM_DQ[6]      ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; DRAM_DQ[7]      ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; DRAM_DQ[8]      ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; DRAM_DQ[9]      ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; DRAM_LDQM       ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; DRAM_RAS_N      ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; DRAM_UDQM       ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; DRAM_WE_N       ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; GSENSOR_CS_N    ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; GSENSOR_INT[1]  ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; GSENSOR_INT[2]  ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; GSENSOR_SCLK    ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; GSENSOR_SDI     ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; GSENSOR_SDO     ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; HEX0[0]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; HEX0[1]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; HEX0[2]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; HEX0[3]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; HEX0[4]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; HEX0[5]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; HEX0[6]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; HEX0[7]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; HEX1[0]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; HEX1[1]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; HEX1[2]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; HEX1[3]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; HEX1[4]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; HEX1[5]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; HEX1[6]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; HEX1[7]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; HEX2[0]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; HEX2[1]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; HEX2[2]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; HEX2[3]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; HEX2[4]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; HEX2[5]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; HEX2[6]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; HEX2[7]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; HEX3[0]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; HEX3[1]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; HEX3[2]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; HEX3[3]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; HEX3[4]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; HEX3[5]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; HEX3[6]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; HEX3[7]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; HEX4[0]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; HEX4[1]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; HEX4[2]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; HEX4[3]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; HEX4[4]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; HEX4[5]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; HEX4[6]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; HEX4[7]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; HEX5[0]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; HEX5[1]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; HEX5[2]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; HEX5[3]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; HEX5[4]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; HEX5[5]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; HEX5[6]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; HEX5[7]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; KEY[0]          ; 3.3 V SCHMITT TRIGGER ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; KEY[1]          ; 3.3 V SCHMITT TRIGGER ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; LEDR[0]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; LEDR[1]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; LEDR[2]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; LEDR[3]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; LEDR[4]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; LEDR[5]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; LEDR[6]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; LEDR[7]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; LEDR[8]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; LEDR[9]         ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; MAX10_CLK1_50   ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; MAX10_CLK2_50   ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; SW[0]           ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; SW[1]           ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; SW[2]           ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; SW[3]           ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; SW[4]           ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; SW[5]           ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; SW[6]           ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; SW[7]           ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; SW[8]           ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; SW[9]           ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; VGA_B[0]        ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; VGA_B[1]        ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; VGA_B[2]        ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; VGA_B[3]        ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; VGA_G[0]        ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; VGA_G[1]        ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; VGA_G[2]        ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; VGA_G[3]        ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; VGA_HS          ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; VGA_R[0]        ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; VGA_R[1]        ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; VGA_R[2]        ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; VGA_R[3]        ; 3.3-V LVTTL           ; QSF Assignment ;
+; I/O Standard ; processador_ciclo_unico ;              ; VGA_VS          ; 3.3-V LVTTL           ; QSF Assignment ;
++--------------+-------------------------+--------------+-----------------+-----------------------+----------------+
 
 
 +--------------+
@@ -167,7 +474,7 @@ The pin-out file can be found in D:/custom-riscv/output_files/custom-riscv.pin.
 ;     -- asynchronous clear/load mode         ; 13                    ;
 ;                                             ;                       ;
 ; Total registers                             ; 48 / 160 ( 30 % )     ;
-; Total LABs                                  ; 14 / 16 ( 88 % )      ;
+; Total LABs                                  ; 13 / 16 ( 81 % )      ;
 ; Logic elements in carry chains              ; 45                    ;
 ; Virtual pins                                ; 0                     ;
 ; I/O pins                                    ; 34 / 79 ( 43 % )      ;
@@ -181,8 +488,8 @@ The pin-out file can be found in D:/custom-riscv/output_files/custom-riscv.pin.
 ; Global signals                              ; 2                     ;
 ;     -- Global clocks                        ; 2 / 4 ( 50 % )        ;
 ; JTAGs                                       ; 0 / 1 ( 0 % )         ;
-; Average interconnect usage (total/H/V)      ; 16.1% / 16.8% / 15.3% ;
-; Peak interconnect usage (total/H/V)         ; 16.1% / 16.8% / 15.3% ;
+; Average interconnect usage (total/H/V)      ; 17.5% / 18.8% / 16.2% ;
+; Peak interconnect usage (total/H/V)         ; 17.5% / 18.8% / 16.2% ;
 ; Maximum fan-out                             ; 96                    ;
 ; Highest non-global fan-out                  ; 96                    ;
 ; Total fan-out                               ; 488                   ;
@@ -205,38 +512,38 @@ The pin-out file can be found in D:/custom-riscv/output_files/custom-riscv.pin.
 +--------------------------+-------+----------+--------------+--------------+-------------+-----------------+----------------+-----------------+------------+---------------+----------+--------------+--------------+------------------+------------------------+----------------------+-------+----------------------+---------------------+
 ; Name                     ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Cell number ; Output Register ; Slow Slew Rate ; PCI I/O Enabled ; Open Drain ; TRI Primitive ; Bus Hold ; Weak Pull Up ; I/O Standard ; Current Strength ; Fast Output Connection ; Location assigned by ; Load  ; Output Enable Source ; Output Enable Group ;
 +--------------------------+-------+----------+--------------+--------------+-------------+-----------------+----------------+-----------------+------------+---------------+----------+--------------+--------------+------------------+------------------------+----------------------+-------+----------------------+---------------------+
-; Leds_vermelhos_saida[0]  ; 6     ; 1        ; 1            ; 3            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; Leds_vermelhos_saida[10] ; 15    ; 1        ; 1            ; 2            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; Leds_vermelhos_saida[11] ; 30    ; 1        ; 3            ; 0            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; Leds_vermelhos_saida[12] ; 3     ; 1        ; 1            ; 4            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; Leds_vermelhos_saida[13] ; 5     ; 1        ; 1            ; 4            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; Leds_vermelhos_saida[14] ; 8     ; 1        ; 1            ; 3            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; yes                    ; Fitter               ; 10 pF ; -                    ; -                   ;
-; Leds_vermelhos_saida[15] ; 91    ; 2        ; 4            ; 5            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; Leds_vermelhos_saida[16] ; 36    ; 1        ; 4            ; 0            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; Leds_vermelhos_saida[17] ; 47    ; 1        ; 6            ; 0            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; Leds_vermelhos_saida[18] ; 89    ; 2        ; 4            ; 5            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; yes                    ; Fitter               ; 10 pF ; -                    ; -                   ;
-; Leds_vermelhos_saida[19] ; 39    ; 1        ; 5            ; 0            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[0]  ; 33    ; 1        ; 3            ; 0            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[10] ; 18    ; 1        ; 1            ; 1            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[11] ; 86    ; 2        ; 5            ; 5            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[12] ; 89    ; 2        ; 4            ; 5            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[13] ; 39    ; 1        ; 5            ; 0            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[14] ; 40    ; 1        ; 5            ; 0            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[15] ; 37    ; 1        ; 4            ; 0            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[16] ; 27    ; 1        ; 2            ; 0            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; yes                    ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[17] ; 42    ; 1        ; 5            ; 0            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[18] ; 29    ; 1        ; 2            ; 0            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[19] ; 58    ; 2        ; 8            ; 2            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
 ; Leds_vermelhos_saida[1]  ; 16    ; 1        ; 1            ; 2            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; Leds_vermelhos_saida[20] ; 40    ; 1        ; 5            ; 0            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; Leds_vermelhos_saida[21] ; 41    ; 1        ; 5            ; 0            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; Leds_vermelhos_saida[22] ; 57    ; 2        ; 8            ; 2            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; Leds_vermelhos_saida[23] ; 42    ; 1        ; 5            ; 0            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; Leds_vermelhos_saida[24] ; 62    ; 2        ; 8            ; 2            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; Leds_vermelhos_saida[25] ; 61    ; 2        ; 8            ; 2            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; Leds_vermelhos_saida[26] ; 64    ; 2        ; 8            ; 3            ; 4           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; Leds_vermelhos_saida[27] ; 69    ; 2        ; 8            ; 3            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; Leds_vermelhos_saida[28] ; 68    ; 2        ; 8            ; 3            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; Leds_vermelhos_saida[29] ; 84    ; 2        ; 6            ; 5            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; Leds_vermelhos_saida[2]  ; 17    ; 1        ; 1            ; 2            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; yes                    ; Fitter               ; 10 pF ; -                    ; -                   ;
-; Leds_vermelhos_saida[30] ; 67    ; 2        ; 8            ; 3            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; Leds_vermelhos_saida[31] ; 66    ; 2        ; 8            ; 3            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; Leds_vermelhos_saida[3]  ; 95    ; 2        ; 3            ; 5            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; Leds_vermelhos_saida[4]  ; 7     ; 1        ; 1            ; 3            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; Leds_vermelhos_saida[5]  ; 2     ; 1        ; 1            ; 4            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; Leds_vermelhos_saida[6]  ; 38    ; 1        ; 4            ; 0            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; Leds_vermelhos_saida[7]  ; 37    ; 1        ; 4            ; 0            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; Leds_vermelhos_saida[8]  ; 90    ; 2        ; 4            ; 5            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
-; Leds_vermelhos_saida[9]  ; 34    ; 1        ; 3            ; 0            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[20] ; 57    ; 2        ; 8            ; 2            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[21] ; 62    ; 2        ; 8            ; 2            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[22] ; 41    ; 1        ; 5            ; 0            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[23] ; 61    ; 2        ; 8            ; 2            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[24] ; 36    ; 1        ; 4            ; 0            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[25] ; 64    ; 2        ; 8            ; 3            ; 4           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[26] ; 47    ; 1        ; 6            ; 0            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[27] ; 44    ; 1        ; 6            ; 0            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[28] ; 56    ; 2        ; 8            ; 1            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[29] ; 48    ; 1        ; 6            ; 0            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[2]  ; 17    ; 1        ; 1            ; 2            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[30] ; 49    ; 1        ; 7            ; 0            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; yes                    ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[31] ; 43    ; 1        ; 6            ; 0            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; yes                    ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[3]  ; 26    ; 1        ; 2            ; 0            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[4]  ; 30    ; 1        ; 3            ; 0            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[5]  ; 28    ; 1        ; 2            ; 0            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[6]  ; 35    ; 1        ; 3            ; 0            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[7]  ; 15    ; 1        ; 1            ; 2            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[8]  ; 91    ; 2        ; 4            ; 5            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
+; Leds_vermelhos_saida[9]  ; 38    ; 1        ; 4            ; 0            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; Fitter               ; 10 pF ; -                    ; -                   ;
 +--------------------------+-------+----------+--------------+--------------+-------------+-----------------+----------------+-----------------+------------+---------------+----------+--------------+--------------+------------------+------------------------+----------------------+-------+----------------------+---------------------+
 
 
@@ -245,8 +552,8 @@ The pin-out file can be found in D:/custom-riscv/output_files/custom-riscv.pin.
 +----------+------------------+---------------+--------------+
 ; I/O Bank ; Usage            ; VCCIO Voltage ; VREF Voltage ;
 +----------+------------------+---------------+--------------+
-; 1        ; 21 / 38 ( 55 % ) ; 3.3V          ; --           ;
-; 2        ; 13 / 41 ( 32 % ) ; 3.3V          ; --           ;
+; 1        ; 25 / 38 ( 66 % ) ; 3.3V          ; --           ;
+; 2        ; 9 / 41 ( 22 % )  ; 3.3V          ; --           ;
 +----------+------------------+---------------+--------------+
 
 
@@ -256,23 +563,23 @@ The pin-out file can be found in D:/custom-riscv/output_files/custom-riscv.pin.
 ; Location ; Pad Number ; I/O Bank ; Pin Name/Usage           ; Dir.   ; I/O Standard ; Voltage ; I/O Type   ; User Assignment ; Bus Hold ; Weak Pull Up ;
 +----------+------------+----------+--------------------------+--------+--------------+---------+------------+-----------------+----------+--------------+
 ; 1        ;            ;          ; GND                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
-; 2        ; 0          ; 1        ; Leds_vermelhos_saida[5]  ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; 3        ; 1          ; 1        ; Leds_vermelhos_saida[12] ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; 2        ; 0          ; 1        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; 3        ; 1          ; 1        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; 4        ; 2          ; 1        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; 5        ; 3          ; 1        ; Leds_vermelhos_saida[13] ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; 6        ; 4          ; 1        ; Leds_vermelhos_saida[0]  ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; 7        ; 5          ; 1        ; Leds_vermelhos_saida[4]  ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; 8        ; 6          ; 1        ; Leds_vermelhos_saida[14] ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; 5        ; 3          ; 1        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; 6        ; 4          ; 1        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; 7        ; 5          ; 1        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; 8        ; 6          ; 1        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; 9        ;            ; 1        ; VCCIO1                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; 10       ;            ;          ; GND                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; 11       ;            ;          ; GND                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; 12       ; 7          ; 1        ; Chave_reset              ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; 13       ;            ;          ; VCCINT                   ; power  ;              ; 1.8V    ; --         ;                 ; --       ; --           ;
 ; 14       ; 8          ; 1        ; Clock                    ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; 15       ; 9          ; 1        ; Leds_vermelhos_saida[10] ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; 15       ; 9          ; 1        ; Leds_vermelhos_saida[7]  ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; 16       ; 10         ; 1        ; Leds_vermelhos_saida[1]  ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; 17       ; 11         ; 1        ; Leds_vermelhos_saida[2]  ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; 18       ; 12         ; 1        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; 18       ; 12         ; 1        ; Leds_vermelhos_saida[10] ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; 19       ; 13         ; 1        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; 20       ; 14         ; 1        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; 21       ; 15         ; 1        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
@@ -280,50 +587,50 @@ The pin-out file can be found in D:/custom-riscv/output_files/custom-riscv.pin.
 ; 23       ; 17         ; 1        ; #TDI                     ; input  ;              ;         ; --         ;                 ; --       ; --           ;
 ; 24       ; 18         ; 1        ; #TCK                     ; input  ;              ;         ; --         ;                 ; --       ; --           ;
 ; 25       ; 19         ; 1        ; #TDO                     ; output ;              ;         ; --         ;                 ; --       ; --           ;
-; 26       ; 20         ; 1        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; 27       ; 21         ; 1        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; 28       ; 22         ; 1        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; 29       ; 23         ; 1        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; 30       ; 24         ; 1        ; Leds_vermelhos_saida[11] ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; 26       ; 20         ; 1        ; Leds_vermelhos_saida[3]  ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; 27       ; 21         ; 1        ; Leds_vermelhos_saida[16] ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; 28       ; 22         ; 1        ; Leds_vermelhos_saida[5]  ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; 29       ; 23         ; 1        ; Leds_vermelhos_saida[18] ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; 30       ; 24         ; 1        ; Leds_vermelhos_saida[4]  ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
 ; 31       ;            ; 1        ; VCCIO1                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; 32       ;            ;          ; GND                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
-; 33       ; 25         ; 1        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; 34       ; 26         ; 1        ; Leds_vermelhos_saida[9]  ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; 35       ; 27         ; 1        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; 36       ; 28         ; 1        ; Leds_vermelhos_saida[16] ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; 37       ; 29         ; 1        ; Leds_vermelhos_saida[7]  ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; 38       ; 30         ; 1        ; Leds_vermelhos_saida[6]  ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; 39       ; 31         ; 1        ; Leds_vermelhos_saida[19] ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; 40       ; 32         ; 1        ; Leds_vermelhos_saida[20] ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; 41       ; 33         ; 1        ; Leds_vermelhos_saida[21] ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; 42       ; 34         ; 1        ; Leds_vermelhos_saida[23] ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; 43       ; 35         ; 1        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; 44       ; 36         ; 1        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; 33       ; 25         ; 1        ; Leds_vermelhos_saida[0]  ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; 34       ; 26         ; 1        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; 35       ; 27         ; 1        ; Leds_vermelhos_saida[6]  ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; 36       ; 28         ; 1        ; Leds_vermelhos_saida[24] ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; 37       ; 29         ; 1        ; Leds_vermelhos_saida[15] ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; 38       ; 30         ; 1        ; Leds_vermelhos_saida[9]  ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; 39       ; 31         ; 1        ; Leds_vermelhos_saida[13] ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; 40       ; 32         ; 1        ; Leds_vermelhos_saida[14] ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; 41       ; 33         ; 1        ; Leds_vermelhos_saida[22] ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; 42       ; 34         ; 1        ; Leds_vermelhos_saida[17] ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; 43       ; 35         ; 1        ; Leds_vermelhos_saida[31] ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; 44       ; 36         ; 1        ; Leds_vermelhos_saida[27] ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
 ; 45       ;            ; 1        ; VCCIO1                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; 46       ;            ;          ; GND                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
-; 47       ; 37         ; 1        ; Leds_vermelhos_saida[17] ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; 48       ; 38         ; 1        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; 49       ; 39         ; 1        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; 47       ; 37         ; 1        ; Leds_vermelhos_saida[26] ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; 48       ; 38         ; 1        ; Leds_vermelhos_saida[29] ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; 49       ; 39         ; 1        ; Leds_vermelhos_saida[30] ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
 ; 50       ; 40         ; 1        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; 51       ; 41         ; 1        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; 52       ; 42         ; 2        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; 53       ; 43         ; 2        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; 54       ; 44         ; 2        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; 55       ; 45         ; 2        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; 56       ; 46         ; 2        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; 57       ; 47         ; 2        ; Leds_vermelhos_saida[22] ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; 58       ; 48         ; 2        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; 56       ; 46         ; 2        ; Leds_vermelhos_saida[28] ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; 57       ; 47         ; 2        ; Leds_vermelhos_saida[20] ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; 58       ; 48         ; 2        ; Leds_vermelhos_saida[19] ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; 59       ;            ; 2        ; VCCIO2                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; 60       ;            ;          ; GND                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
-; 61       ; 49         ; 2        ; Leds_vermelhos_saida[25] ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; 62       ; 50         ; 2        ; Leds_vermelhos_saida[24] ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; 61       ; 49         ; 2        ; Leds_vermelhos_saida[23] ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; 62       ; 50         ; 2        ; Leds_vermelhos_saida[21] ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; 63       ;            ;          ; VCCINT                   ; power  ;              ; 1.8V    ; --         ;                 ; --       ; --           ;
-; 64       ; 51         ; 2        ; Leds_vermelhos_saida[26] ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; 64       ; 51         ; 2        ; Leds_vermelhos_saida[25] ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; 65       ;            ;          ; GND                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
-; 66       ; 52         ; 2        ; Leds_vermelhos_saida[31] ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; 67       ; 53         ; 2        ; Leds_vermelhos_saida[30] ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; 68       ; 54         ; 2        ; Leds_vermelhos_saida[28] ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; 69       ; 55         ; 2        ; Leds_vermelhos_saida[27] ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; 66       ; 52         ; 2        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; 67       ; 53         ; 2        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; 68       ; 54         ; 2        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; 69       ; 55         ; 2        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; 70       ; 56         ; 2        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; 71       ; 57         ; 2        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; 72       ; 58         ; 2        ; GND*                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
@@ -338,18 +645,18 @@ The pin-out file can be found in D:/custom-riscv/output_files/custom-riscv.pin.
 ; 81       ; 65         ; 2        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; 82       ; 66         ; 2        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; 83       ; 67         ; 2        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; 84       ; 68         ; 2        ; Leds_vermelhos_saida[29] ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; 84       ; 68         ; 2        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; 85       ; 69         ; 2        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; 86       ; 70         ; 2        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; 86       ; 70         ; 2        ; Leds_vermelhos_saida[11] ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
 ; 87       ; 71         ; 2        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; 88       ; 72         ; 2        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; 89       ; 73         ; 2        ; Leds_vermelhos_saida[18] ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; 90       ; 74         ; 2        ; Leds_vermelhos_saida[8]  ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; 91       ; 75         ; 2        ; Leds_vermelhos_saida[15] ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; 89       ; 73         ; 2        ; Leds_vermelhos_saida[12] ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; 90       ; 74         ; 2        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; 91       ; 75         ; 2        ; Leds_vermelhos_saida[8]  ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
 ; 92       ; 76         ; 2        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; 93       ;            ;          ; GND                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; 94       ;            ; 2        ; VCCIO2                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
-; 95       ; 77         ; 2        ; Leds_vermelhos_saida[3]  ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; 95       ; 77         ; 2        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; 96       ; 78         ; 2        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; 97       ; 79         ; 2        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; 98       ; 80         ; 2        ; GND*                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
@@ -485,7 +792,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------------------------------------------------------------------------------+-------------+---------+----------------------------+--------+----------------------+------------------+
 ; Chave_reset                                                                  ; PIN_12      ; 16      ; Async. clear, Clock enable ; yes    ; Global Clock         ; GCLK0            ;
 ; Clock                                                                        ; PIN_14      ; 48      ; Clock                      ; yes    ; Global Clock         ; GCLK1            ;
-; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0] ; LC_X3_Y2_N1 ; 64      ; Clock enable               ; no     ; --                   ; --               ;
+; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|Instrucao[0] ; LC_X3_Y2_N2 ; 64      ; Clock enable               ; no     ; --                   ; --               ;
 +------------------------------------------------------------------------------+-------------+---------+----------------------------+--------+----------------------+------------------+
 
 
@@ -504,30 +811,30 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+--------------------+
 ; Routing Resource Type ; Usage              ;
 +-----------------------+--------------------+
-; C4s                   ; 104 / 784 ( 13 % ) ;
-; Direct links          ; 36 / 888 ( 4 % )   ;
+; C4s                   ; 119 / 784 ( 15 % ) ;
+; Direct links          ; 27 / 888 ( 3 % )   ;
 ; Global clocks         ; 2 / 4 ( 50 % )     ;
-; LAB clocks            ; 8 / 32 ( 25 % )    ;
+; LAB clocks            ; 10 / 32 ( 31 % )   ;
 ; LUT chains            ; 0 / 216 ( 0 % )    ;
-; Local interconnects   ; 187 / 888 ( 21 % ) ;
-; R4s                   ; 91 / 704 ( 13 % )  ;
+; Local interconnects   ; 184 / 888 ( 21 % ) ;
+; R4s                   ; 111 / 704 ( 16 % ) ;
 +-----------------------+--------------------+
 
 
 +---------------------------------------------------------------------------+
 ; LAB Logic Elements                                                        ;
 +--------------------------------------------+------------------------------+
-; Number of Logic Elements  (Average = 8.36) ; Number of LABs  (Total = 14) ;
+; Number of Logic Elements  (Average = 9.00) ; Number of LABs  (Total = 13) ;
 +--------------------------------------------+------------------------------+
 ; 1                                          ; 0                            ;
-; 2                                          ; 2                            ;
-; 3                                          ; 0                            ;
+; 2                                          ; 0                            ;
+; 3                                          ; 1                            ;
 ; 4                                          ; 0                            ;
 ; 5                                          ; 0                            ;
-; 6                                          ; 1                            ;
+; 6                                          ; 0                            ;
 ; 7                                          ; 0                            ;
-; 8                                          ; 1                            ;
-; 9                                          ; 1                            ;
+; 8                                          ; 3                            ;
+; 9                                          ; 0                            ;
 ; 10                                         ; 9                            ;
 +--------------------------------------------+------------------------------+
 
@@ -535,9 +842,9 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-------------------------------------------------------------------+
 ; LAB-wide Signals                                                  ;
 +------------------------------------+------------------------------+
-; LAB-wide Signals  (Average = 1.00) ; Number of LABs  (Total = 14) ;
+; LAB-wide Signals  (Average = 1.15) ; Number of LABs  (Total = 13) ;
 +------------------------------------+------------------------------+
-; 1 Async. clear                     ; 1                            ;
+; 1 Async. clear                     ; 2                            ;
 ; 1 Clock                            ; 11                           ;
 ; 1 Clock enable                     ; 2                            ;
 +------------------------------------+------------------------------+
@@ -546,75 +853,75 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------------------------------------------------------------+
 ; LAB Signals Sourced                                                         ;
 +----------------------------------------------+------------------------------+
-; Number of Signals Sourced  (Average = 10.64) ; Number of LABs  (Total = 14) ;
-+----------------------------------------------+------------------------------+
-; 0                                            ; 0                            ;
-; 1                                            ; 0                            ;
-; 2                                            ; 1                            ;
-; 3                                            ; 1                            ;
-; 4                                            ; 0                            ;
-; 5                                            ; 0                            ;
-; 6                                            ; 0                            ;
-; 7                                            ; 0                            ;
-; 8                                            ; 0                            ;
-; 9                                            ; 2                            ;
-; 10                                           ; 4                            ;
-; 11                                           ; 0                            ;
-; 12                                           ; 0                            ;
-; 13                                           ; 1                            ;
-; 14                                           ; 3                            ;
-; 15                                           ; 1                            ;
-; 16                                           ; 1                            ;
-+----------------------------------------------+------------------------------+
-
-
-+--------------------------------------------------------------------------------+
-; LAB Signals Sourced Out                                                        ;
-+-------------------------------------------------+------------------------------+
-; Number of Signals Sourced Out  (Average = 9.29) ; Number of LABs  (Total = 14) ;
-+-------------------------------------------------+------------------------------+
-; 0                                               ; 0                            ;
-; 1                                               ; 0                            ;
-; 2                                               ; 1                            ;
-; 3                                               ; 1                            ;
-; 4                                               ; 1                            ;
-; 5                                               ; 0                            ;
-; 6                                               ; 1                            ;
-; 7                                               ; 1                            ;
-; 8                                               ; 0                            ;
-; 9                                               ; 1                            ;
-; 10                                              ; 4                            ;
-; 11                                              ; 0                            ;
-; 12                                              ; 0                            ;
-; 13                                              ; 0                            ;
-; 14                                              ; 2                            ;
-; 15                                              ; 1                            ;
-; 16                                              ; 1                            ;
-+-------------------------------------------------+------------------------------+
-
-
-+-----------------------------------------------------------------------------+
-; LAB Distinct Inputs                                                         ;
-+----------------------------------------------+------------------------------+
-; Number of Distinct Inputs  (Average = 10.57) ; Number of LABs  (Total = 14) ;
+; Number of Signals Sourced  (Average = 11.46) ; Number of LABs  (Total = 13) ;
 +----------------------------------------------+------------------------------+
 ; 0                                            ; 0                            ;
 ; 1                                            ; 0                            ;
 ; 2                                            ; 0                            ;
-; 3                                            ; 1                            ;
-; 4                                            ; 0                            ;
-; 5                                            ; 3                            ;
+; 3                                            ; 0                            ;
+; 4                                            ; 1                            ;
+; 5                                            ; 0                            ;
 ; 6                                            ; 0                            ;
-; 7                                            ; 1                            ;
-; 8                                            ; 0                            ;
+; 7                                            ; 0                            ;
+; 8                                            ; 1                            ;
 ; 9                                            ; 0                            ;
 ; 10                                           ; 4                            ;
 ; 11                                           ; 0                            ;
 ; 12                                           ; 1                            ;
 ; 13                                           ; 1                            ;
-; 14                                           ; 0                            ;
+; 14                                           ; 4                            ;
 ; 15                                           ; 0                            ;
 ; 16                                           ; 1                            ;
++----------------------------------------------+------------------------------+
+
+
++---------------------------------------------------------------------------------+
+; LAB Signals Sourced Out                                                         ;
++--------------------------------------------------+------------------------------+
+; Number of Signals Sourced Out  (Average = 10.15) ; Number of LABs  (Total = 13) ;
++--------------------------------------------------+------------------------------+
+; 0                                                ; 0                            ;
+; 1                                                ; 0                            ;
+; 2                                                ; 0                            ;
+; 3                                                ; 0                            ;
+; 4                                                ; 2                            ;
+; 5                                                ; 0                            ;
+; 6                                                ; 1                            ;
+; 7                                                ; 0                            ;
+; 8                                                ; 1                            ;
+; 9                                                ; 0                            ;
+; 10                                               ; 4                            ;
+; 11                                               ; 0                            ;
+; 12                                               ; 1                            ;
+; 13                                               ; 0                            ;
+; 14                                               ; 3                            ;
+; 15                                               ; 0                            ;
+; 16                                               ; 1                            ;
++--------------------------------------------------+------------------------------+
+
+
++-----------------------------------------------------------------------------+
+; LAB Distinct Inputs                                                         ;
++----------------------------------------------+------------------------------+
+; Number of Distinct Inputs  (Average = 11.23) ; Number of LABs  (Total = 13) ;
++----------------------------------------------+------------------------------+
+; 0                                            ; 0                            ;
+; 1                                            ; 0                            ;
+; 2                                            ; 1                            ;
+; 3                                            ; 0                            ;
+; 4                                            ; 0                            ;
+; 5                                            ; 1                            ;
+; 6                                            ; 1                            ;
+; 7                                            ; 0                            ;
+; 8                                            ; 1                            ;
+; 9                                            ; 0                            ;
+; 10                                           ; 3                            ;
+; 11                                           ; 0                            ;
+; 12                                           ; 1                            ;
+; 13                                           ; 2                            ;
+; 14                                           ; 0                            ;
+; 15                                           ; 1                            ;
+; 16                                           ; 0                            ;
 ; 17                                           ; 0                            ;
 ; 18                                           ; 0                            ;
 ; 19                                           ; 0                            ;
@@ -677,6 +984,156 @@ Info (176215): I/O bank details before I/O pin placement
     Info (176214): Statistics of I/O banks
         Info (176213): I/O bank number 1 does not use VREF pins and has undetermined VCCIO pins. 2 total pin(s) used --  36 pins available
         Info (176213): I/O bank number 2 does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  41 pins available
+Warning (15705): Ignored locations or region assignments to the following nodes
+    Warning (15706): Node "ADC_CLK_10" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "ARDUINO_IO[0]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "ARDUINO_IO[10]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "ARDUINO_IO[11]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "ARDUINO_IO[12]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "ARDUINO_IO[13]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "ARDUINO_IO[14]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "ARDUINO_IO[15]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "ARDUINO_IO[1]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "ARDUINO_IO[2]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "ARDUINO_IO[3]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "ARDUINO_IO[4]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "ARDUINO_IO[5]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "ARDUINO_IO[6]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "ARDUINO_IO[7]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "ARDUINO_IO[8]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "ARDUINO_IO[9]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "ARDUINO_RESET_N" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_ADDR[0]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_ADDR[10]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_ADDR[11]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_ADDR[12]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_ADDR[1]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_ADDR[2]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_ADDR[3]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_ADDR[4]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_ADDR[5]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_ADDR[6]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_ADDR[7]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_ADDR[8]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_ADDR[9]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_BA[0]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_BA[1]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_CAS_N" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_CKE" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_CLK" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_CS_N" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_DQ[0]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_DQ[10]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_DQ[11]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_DQ[12]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_DQ[13]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_DQ[14]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_DQ[15]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_DQ[1]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_DQ[2]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_DQ[3]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_DQ[4]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_DQ[5]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_DQ[6]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_DQ[7]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_DQ[8]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_DQ[9]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_LDQM" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_RAS_N" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_UDQM" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "DRAM_WE_N" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GSENSOR_CS_N" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GSENSOR_INT[1]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GSENSOR_INT[2]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GSENSOR_SCLK" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GSENSOR_SDI" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "GSENSOR_SDO" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX0[0]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX0[1]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX0[2]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX0[3]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX0[4]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX0[5]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX0[6]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX0[7]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX1[0]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX1[1]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX1[2]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX1[3]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX1[4]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX1[5]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX1[6]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX1[7]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX2[0]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX2[1]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX2[2]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX2[3]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX2[4]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX2[5]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX2[6]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX2[7]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX3[0]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX3[1]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX3[2]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX3[3]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX3[4]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX3[5]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX3[6]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX3[7]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX4[0]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX4[1]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX4[2]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX4[3]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX4[4]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX4[5]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX4[6]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX4[7]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX5[0]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX5[1]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX5[2]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX5[3]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX5[4]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX5[5]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX5[6]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "HEX5[7]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "KEY[0]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "KEY[1]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "LEDR[0]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "LEDR[1]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "LEDR[2]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "LEDR[3]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "LEDR[4]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "LEDR[5]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "LEDR[6]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "LEDR[7]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "LEDR[8]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "LEDR[9]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "MAX10_CLK1_50" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "MAX10_CLK2_50" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SW[0]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SW[1]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SW[2]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SW[3]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SW[4]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SW[5]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SW[6]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SW[7]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SW[8]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "SW[9]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "VGA_B[0]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "VGA_B[1]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "VGA_B[2]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "VGA_B[3]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "VGA_G[0]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "VGA_G[1]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "VGA_G[2]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "VGA_G[3]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "VGA_HS" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "VGA_R[0]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "VGA_R[1]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "VGA_R[2]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "VGA_R[3]" is assigned to location or region, but does not exist in design
+    Warning (15706): Node "VGA_VS" is assigned to location or region, but does not exist in design
 Info (171121): Fitter preparation operations ending: elapsed time is 00:00:00
 Info (14896): Fitter has disabled Advanced Physical Optimization because it is not supported for the current family.
 Info (170189): Fitter placement preparation operations beginning
@@ -690,13 +1147,14 @@ Info (170195): Router estimated average interconnect usage is 10% of the availab
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:00
-Info (11888): Total time spent on timing analysis during the Fitter is 0.26 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.25 seconds.
 Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:00
+Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
 Warning (169174): The Reserve All Unused Pins setting has not been specified, and will default to 'As output driving ground'.
 Info (144001): Generated suppressed messages file D:/custom-riscv/output_files/custom-riscv.fit.smsg
-Info: Quartus Prime Fitter was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 5436 megabytes
-    Info: Processing ended: Sun Jun 30 23:57:19 2024
+Info: Quartus Prime Fitter was successful. 0 errors, 156 warnings
+    Info: Peak virtual memory: 5437 megabytes
+    Info: Processing ended: Sun Jul  7 15:41:03 2024
     Info: Elapsed time: 00:00:04
     Info: Total CPU time (on all processors): 00:00:04
 

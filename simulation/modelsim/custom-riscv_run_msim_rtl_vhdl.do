@@ -43,13 +43,23 @@ if {[file exists rtl_work]} {
 vlib rtl_work
 vmap work rtl_work
 
+vcom -93 -work work {D:/custom-riscv/unidade_de_controle_ciclo_unico.vhd}
+vcom -93 -work work {D:/custom-riscv/processador_ciclo_unico.vhd}
+vcom -93 -work work {D:/custom-riscv/imm_gen.vhd}
 vcom -93 -work work {D:/custom-riscv/mux21.vhd}
+vcom -93 -work work {D:/custom-riscv/via_de_dados_ciclo_unico.vhd}
+vcom -93 -work work {D:/custom-riscv/ula.vhd}
+vcom -93 -work work {D:/custom-riscv/somador.vhd}
+vcom -93 -work work {D:/custom-riscv/pc.vhd}
+vcom -93 -work work {D:/custom-riscv/memi.vhd}
+vcom -93 -work work {D:/custom-riscv/memd.vhd}
+vcom -93 -work work {D:/custom-riscv/banco_registradores.vhd}
 
-vcom -93 -work work {D:/custom-riscv/tb_mux21.vhd}
+vcom -93 -work work {D:/custom-riscv/tb_memd.vhd}
 
-vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L maxv -L rtl_work -L work -voptargs="+acc"  tb_mux21
+vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L maxv -L rtl_work -L work -voptargs="+acc"  tb_memd
 
 add wave *
 view structure
 view signals
-run -all
+run 100 ns

@@ -2,10 +2,10 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity testbench_somador is
-end testbench_somador;
+entity tb_somador is
+end tb_somador;
 
-architecture tb_architecture of testbench_somador is
+architecture tb_architecture of tb_somador is
 
     constant largura_dado : natural := 32;
 
@@ -47,7 +47,6 @@ begin
         entrada_a_tb <= "00000000000000000000000011111111"; -- 255
         entrada_b_tb <= "00000000000000000000000000000001"; -- 1
         wait for 10 ns;
-        wait;
     end process stimulus_process;
 
 end tb_architecture;

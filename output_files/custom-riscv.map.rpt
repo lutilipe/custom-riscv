@@ -1,5 +1,5 @@
 Analysis & Synthesis report for custom-riscv
-Sun Jun 30 23:57:13 2024
+Sun Jul  7 15:40:58 2024
 Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
 
 
@@ -59,7 +59,7 @@ https://fpgasoftware.intel.com/eula.
 +------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                 ;
 +-----------------------------+------------------------------------------------+
-; Analysis & Synthesis Status ; Successful - Sun Jun 30 23:57:13 2024          ;
+; Analysis & Synthesis Status ; Successful - Sun Jul  7 15:40:58 2024          ;
 ; Quartus Prime Version       ; 22.1std.1 Build 917 02/14/2023 SC Lite Edition ;
 ; Revision Name               ; custom-riscv                                   ;
 ; Top-level Entity Name       ; processador_ciclo_unico                        ;
@@ -5232,7 +5232,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|rom[8035][5]  ; Stuck at GND due to stuck port data_in ;
 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|rom[8035][6]  ; Stuck at GND due to stuck port data_in ;
 ; via_de_dados_ciclo_unico:via_dados|memi:instancia_mem_instrucao|rom[8035][7]  ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 263165                                    ;                                        ;
+; Total Number of Removed Registers = 263197                                    ;                                        ;
 +-------------------------------------------------------------------------------+----------------------------------------+
 * Table truncated at 5000 items. To change the number of removed registers reported, set the "Number of Removed Registers Reported" option under Assignments->Settings->Analysis and Synthesis Settings->More Settings
 
@@ -5438,7 +5438,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
-    Info: Processing started: Sun Jun 30 23:53:53 2024
+    Info: Processing started: Sun Jul  7 15:38:16 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off custom-riscv -c custom-riscv
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -5452,11 +5452,11 @@ Info (12021): Found 2 design units, including 1 entities, in source file process
     Info (12022): Found design unit 1: processador_ciclo_unico-comportamento File: D:/custom-riscv/processador_ciclo_unico.vhd Line: 21
     Info (12023): Found entity 1: processador_ciclo_unico File: D:/custom-riscv/processador_ciclo_unico.vhd Line: 8
 Info (12021): Found 2 design units, including 1 entities, in source file tb_imm_gen.vhd
-    Info (12022): Found design unit 1: tb_imm_gen-comportamental File: D:/custom-riscv/tb_imm_gen.vhd Line: 9
-    Info (12023): Found entity 1: tb_imm_gen File: D:/custom-riscv/tb_imm_gen.vhd Line: 6
+    Info (12022): Found design unit 1: tb_imm_gen-comportamental File: D:/custom-riscv/tb_imm_gen.vhd Line: 10
+    Info (12023): Found entity 1: tb_imm_gen File: D:/custom-riscv/tb_imm_gen.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file imm_gen.vhd
-    Info (12022): Found design unit 1: imm_gen-comportamental File: D:/custom-riscv/imm_gen.vhd Line: 17
-    Info (12023): Found entity 1: imm_gen File: D:/custom-riscv/imm_gen.vhd Line: 6
+    Info (12022): Found design unit 1: imm_gen-comportamental File: D:/custom-riscv/imm_gen.vhd Line: 18
+    Info (12023): Found entity 1: imm_gen File: D:/custom-riscv/imm_gen.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file mux21.vhd
     Info (12022): Found design unit 1: mux21-dataflow File: D:/custom-riscv/mux21.vhd Line: 20
     Info (12023): Found entity 1: mux21 File: D:/custom-riscv/mux21.vhd Line: 9
@@ -5469,9 +5469,6 @@ Info (12021): Found 2 design units, including 1 entities, in source file ula.vhd
 Info (12021): Found 2 design units, including 1 entities, in source file somador.vhd
     Info (12022): Found design unit 1: somador-dataflow File: D:/custom-riscv/somador.vhd Line: 22
     Info (12023): Found entity 1: somador File: D:/custom-riscv/somador.vhd Line: 10
-Info (12021): Found 2 design units, including 1 entities, in source file registrador.vhd
-    Info (12022): Found design unit 1: registrador-comportamental File: D:/custom-riscv/registrador.vhd Line: 20
-    Info (12023): Found entity 1: registrador File: D:/custom-riscv/registrador.vhd Line: 9
 Info (12021): Found 2 design units, including 1 entities, in source file pc.vhd
     Info (12022): Found design unit 1: pc-comportamental File: D:/custom-riscv/pc.vhd Line: 22
     Info (12023): Found entity 1: pc File: D:/custom-riscv/pc.vhd Line: 9
@@ -5481,39 +5478,30 @@ Info (12021): Found 2 design units, including 1 entities, in source file memi.vh
 Info (12021): Found 2 design units, including 1 entities, in source file memd.vhd
     Info (12022): Found design unit 1: memd-comportamental File: D:/custom-riscv/memd.vhd Line: 24
     Info (12023): Found entity 1: memd File: D:/custom-riscv/memd.vhd Line: 9
-Info (12021): Found 2 design units, including 1 entities, in source file deslocador.vhd
-    Info (12022): Found design unit 1: deslocador-comportamental File: D:/custom-riscv/deslocador.vhd Line: 31
-    Info (12023): Found entity 1: deslocador File: D:/custom-riscv/deslocador.vhd Line: 17
 Info (12021): Found 2 design units, including 1 entities, in source file banco_registradores.vhd
     Info (12022): Found design unit 1: banco_registradores-comportamental File: D:/custom-riscv/banco_registradores.vhd Line: 29
     Info (12023): Found entity 1: banco_registradores File: D:/custom-riscv/banco_registradores.vhd Line: 12
 Info (12021): Found 2 design units, including 1 entities, in source file tb_somador.vhd
-    Info (12022): Found design unit 1: testbench_somador-tb_architecture File: D:/custom-riscv/tb_somador.vhd Line: 8
-    Info (12023): Found entity 1: testbench_somador File: D:/custom-riscv/tb_somador.vhd Line: 5
+    Info (12022): Found design unit 1: tb_somador-tb_architecture File: D:/custom-riscv/tb_somador.vhd Line: 8
+    Info (12023): Found entity 1: tb_somador File: D:/custom-riscv/tb_somador.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file tb_mux21.vhd
     Info (12022): Found design unit 1: tb_mux21-testbench File: D:/custom-riscv/tb_mux21.vhd Line: 7
     Info (12023): Found entity 1: tb_mux21 File: D:/custom-riscv/tb_mux21.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file tb_banco_registradores.vhd
-    Info (12022): Found design unit 1: banco_registradores_tb-tb_architecture File: D:/custom-riscv/tb_banco_registradores.vhd Line: 8
-    Info (12023): Found entity 1: banco_registradores_tb File: D:/custom-riscv/tb_banco_registradores.vhd Line: 5
+    Info (12022): Found design unit 1: tb_banco_registradores-testbench File: D:/custom-riscv/tb_banco_registradores.vhd Line: 8
+    Info (12023): Found entity 1: tb_banco_registradores File: D:/custom-riscv/tb_banco_registradores.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file tb_ula.vhd
     Info (12022): Found design unit 1: tb_ula-sim File: D:/custom-riscv/tb_ula.vhd Line: 8
     Info (12023): Found entity 1: tb_ula File: D:/custom-riscv/tb_ula.vhd Line: 5
-Info (12021): Found 2 design units, including 1 entities, in source file tb_deslocador.vhd
-    Info (12022): Found design unit 1: deslocador_tb-tb_arch File: D:/custom-riscv/tb_deslocador.vhd Line: 8
-    Info (12023): Found entity 1: deslocador_tb File: D:/custom-riscv/tb_deslocador.vhd Line: 5
-Info (12021): Found 2 design units, including 1 entities, in source file tb_registrador.vhd
-    Info (12022): Found design unit 1: tb_registrador-tb_architecture File: D:/custom-riscv/tb_registrador.vhd Line: 7
-    Info (12023): Found entity 1: tb_registrador File: D:/custom-riscv/tb_registrador.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file tb_pc.vhd
     Info (12022): Found design unit 1: tb_pc-behavior File: D:/custom-riscv/tb_pc.vhd Line: 8
     Info (12023): Found entity 1: tb_pc File: D:/custom-riscv/tb_pc.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file tb_memd.vhd
-    Info (12022): Found design unit 1: memd_tb-tb_arch File: D:/custom-riscv/tb_memd.vhd Line: 8
-    Info (12023): Found entity 1: memd_tb File: D:/custom-riscv/tb_memd.vhd Line: 5
+    Info (12022): Found design unit 1: tb_memd-behavior File: D:/custom-riscv/tb_memd.vhd Line: 13
+    Info (12023): Found entity 1: tb_memd File: D:/custom-riscv/tb_memd.vhd Line: 10
 Info (12021): Found 2 design units, including 1 entities, in source file tb_memi.vhd
-    Info (12022): Found design unit 1: memi_tb-tb_arch File: D:/custom-riscv/tb_memi.vhd Line: 8
-    Info (12023): Found entity 1: memi_tb File: D:/custom-riscv/tb_memi.vhd Line: 5
+    Info (12022): Found design unit 1: tb_memi-tb_arch File: D:/custom-riscv/tb_memi.vhd Line: 8
+    Info (12023): Found entity 1: tb_memi File: D:/custom-riscv/tb_memi.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file tb_unidade_de_controle_ciclo_unico.vhd
     Info (12022): Found design unit 1: tb_unidade_de_controle_ciclo_unico-behavior File: D:/custom-riscv/tb_unidade_de_controle_ciclo_unico.vhd Line: 8
     Info (12023): Found entity 1: tb_unidade_de_controle_ciclo_unico File: D:/custom-riscv/tb_unidade_de_controle_ciclo_unico.vhd Line: 5
@@ -5528,38 +5516,6 @@ Info (12128): Elaborating entity "imm_gen" for hierarchy "via_de_dados_ciclo_uni
 Info (12128): Elaborating entity "mux21" for hierarchy "via_de_dados_ciclo_unico:via_dados|mux21:instancia_mux_ula" File: D:/custom-riscv/via_de_dados_ciclo_unico.vhd Line: 264
 Info (12128): Elaborating entity "ula" for hierarchy "via_de_dados_ciclo_unico:via_dados|ula:instancia_ula" File: D:/custom-riscv/via_de_dados_ciclo_unico.vhd Line: 275
 Info (12128): Elaborating entity "memd" for hierarchy "via_de_dados_ciclo_unico:via_dados|memd:instancia_mem_dados" File: D:/custom-riscv/via_de_dados_ciclo_unico.vhd Line: 284
-Info (10041): Inferred latch for "read_data_mem[0]" at memd.vhd(39) File: D:/custom-riscv/memd.vhd Line: 39
-Info (10041): Inferred latch for "read_data_mem[1]" at memd.vhd(39) File: D:/custom-riscv/memd.vhd Line: 39
-Info (10041): Inferred latch for "read_data_mem[2]" at memd.vhd(39) File: D:/custom-riscv/memd.vhd Line: 39
-Info (10041): Inferred latch for "read_data_mem[3]" at memd.vhd(39) File: D:/custom-riscv/memd.vhd Line: 39
-Info (10041): Inferred latch for "read_data_mem[4]" at memd.vhd(39) File: D:/custom-riscv/memd.vhd Line: 39
-Info (10041): Inferred latch for "read_data_mem[5]" at memd.vhd(39) File: D:/custom-riscv/memd.vhd Line: 39
-Info (10041): Inferred latch for "read_data_mem[6]" at memd.vhd(39) File: D:/custom-riscv/memd.vhd Line: 39
-Info (10041): Inferred latch for "read_data_mem[7]" at memd.vhd(39) File: D:/custom-riscv/memd.vhd Line: 39
-Info (10041): Inferred latch for "read_data_mem[8]" at memd.vhd(39) File: D:/custom-riscv/memd.vhd Line: 39
-Info (10041): Inferred latch for "read_data_mem[9]" at memd.vhd(39) File: D:/custom-riscv/memd.vhd Line: 39
-Info (10041): Inferred latch for "read_data_mem[10]" at memd.vhd(39) File: D:/custom-riscv/memd.vhd Line: 39
-Info (10041): Inferred latch for "read_data_mem[11]" at memd.vhd(39) File: D:/custom-riscv/memd.vhd Line: 39
-Info (10041): Inferred latch for "read_data_mem[12]" at memd.vhd(39) File: D:/custom-riscv/memd.vhd Line: 39
-Info (10041): Inferred latch for "read_data_mem[13]" at memd.vhd(39) File: D:/custom-riscv/memd.vhd Line: 39
-Info (10041): Inferred latch for "read_data_mem[14]" at memd.vhd(39) File: D:/custom-riscv/memd.vhd Line: 39
-Info (10041): Inferred latch for "read_data_mem[15]" at memd.vhd(39) File: D:/custom-riscv/memd.vhd Line: 39
-Info (10041): Inferred latch for "read_data_mem[16]" at memd.vhd(39) File: D:/custom-riscv/memd.vhd Line: 39
-Info (10041): Inferred latch for "read_data_mem[17]" at memd.vhd(39) File: D:/custom-riscv/memd.vhd Line: 39
-Info (10041): Inferred latch for "read_data_mem[18]" at memd.vhd(39) File: D:/custom-riscv/memd.vhd Line: 39
-Info (10041): Inferred latch for "read_data_mem[19]" at memd.vhd(39) File: D:/custom-riscv/memd.vhd Line: 39
-Info (10041): Inferred latch for "read_data_mem[20]" at memd.vhd(39) File: D:/custom-riscv/memd.vhd Line: 39
-Info (10041): Inferred latch for "read_data_mem[21]" at memd.vhd(39) File: D:/custom-riscv/memd.vhd Line: 39
-Info (10041): Inferred latch for "read_data_mem[22]" at memd.vhd(39) File: D:/custom-riscv/memd.vhd Line: 39
-Info (10041): Inferred latch for "read_data_mem[23]" at memd.vhd(39) File: D:/custom-riscv/memd.vhd Line: 39
-Info (10041): Inferred latch for "read_data_mem[24]" at memd.vhd(39) File: D:/custom-riscv/memd.vhd Line: 39
-Info (10041): Inferred latch for "read_data_mem[25]" at memd.vhd(39) File: D:/custom-riscv/memd.vhd Line: 39
-Info (10041): Inferred latch for "read_data_mem[26]" at memd.vhd(39) File: D:/custom-riscv/memd.vhd Line: 39
-Info (10041): Inferred latch for "read_data_mem[27]" at memd.vhd(39) File: D:/custom-riscv/memd.vhd Line: 39
-Info (10041): Inferred latch for "read_data_mem[28]" at memd.vhd(39) File: D:/custom-riscv/memd.vhd Line: 39
-Info (10041): Inferred latch for "read_data_mem[29]" at memd.vhd(39) File: D:/custom-riscv/memd.vhd Line: 39
-Info (10041): Inferred latch for "read_data_mem[30]" at memd.vhd(39) File: D:/custom-riscv/memd.vhd Line: 39
-Info (10041): Inferred latch for "read_data_mem[31]" at memd.vhd(39) File: D:/custom-riscv/memd.vhd Line: 39
 Info (12128): Elaborating entity "unidade_de_controle_ciclo_unico" for hierarchy "unidade_de_controle_ciclo_unico:controle" File: D:/custom-riscv/processador_ciclo_unico.vhd Line: 104
 Info (17049): 992 registers lost all their fanouts during netlist optimizations.
 Info (21057): Implemented 183 device resources after synthesis - the final resource count might be different
@@ -5567,9 +5523,9 @@ Info (21057): Implemented 183 device resources after synthesis - the final resou
     Info (21059): Implemented 32 output pins
     Info (21061): Implemented 149 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 5187 megabytes
-    Info: Processing ended: Sun Jun 30 23:57:14 2024
-    Info: Elapsed time: 00:03:21
-    Info: Total CPU time (on all processors): 00:03:27
+    Info: Peak virtual memory: 5185 megabytes
+    Info: Processing ended: Sun Jul  7 15:40:58 2024
+    Info: Elapsed time: 00:02:42
+    Info: Total CPU time (on all processors): 00:02:58
 
 

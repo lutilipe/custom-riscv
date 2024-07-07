@@ -1,60 +1,94 @@
+-- Universidade Federal de Minas Gerais
+-- Escola de Engenharia
+-- Departamento de Engenharia Eletronica
+-- Autoria: Professor Ricardo de Oliveira Duarte
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity memd_tb is
-end memd_tb;
+entity tb_memd is
+end tb_memd;
 
-architecture tb_arch of memd_tb is
-    constant MD_DATA_WIDTH   : natural := 8;
-    constant MD_ADDR_WIDTH   : natural := 4;
-    constant number_of_words : natural := 16;
-    signal clk          : std_logic := '0';
-    signal mem_write    : std_logic := '0';
-    signal mem_read     : std_logic := '0';
-    signal write_data   : std_logic_vector(MD_DATA_WIDTH - 1 downto 0);
-    signal address      : std_logic_vector(MD_ADDR_WIDTH - 1 downto 0);
-    signal read_data    : std_logic_vector(MD_DATA_WIDTH - 1 downto 0);
+architecture behavior of tb_memd is
+    component memd is
+        generic (
+            number_of_words : natural;
+            MD_DATA_WIDTH   : natural;
+            MD_ADDR_WIDTH   : natural
+        );
+        port (
+            clk                 : in std_logic;
+            mem_write, mem_read : in std_logic;
+            write_data_mem      : in std_logic_vector(MD_DATA_WIDTH - 1 downto 0);
+            adress_mem          : in std_logic_vector(MD_ADDR_WIDTH - 1 downto 0);
+            read_data_mem       : out std_logic_vector(MD_DATA_WIDTH - 1 downto 0)
+        );
+    end component;
+
+    signal clk            : std_logic := '0';
+    signal mem_write      : std_logic := '0';
+    signal mem_read       : std_logic := '0';
+    signal write_data_mem : std_logic_vector(7 downto 0) := (others => '0');
+    signal adress_mem     : std_logic_vector(4 downto 0) := (others => '0');
+    signal read_data_mem  : std_logic_vector(7 downto 0);
+
+    constant clk_period : time := 10 ns;
 
 begin
-    UUT: entity work.memd
+    uut: memd
         generic map (
-            number_of_words => number_of_words,
-            MD_DATA_WIDTH   => MD_DATA_WIDTH,
-            MD_ADDR_WIDTH   => MD_ADDR_WIDTH
+            number_of_words => 16,
+            MD_DATA_WIDTH   => 8,
+            MD_ADDR_WIDTH   => 5
         )
         port map (
-            clk             => clk,
-            mem_write       => mem_write,
-            mem_read        => mem_read,
-            write_data_mem  => write_data,
-            adress_mem      => address,
-            read_data_mem   => read_data
+            clk           => clk,
+            mem_write     => mem_write,
+            mem_read      => mem_read,
+            write_data_mem => write_data_mem,
+            adress_mem    => adress_mem,
+            read_data_mem => read_data_mem
         );
-    clk_process: process
+
+    clk_process : process
     begin
-        while now < 1000 ns loop
-            clk <= '0';
-            wait for 5 ns;
-            clk <= '1';
-            wait for 5 ns;
-        end loop;
-        wait;
+        clk <= '0';
+        wait for clk_period/2;
+        clk <= '1';
+        wait for clk_period/2;
     end process;
 
-    stimulus_process: process
+    stim_proc: process
     begin
-        -- Perform write operation
+       -- Write data to address 0
+        adress_mem <= "00000";
+        write_data_mem <= "00001111";
         mem_write <= '1';
-        write_data <= "10101010";
-        address <= "0010";
-        wait for 10 ns;
-
-        -- Perform read operation
+        wait for clk_period;
         mem_write <= '0';
+        wait for clk_period;
+
+        -- Write data to address 1
+        adress_mem <= "00001";
+        write_data_mem <= "11110000";
+        mem_write <= '1';
+        wait for clk_period;
+        mem_write <= '0';
+        wait for clk_period;
+
+        -- Read data from address 0
+        adress_mem <= "00000";
         mem_read <= '1';
-        address <= "0010";
-        wait for 10 ns;
-        wait;
+        wait for clk_period;
+		  wait for clk_period;
+
+        -- Read data from address 1
+        adress_mem <= "00001";
+        mem_read <= '1';
+        wait for clk_period;
+        mem_read <= '0';
+        wait for clk_period;
+		  wait;
     end process;
-end tb_arch;
+end behavior;

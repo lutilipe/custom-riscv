@@ -2,12 +2,12 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity memi_tb is
+entity tb_memi is
 end entity;
 
-architecture tb_arch of memi_tb is
-    constant INSTR_WIDTH : natural := 16;
-    constant MI_ADDR_WIDTH : natural := 4;
+architecture tb_arch of tb_memi is
+    constant INSTR_WIDTH : natural := 32;
+    constant MI_ADDR_WIDTH : natural := 5;
     
     signal clk : std_logic := '0';
     signal reset : std_logic := '0';
@@ -40,13 +40,12 @@ begin
         wait for 10 ns;
         reset <= '0';
         
-        -- Example read operations
-        Endereco <= "0000";  -- Address 0
-        wait for 10 ns;
-        Endereco <= "0001";  -- Address 1
-        wait for 10 ns;
-        Endereco <= "0010";  -- Address 2
-        wait for 10 ns;      
+        Endereco <= "00000";
+        wait for 30 ns;
+        Endereco <= "00001";
+        wait for 30 ns;
+        Endereco <= "00010";
+        wait for 30 ns;      
         
         wait;
     end process;

@@ -17,7 +17,7 @@
 -- PROGRAM "Quartus Prime"
 -- VERSION "Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition"
 
--- DATE "07/07/2024 21:26:54"
+-- DATE "07/08/2024 18:02:19"
 
 -- 
 -- Device: Altera 5M240ZM100C4 Package MBGA100

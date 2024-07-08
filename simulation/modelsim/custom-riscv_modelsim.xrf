@@ -1,4 +1,5 @@
 vendor_name = ModelSim
+source_file = 1, D:/custom-riscv/tb_via_de_dados_ciclo_unico.vhd
 source_file = 1, D:/custom-riscv/DE10_Lite_pin_assignements.csv
 source_file = 1, D:/custom-riscv/tb_processador_ciclo_unico.vhd
 source_file = 1, D:/custom-riscv/unidade_de_controle_ciclo_unico.vhd

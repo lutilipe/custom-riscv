@@ -62,11 +62,11 @@ begin
         opcode <= "0110011";
         funct3 <= "000";
         funct7 <= "0000000";
-        wait for 10 ns;
+        wait for 50 ns;
 
-		 -- Teste sw (opcode = "0100011")
-        opcode <= "0100011";
-        funct3 <= "010";
+		 -- Teste addi (opcode = "0010011")
+        opcode <= "0010011";
+        funct3 <= "000";
         funct7 <= "0000000";
         wait for 10 ns;
 

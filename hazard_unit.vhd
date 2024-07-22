@@ -19,7 +19,6 @@ entity hazard_unit is
 end hazard_unit;
 
 architecture Behavioral of hazard_unit is
-  begin
 begin
     process(rs_1_d, rs_2_d, rs_d_e, mem_read_e)
     begin
@@ -32,21 +31,20 @@ begin
         if (reg_write_e = '1') and ((rs_d_e = rs_1_d) or (rs_d_e = rs_2_d)) then
             stall_pc <= '1';
             stall_id <= '1';
-				flush_ex <= '1';
+            flush_ex <= '1';
         end if;
-		  
-		  -- Stall conditions for load-word hazard
-        if ((rs_1_d = rs_2_e) OR (rs_2_d = rs_1_e)) AND mem_to_reg_e then
+        
+        -- Stall conditions for load-word hazard
+        if (((rs_1_d = rs_2_e) OR (rs_2_d = rs_1_e)) AND mem_to_reg_e = '1') then
             stall_pc <= '1';
             stall_id <= '1';
-				flush_ex <= '1';
+            flush_ex <= '1';
         end if;
-		  
-		  -- Flush condition for branch taken
+        
+        -- Flush condition for branch taken
         if branch = '1' then
             flush_ex <= '1';
         end if;
-		  
     end process;
 
 end Behavioral;

@@ -2,14 +2,14 @@
 -- Escola de Engenharia
 -- Departamento de Engenharia Eletrônica
 -- Autoria: Professor Ricardo de Oliveira Duarte
--- Via de dados do processador_ciclo_unico
+-- Via de dados do processador_pipeline
 
 LIBRARY IEEE;
 USE IEEE.std_logic_1164.ALL;
 
-ENTITY via_de_dados_ciclo_unico IS
+ENTITY via_de_dados_pipeline IS
 	GENERIC (
-		-- declare todos os tamanhos dos barramentos (sinais) das portas da sua via_dados_ciclo_unico aqui.
+		-- declare todos os tamanhos dos barramentos (sinais) das portas da sua via_dados_pipeline aqui.
 		dp_ctrl_bus_width : NATURAL := 32; -- tamanho do barramento de controle da via de dados (DP) em bits
 		data_width        : NATURAL := 32; -- tamanho do dado em bits
 		pc_width          : NATURAL := 13; -- tamanho da entrada de endereços da MI ou MP em bits (memi.vhd)
@@ -18,7 +18,7 @@ ENTITY via_de_dados_ciclo_unico IS
 		instr_width       : NATURAL := 32 -- tamanho da instrução em bits
 	);
 	PORT (
-		-- declare todas as portas da sua via_dados_ciclo_unico aqui.
+		-- declare todas as portas da sua via_dados_pipeline aqui.
 		clock    : IN std_logic;
 		reset    : IN std_logic;
 		branch   : IN std_logic;
@@ -30,11 +30,26 @@ ENTITY via_de_dados_ciclo_unico IS
 		funct7   : OUT std_logic_vector(31 DOWNTO 25);
 		saida    : OUT std_logic_vector(data_width - 1 downto 0)
 	);
-END ENTITY via_de_dados_ciclo_unico;
+END ENTITY via_de_dados_pipeline;
 
-ARCHITECTURE comportamento OF via_de_dados_ciclo_unico IS
+ARCHITECTURE comportamento OF via_de_dados_pipeline IS
 
-	-- declare todos os componentes que serão necessários na sua via_de_dados_ciclo_unico a partir deste comentário
+	-- declare todos os componentes que serão necessários na sua via_de_dados_pipeline a partir deste comentário
+	COMPONENT reg_decod IS
+		GENERIC (
+			INSTR_WIDTH   : NATURAL := 32; -- tamanho da instrucao em numero de bits
+		);
+		PORT (
+			entrada_memi    : in std_logic_vector(INSTR_WIDTH -1 downto 0);
+			-- entrada_pc4    : in std_logic_vector(31 downto 0);
+			clk              : in std_logic;
+			-- flush_dec      : in std_logic;
+			stall_dec        : in std_logic;
+			saida_memi    : out std_logic_vector(INSTR_WIDTH - 1 downto 0);
+			-- saida_pc4/     : out std_logic_vector(31 downto 0)
+		);
+	END COMPONENT reg_decod;
+
 	COMPONENT pc IS
 		GENERIC (
 			pc_width : NATURAL := pc_width
@@ -151,13 +166,14 @@ ARCHITECTURE comportamento OF via_de_dados_ciclo_unico IS
         );
     END COMPONENT hazard_unit;
 
-	-- Declare todos os sinais auxiliares que serão necessários na sua via_de_dados_ciclo_unico a partir deste comentário.
+	-- Declare todos os sinais auxiliares que serão necessários na sua via_de_dados_pipeline a partir deste comentário.
 	-- Você só deve declarar sinais auxiliares se estes forem usados como "fios" para interligar componentes.
 	-- Os sinais auxiliares devem ser compatíveis com o mesmo tipo (std_logic, std_logic_vector, etc.) e o mesmo tamanho dos sinais dos portos dos
 	-- componentes onde serão usados.
 	-- Veja os exemplos abaixo:
 
 	SIGNAL stall_pc 		  : std_logic;
+
 
 	SIGNAL branch_and_zero 	  : std_logic;
 	SIGNAL aux_pc_out         : std_logic_vector(pc_width - 1 DOWNTO 0);
@@ -166,7 +182,8 @@ ARCHITECTURE comportamento OF via_de_dados_ciclo_unico IS
 	SIGNAL aux_out_sum2_pc    : std_logic_vector(pc_width - 1 DOWNTO 0);
 	SIGNAL aux_out_mux_sum_pc : std_logic_vector(pc_width - 1 DOWNTO 0);
 
-	SIGNAL aux_instrucao      : std_logic_vector(instr_width - 1 DOWNTO 0);
+	SIGNAL aux_instrucao_if      : std_logic_vector(instr_width - 1 DOWNTO 0);
+	SIGNAL aux_instrucao_de      : std_logic_vector(instr_width - 1 DOWNTO 0);
 	SIGNAL aux_out_immgen     : std_logic_vector(instr_width - 1 DOWNTO 0);
 
 	SIGNAL aux_out_mux_ula    : std_logic_vector(instr_width - 1 DOWNTO 0);
@@ -181,13 +198,13 @@ ARCHITECTURE comportamento OF via_de_dados_ciclo_unico IS
 	SIGNAL branch_and_zero 	  : std_logic;
 	
 BEGIN
-	-- A partir deste comentário instancie todos o componentes que serão usados na sua via_de_dados_ciclo_unico.
+	-- A partir deste comentário instancie todos o componentes que serão usados na sua via_de_dados_pipeline.
 	-- A instanciação do componente deve começar com um nome que você deve atribuir para a referida instancia seguido de : e seguido do nome
 	-- que você atribuiu ao componente.
 	-- Depois segue o port map do referido componente instanciado.
 	-- Para fazer o port map, na parte da esquerda da atribuição "=>" deverá vir o nome de origem da porta do componente e na parte direita da
-	-- atribuição deve aparecer um dos sinais ("fios") que você definiu anteriormente, ou uma das entradas da entidade via_de_dados_ciclo_unico,
-	-- ou ainda uma das saídas da entidade via_de_dados_ciclo_unico.
+	-- atribuição deve aparecer um dos sinais ("fios") que você definiu anteriormente, ou uma das entradas da entidade via_de_dados_pipeline,
+	-- ou ainda uma das saídas da entidade via_de_dados_pipeline.
 	-- Veja os exemplos de instanciação a seguir:
 	instancia_pc : COMPONENT pc
 	PORT MAP(
@@ -231,7 +248,7 @@ BEGIN
 				)
 				PORT MAP(
 					dado_ent_0 => aux_out_mux_sum_pc, 
-					dado_ent_1 => aux_instrucao(31 DOWNTO 19), 
+					dado_ent_1 => aux_instrucao_de(31 DOWNTO 19), 
 					sele_ent   => jump, 
 					dado_sai   => aux_novo_pc
 				);
@@ -245,15 +262,15 @@ BEGIN
 							clk       => clock, 
 							reset     => reset, 
 							Endereco  => aux_pc_out, 
-							Instrucao => aux_instrucao
+							Instrucao => aux_instrucao_if
 						);
  
 
 							instancia_banco_registradores : COMPONENT banco_registradores
 							PORT MAP(
-								ent_rs_ende => aux_instrucao(19 DOWNTO 15), 
-								ent_rt_ende => aux_instrucao(24 DOWNTO 20), 
-								ent_rd_ende => aux_instrucao(11 DOWNTO 7), 
+								ent_rs_ende => aux_instrucao_de(19 DOWNTO 15), 
+								ent_rt_ende => aux_instrucao_de(24 DOWNTO 20), 
+								ent_rd_ende => aux_instrucao_de(11 DOWNTO 7), 
 								ent_rd_dado => aux_mux_data, 
 								sai_rs_dado => aux_data_outrs, 
 								sai_rt_dado => aux_data_outrt, 
@@ -261,13 +278,25 @@ BEGIN
 								we          => regWrite
 	); 
 
+
+	instancia_red_de : COMPONENT reg_decod
+		GENERIC MAP(
+		INSTR_WIDTH => instr_width
+		)
+		PORT MAP(
+			entrada_memi => aux_instrucao_if, 
+			clk          => clock, 
+			stall_dec    => stall_pc, 
+			saida_memi   => aux_instrucao_de
+	);
+
 	instancia_extensor : COMPONENT imm_gen
 		GENERIC MAP(
 		data_width  => data_width, 
 		instr_width => instr_width
 		)
 		PORT MAP(
-			instrucao => aux_instrucao, 
+			instrucao => aux_instrucao_de, 
 			imm_out   => aux_out_immgen
 		);
  
@@ -335,9 +364,9 @@ BEGIN
             stall_PC => stall_pc
         );
 
-	opcode <= aux_instrucao(6 DOWNTO 0);
-	funct3 <= aux_instrucao(14 DOWNTO 12);
-	funct7 <= aux_instrucao(31 DOWNTO 25);
+	opcode <= aux_instrucao_de(6 DOWNTO 0);
+	funct3 <= aux_instrucao_de(14 DOWNTO 12);
+	funct7 <= aux_instrucao_de(31 DOWNTO 25);
 	saida  <= aux_mux_data;
 
  

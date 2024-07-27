@@ -24,9 +24,9 @@ V@`JZBcB_ImhTni@5NBoLZ1
 !s100 BOZJ9oC5mbmF<GeFW`hQa2
 Z7 OV;C;2020.1;71
 31
-Z8 !s110 1720473764
+Z8 !s110 1720474206
 !i10b 1
-Z9 !s108 1720473764.000000
+Z9 !s108 1720474206.000000
 Z10 !s90 -reportprogress|300|-93|-work|work|D:/custom-riscv/banco_registradores.vhd|
 Z11 !s107 D:/custom-riscv/banco_registradores.vhd|
 !i113 1
@@ -69,9 +69,9 @@ VEd6DeTSaIkE=5JUf3VKRS1
 !s100 ^nlT1D?`I7kn>O[_Ph_[<2
 R7
 31
-Z19 !s110 1720473762
+Z19 !s110 1720474203
 !i10b 1
-Z20 !s108 1720473762.000000
+Z20 !s108 1720474203.000000
 Z21 !s90 -reportprogress|300|-93|-work|work|D:/custom-riscv/imm_gen.vhd|
 Z22 !s107 D:/custom-riscv/imm_gen.vhd|
 !i113 1
@@ -116,9 +116,9 @@ R7
 31
 R8
 !i10b 1
-R9
-Z26 !s90 -reportprogress|300|-93|-work|work|D:/custom-riscv/memd.vhd|
-Z27 !s107 D:/custom-riscv/memd.vhd|
+Z26 !s108 1720474205.000000
+Z27 !s90 -reportprogress|300|-93|-work|work|D:/custom-riscv/memd.vhd|
+Z28 !s107 D:/custom-riscv/memd.vhd|
 !i113 1
 R12
 R13
@@ -136,32 +136,32 @@ R7
 31
 R8
 !i10b 1
-R9
 R26
 R27
+R28
 !i113 1
 R12
 R13
 Ememi
-Z28 w1720472121
+Z29 w1720472121
 R2
 R3
 R4
 !i122 8
 R0
-Z29 8D:/custom-riscv/memi.vhd
-Z30 FD:/custom-riscv/memi.vhd
+Z30 8D:/custom-riscv/memi.vhd
+Z31 FD:/custom-riscv/memi.vhd
 l0
-Z31 L10 1
+Z32 L10 1
 VkXha;_nSm>fEonX_9VoL41
 !s100 zo`BBB?GcO1?KYaG[g`9L2
 R7
 31
-R8
+Z33 !s110 1720474205
 !i10b 1
-R9
-Z32 !s90 -reportprogress|300|-93|-work|work|D:/custom-riscv/memi.vhd|
-Z33 !s107 D:/custom-riscv/memi.vhd|
+R26
+Z34 !s90 -reportprogress|300|-93|-work|work|D:/custom-riscv/memi.vhd|
+Z35 !s107 D:/custom-riscv/memi.vhd|
 !i113 1
 R12
 R13
@@ -177,33 +177,33 @@ Vh6[j2B^`63lI<>LX>=20c1
 !s100 zD7i9b0:SBG^Nc1]HCH8A1
 R7
 31
-R8
-!i10b 1
-R9
-R32
 R33
+!i10b 1
+R26
+R34
+R35
 !i113 1
 R12
 R13
 Emux21
-Z34 w1719867897
+Z36 w1719867897
 R3
 R4
 !i122 3
 R0
-Z35 8D:/custom-riscv/mux21.vhd
-Z36 FD:/custom-riscv/mux21.vhd
+Z37 8D:/custom-riscv/mux21.vhd
+Z38 FD:/custom-riscv/mux21.vhd
 l0
 L9 1
 VTWOXASUcQMX1V@?dL9NWc3
 !s100 lBFRQAW@j4Ec^no8oACBX1
 R7
 31
-R19
+Z39 !s110 1720474204
 !i10b 1
-R20
-Z37 !s90 -reportprogress|300|-93|-work|work|D:/custom-riscv/mux21.vhd|
-Z38 !s107 D:/custom-riscv/mux21.vhd|
+Z40 !s108 1720474204.000000
+Z41 !s90 -reportprogress|300|-93|-work|work|D:/custom-riscv/mux21.vhd|
+Z42 !s107 D:/custom-riscv/mux21.vhd|
 !i113 1
 R12
 R13
@@ -218,33 +218,33 @@ VMmLX_8M6KS?QSCOck2iR61
 !s100 407D`d:TT=9kU5IdIT49M2
 R7
 31
-R19
+R39
 !i10b 1
-R20
-R37
-R38
+R40
+R41
+R42
 !i113 1
 R12
 R13
 Epc
-Z39 w1719625718
+Z43 w1719625718
 R3
 R4
 !i122 7
 R0
-Z40 8D:/custom-riscv/pc.vhd
-Z41 FD:/custom-riscv/pc.vhd
+Z44 8D:/custom-riscv/pc.vhd
+Z45 FD:/custom-riscv/pc.vhd
 l0
 L9 1
 VPZI0V3Zk0S:JR9h745R0Y0
 !s100 aD=dBIlnJ7c8S68U7]LE32
 R7
 31
-Z42 !s110 1720473763
+R33
 !i10b 1
-Z43 !s108 1720473763.000000
-Z44 !s90 -reportprogress|300|-93|-work|work|D:/custom-riscv/pc.vhd|
-Z45 !s107 D:/custom-riscv/pc.vhd|
+R26
+Z46 !s90 -reportprogress|300|-93|-work|work|D:/custom-riscv/pc.vhd|
+Z47 !s107 D:/custom-riscv/pc.vhd|
 !i113 1
 R12
 R13
@@ -259,31 +259,31 @@ VQEiR]gNooZLZZkc97H9S80
 !s100 9NXdbT0A>z67HmGMoIjie1
 R7
 31
-R42
+R33
 !i10b 1
-R43
-R44
-R45
+R26
+R46
+R47
 !i113 1
 R12
 R13
 Eprocessador_ciclo_unico
-Z46 w1719800619
+Z48 w1719800619
 R3
 R4
 !i122 1
 R0
-Z47 8D:/custom-riscv/processador_ciclo_unico.vhd
-Z48 FD:/custom-riscv/processador_ciclo_unico.vhd
+Z49 8D:/custom-riscv/processador_ciclo_unico.vhd
+Z50 FD:/custom-riscv/processador_ciclo_unico.vhd
 l0
 L8 1
 VnHY`Ek^[`fPYZnZZ7>MEm1
 !s100 @_dI`on51=Bb^>6Ba69To1
 R7
 31
-Z49 !s110 1720473761
+R19
 !i10b 1
-Z50 !s108 1720473761.000000
+R20
 Z51 !s90 -reportprogress|300|-93|-work|work|D:/custom-riscv/processador_ciclo_unico.vhd|
 Z52 !s107 D:/custom-riscv/processador_ciclo_unico.vhd|
 !i113 1
@@ -300,9 +300,9 @@ VE7_a:4W7EY]O81Y>5<hFR0
 !s100 W7QehB2H2k`6ko`?]l<7h1
 R7
 31
-R49
+R19
 !i10b 1
-R50
+R20
 R51
 R52
 !i113 1
@@ -318,14 +318,14 @@ R0
 Z54 8D:/custom-riscv/somador.vhd
 Z55 FD:/custom-riscv/somador.vhd
 l0
-R31
+R32
 VT:E55MIfzDbV1d0:_:g`O3
 !s100 @D<_Y?EjonK[iSIaT>P2V0
 R7
 31
-R42
+R33
 !i10b 1
-R43
+R26
 Z56 !s90 -reportprogress|300|-93|-work|work|D:/custom-riscv/somador.vhd|
 Z57 !s107 D:/custom-riscv/somador.vhd|
 !i113 1
@@ -343,9 +343,9 @@ V_h`Y8O3VPB^JezfS7feD?3
 !s100 8O4jTd5XOh@hMF532^I]g3
 R7
 31
-R42
+R33
 !i10b 1
-R43
+R26
 R56
 R57
 !i113 1
@@ -366,10 +366,10 @@ VjTE10UIXdKX6VmS4CN8Y12
 !s100 Amb>UaP04e[Zc^^P]KAN21
 R7
 31
-Z61 !s110 1720473765
+R8
 !i10b 1
-Z62 !s108 1720473765.000000
-Z63 !s90 -reportprogress|300|-93|-work|work|D:/custom-riscv/tb_processador_ciclo_unico.vhd|
+R9
+Z61 !s90 -reportprogress|300|-93|-work|work|D:/custom-riscv/tb_processador_ciclo_unico.vhd|
 !s107 D:/custom-riscv/tb_processador_ciclo_unico.vhd|
 !i113 1
 R12
@@ -386,34 +386,34 @@ VmaJiXZz;jA?@=bc9`mPzJ0
 !s100 D?I;jTMBn1mYEDn4UeW:_0
 R7
 31
-R61
+R8
 !i10b 1
-R62
-R63
-Z64 !s107 D:/custom-riscv/tb_processador_ciclo_unico.vhd|
+R9
+R61
+Z62 !s107 D:/custom-riscv/tb_processador_ciclo_unico.vhd|
 !i113 1
 R12
 R13
 Eula
-Z65 w1719792702
+Z63 w1719792702
 R2
 R3
 R4
 !i122 5
 R0
-Z66 8D:/custom-riscv/ula.vhd
-Z67 FD:/custom-riscv/ula.vhd
+Z64 8D:/custom-riscv/ula.vhd
+Z65 FD:/custom-riscv/ula.vhd
 l0
 L11 1
 V99TP3h`jRR1f4GJ3OD4oO0
 !s100 RDTgLUFRGb3E<NPI0zJ7?0
 R7
 31
-R42
+R39
 !i10b 1
-R20
-Z68 !s90 -reportprogress|300|-93|-work|work|D:/custom-riscv/ula.vhd|
-Z69 !s107 D:/custom-riscv/ula.vhd|
+R40
+Z66 !s90 -reportprogress|300|-93|-work|work|D:/custom-riscv/ula.vhd|
+Z67 !s107 D:/custom-riscv/ula.vhd|
 !i113 1
 R12
 R13
@@ -429,33 +429,33 @@ VYIzo8Nz7H1KdBc93X5?o03
 !s100 8OoddYH?gKXzjFQDWPAd73
 R7
 31
-R42
+R39
 !i10b 1
-R20
-R68
-R69
+R40
+R66
+R67
 !i113 1
 R12
 R13
 Eunidade_de_controle_ciclo_unico
-Z70 w1719800810
+Z68 w1719800810
 R3
 R4
 !i122 0
 R0
-Z71 8D:/custom-riscv/unidade_de_controle_ciclo_unico.vhd
-Z72 FD:/custom-riscv/unidade_de_controle_ciclo_unico.vhd
+Z69 8D:/custom-riscv/unidade_de_controle_ciclo_unico.vhd
+Z70 FD:/custom-riscv/unidade_de_controle_ciclo_unico.vhd
 l0
 L17 1
 V0]3ZI:S:8DEhEONMPjeRe1
 !s100 E32C`mhl>aO0ZOBmLa^711
 R7
 31
-R49
+R19
 !i10b 1
-R50
-Z73 !s90 -reportprogress|300|-93|-work|work|D:/custom-riscv/unidade_de_controle_ciclo_unico.vhd|
-Z74 !s107 D:/custom-riscv/unidade_de_controle_ciclo_unico.vhd|
+R20
+Z71 !s90 -reportprogress|300|-93|-work|work|D:/custom-riscv/unidade_de_controle_ciclo_unico.vhd|
+Z72 !s107 D:/custom-riscv/unidade_de_controle_ciclo_unico.vhd|
 !i113 1
 R12
 R13
@@ -470,33 +470,33 @@ VFSdA[j:eaE^QeZn10D=mS1
 !s100 fb[Y4A7gJ6hR:W?ZNCCY>0
 R7
 31
-R49
+R19
 !i10b 1
-R50
-R73
-R74
+R20
+R71
+R72
 !i113 1
 R12
 R13
 Evia_de_dados_ciclo_unico
-Z75 w1719802400
+Z73 w1719802400
 R3
 R4
 !i122 4
 R0
-Z76 8D:/custom-riscv/via_de_dados_ciclo_unico.vhd
-Z77 FD:/custom-riscv/via_de_dados_ciclo_unico.vhd
+Z74 8D:/custom-riscv/via_de_dados_ciclo_unico.vhd
+Z75 FD:/custom-riscv/via_de_dados_ciclo_unico.vhd
 l0
-R31
+R32
 V;?KA;_Rb]GFLkkh@ObBCV0
 !s100 TmXMJC1DWXIkWDT91Imz=3
 R7
 31
-R19
+R39
 !i10b 1
-R20
-Z78 !s90 -reportprogress|300|-93|-work|work|D:/custom-riscv/via_de_dados_ciclo_unico.vhd|
-Z79 !s107 D:/custom-riscv/via_de_dados_ciclo_unico.vhd|
+R40
+Z76 !s90 -reportprogress|300|-93|-work|work|D:/custom-riscv/via_de_dados_ciclo_unico.vhd|
+Z77 !s107 D:/custom-riscv/via_de_dados_ciclo_unico.vhd|
 !i113 1
 R12
 R13
@@ -511,11 +511,11 @@ Vn2gjMkzYMzDE>[LRU4bVf1
 !s100 QV6Z2e<g=i4HWnKlW7ej]0
 R7
 31
-R19
+R39
 !i10b 1
-R20
-R78
-R79
+R40
+R76
+R77
 !i113 1
 R12
 R13

@@ -1,9 +1,5 @@
-Analysis & Synthesis Status : Successful - Mon Jul  8 18:02:01 2024
+Analysis & Synthesis Status : Failed - Mon Jul  8 18:35:57 2024
 Quartus Prime Version : 22.1std.1 Build 917 02/14/2023 SC Lite Edition
 Revision Name : custom-riscv
 Top-level Entity Name : processador_ciclo_unico
 Family : MAX V
-Total logic elements : 179
-Total pins : 34
-Total virtual pins : 0
-UFM blocks : 0 / 1 ( 0 % )

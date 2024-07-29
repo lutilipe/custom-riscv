@@ -32,16 +32,16 @@ entity reg_exe is
         imm_gen_e : out std_logic_vector(data_width - 1 downto 0);
 
         -- Entradas da etapa de execução
+        mem_reg_d                               :   in std_logic   
         mem_write_d, mem_read_d                         :   in std_logic;
         aluctrl_d                                   :   in std_logic_vector(ula_ctrl_width -1 downto 0);
-        reg_write_e                                :   in std_logic;
-        mem_reg_e                               :   in std_logic;   
+        reg_write_d                                :   in std_logic;
 
         -- Saidas da etapa de execução
         mem_write_e, mem_read_e                         :   out std_logic;
+        reg_write_e                                :   out std_logic;
         aluctrl_e                                   :   out std_logic_vector(ula_ctrl_width -1 downto 0);
-        reg_write_d                                :   out std_logic;
-        mem_reg_d                               :   out std_logic   
+        mem_reg_e                               :   out std_logic;   
 
     );
 end reg_exe;

@@ -30,7 +30,8 @@ begin
 			if (reset = '1') then
 				rom <= (
 					0 => "00000000001100000000001100010011",
-					1 => "00000000011000110000001100110011"
+					1 => "00000000011000110000001100110011",
+					others => (others => '0')
 					);
 			else
 				Instrucao <= rom(to_integer(unsigned(Endereco)));

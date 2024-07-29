@@ -23,7 +23,12 @@ ENTITY via_de_dados_pipeline IS
 		reset    : IN std_logic;
 		branch   : IN std_logic;
 		jump     : IN std_logic;
+		memRead  : IN std_logic;
+		memWrite : IN std_logic;
+		regWrite : IN std_logic;
 		ALUSrc   : IN std_logic;
+		memToReg : IN std_logic;
+		pcWrite  : IN std_logic;
 		ALUOp    : IN std_logic_vector(ula_ctrl_width - 1 DOWNTO 0);
 		opcode   : OUT std_logic_vector(6 DOWNTO 0);
 		funct3   : OUT std_logic_vector(14 DOWNTO 12);
@@ -37,7 +42,7 @@ ARCHITECTURE comportamento OF via_de_dados_pipeline IS
 	-- declare todos os componentes que serão necessários na sua via_de_dados_pipeline a partir deste comentário
 	COMPONENT reg_decod IS
 		GENERIC (
-			INSTR_WIDTH   : NATURAL := 32; -- tamanho da instrucao em numero de bits
+			INSTR_WIDTH   : NATURAL := 32 -- tamanho da instrucao em numero de bits
 		);
 		PORT (
 			entrada_memi    : in std_logic_vector(INSTR_WIDTH -1 downto 0);
@@ -45,10 +50,46 @@ ARCHITECTURE comportamento OF via_de_dados_pipeline IS
 			clk              : in std_logic;
 			-- flush_dec      : in std_logic;
 			stall_dec        : in std_logic;
-			saida_memi    : out std_logic_vector(INSTR_WIDTH - 1 downto 0);
+			saida_memi    : out std_logic_vector(INSTR_WIDTH - 1 downto 0)
 			-- saida_pc4/     : out std_logic_vector(31 downto 0)
 		);
 	END COMPONENT reg_decod;
+
+	COMPONENT reg_exe IS
+		GENERIC (
+			data_width  : NATURAL := 32;
+			instr_width : NATURAL := 32;
+			ula_ctrl_width : NATURAL := 4;
+			fr_addr_width  : NATURAL := 5
+		);
+		PORT (
+			rs1_d : IN std_logic_vector(fr_addr_width - 1 DOWNTO 0);    -- (19 - 15)
+			rs2_d : IN std_logic_vector(fr_addr_width - 1 DOWNTO 0);    -- (24 - 20)
+			rd_d : IN std_logic_vector(fr_addr_width - 1 DOWNTO 0);     -- (11 - 7)
+			clk         : IN std_logic;
+			flush_exe         : IN std_logic;
+			imm_gen_d : IN std_logic_vector(data_width - 1 DOWNTO 0);
+			entra_Reg1_dado : IN std_logic_vector(data_width - 1 DOWNTO 0);
+			entra_Reg2_dado : IN std_logic_vector(data_width - 1 DOWNTO 0);
+			rs1_e : OUT std_logic_vector(fr_addr_width - 1 DOWNTO 0);    -- (19 - 15)
+			rs2_e : OUT std_logic_vector(fr_addr_width - 1 DOWNTO 0);    -- (24 - 20)
+			rd_e : OUT std_logic_vector(fr_addr_width - 1 DOWNTO 0);     -- (11 - 7)
+			sai_Reg1_dado : OUT std_logic_vector(data_width - 1 DOWNTO 0);
+			sai_Reg2_dado : OUT std_logic_vector(data_width - 1 DOWNTO 0);
+			imm_gen_e : OUT std_logic_vector(data_width - 1 DOWNTO 0);
+			mem_write_d : IN std_logic;
+			mem_read_d : IN std_logic;
+			mem_reg_d : IN std_logic;
+			reg_write_d : IN std_logic;
+			aluctrl_d : IN std_logic_vector(ula_ctrl_width - 1 DOWNTO 0);
+			mem_read_e : OUT std_logic;
+			mem_reg_e : OUT std_logic;
+			mem_write_e : OUT std_logic;
+			reg_write_e : OUT std_logic;
+			aluctrl_e : OUT std_logic_vector(ula_ctrl_width - 1 DOWNTO 0)
+			
+		);
+	END COMPONENT reg_exe;
 
 	COMPONENT pc IS
 		GENERIC (
@@ -57,8 +98,8 @@ ARCHITECTURE comportamento OF via_de_dados_pipeline IS
 		PORT (
 			entrada : IN std_logic_vector(pc_width - 1 DOWNTO 0);
 			clk     : IN std_logic;
-			we      : IN std_logic;
 			reset   : IN std_logic;
+			stall_pc : IN std_logic;
 			saida   : OUT std_logic_vector(pc_width - 1 DOWNTO 0)
 		);
 	END COMPONENT pc;
@@ -154,17 +195,24 @@ ARCHITECTURE comportamento OF via_de_dados_pipeline IS
 		);
 	END COMPONENT imm_gen;
 
-    COMPONENT hazard_unit IS
-        PORT (
-            branch : IN std_logic;
-            MemReadE, MemToRegE, MemWriteE, RegWriteE : IN std_logic;
-            Rs1D, Rs2D, RsdD : IN  std_logic_vector(4 DOWNTO 0);
-            Rs1E, Rs2E, RsdE : IN  std_logic_vector(4 DOWNTO 0);
-            flush_EX : OUT std_logic;
-            stall_ID : OUT std_logic;
-            stall_pc : OUT std_logic
-        );
-    END COMPONENT hazard_unit;
+	COMPONENT hazard_unit IS
+		PORT (
+			branch : IN std_logic;
+			mem_read_e : IN std_logic;
+			mem_to_reg_e : IN std_logic;
+			mem_write_e : IN std_logic;
+			reg_write_e : IN std_logic;
+			rs_1_d : IN std_logic_vector(4 DOWNTO 0);
+			rs_2_d : IN std_logic_vector(4 DOWNTO 0);
+			rs_d_d : IN std_logic_vector(4 DOWNTO 0);
+			rs_1_e : IN std_logic_vector(4 DOWNTO 0);
+			rs_2_e : IN std_logic_vector(4 DOWNTO 0);
+			rs_d_e : IN std_logic_vector(4 DOWNTO 0);
+			flush_ex : OUT std_logic;
+			stall_id : OUT std_logic;
+			stall_PC : OUT std_logic
+		);
+	END COMPONENT hazard_unit;
 
 	-- Declare todos os sinais auxiliares que serão necessários na sua via_de_dados_pipeline a partir deste comentário.
 	-- Você só deve declarar sinais auxiliares se estes forem usados como "fios" para interligar componentes.
@@ -172,7 +220,7 @@ ARCHITECTURE comportamento OF via_de_dados_pipeline IS
 	-- componentes onde serão usados.
 	-- Veja os exemplos abaixo:
 
-	SIGNAL stall_pc 		  : std_logic;
+	SIGNAL aux_stall_pc 		  : std_logic;
 
 
 	SIGNAL branch_and_zero 	  : std_logic;
@@ -182,21 +230,35 @@ ARCHITECTURE comportamento OF via_de_dados_pipeline IS
 	SIGNAL aux_out_sum2_pc    : std_logic_vector(pc_width - 1 DOWNTO 0);
 	SIGNAL aux_out_mux_sum_pc : std_logic_vector(pc_width - 1 DOWNTO 0);
 
+	-- Sinais auxiliares para a etapa de fetch/decodificação
 	SIGNAL aux_instrucao_if      : std_logic_vector(instr_width - 1 DOWNTO 0);
 	SIGNAL aux_instrucao_de      : std_logic_vector(instr_width - 1 DOWNTO 0);
+	SIGNAL aux_stall_id		  : std_logic;
+
+	-- Sinais auxiliares para a etapa de decodificão/execução
+	SIGNAL aux_data_outrs     : std_logic_vector(data_width - 1 DOWNTO 0);
+	SIGNAL aux_data_outrt     : std_logic_vector(data_width - 1 DOWNTO 0);
 	SIGNAL aux_out_immgen     : std_logic_vector(instr_width - 1 DOWNTO 0);
+	SIGNAL aux_memread_e	  : std_logic;
+	SIGNAL aux_memtoreg_e	  : std_logic;
+	SIGNAL aux_memwrite_e	  : std_logic;
+	SIGNAL aux_regwrite_e	  : std_logic;
+	SIGNAL aux_rs1_e		  : std_logic_vector(fr_addr_width - 1 DOWNTO 0);
+	SIGNAL aux_rs2_e		  : std_logic_vector(fr_addr_width - 1 DOWNTO 0);
+	SIGNAL aux_rd_e			  : std_logic_vector(fr_addr_width - 1 DOWNTO 0);
+	SIGNAL aux_aluctrl_e	  : std_logic_vector(ula_ctrl_width - 1 DOWNTO 0);
+	SIGNAL aux_flush_exe	  : std_logic;
+	SIGNAL aux_immgen_e	   : std_logic_vector(data_width - 1 DOWNTO 0);
+	SIGNAL aux_data_outrs_e   : std_logic_vector(data_width - 1 DOWNTO 0);
+	SIGNAL aux_out_mux_ula_e    : std_logic_vector(instr_width - 1 DOWNTO 0);
 
 	SIGNAL aux_out_mux_ula    : std_logic_vector(instr_width - 1 DOWNTO 0);
 	SIGNAL aux_zero_ula       : std_logic;
 
-	SIGNAL aux_data_outrs     : std_logic_vector(data_width - 1 DOWNTO 0);
-	SIGNAL aux_data_outrt     : std_logic_vector(data_width - 1 DOWNTO 0);
 	SIGNAL aux_alu_out        : std_logic_vector(data_width - 1 DOWNTO 0);
 	SIGNAL aux_mux_data       : std_logic_vector(data_width - 1 DOWNTO 0);
 	SIGNAL aux_mem_dado_out   : std_logic_vector(data_width - 1 DOWNTO 0);
-	
-	SIGNAL branch_and_zero 	  : std_logic;
-	
+		
 BEGIN
 	-- A partir deste comentário instancie todos o componentes que serão usados na sua via_de_dados_pipeline.
 	-- A instanciação do componente deve começar com um nome que você deve atribuir para a referida instancia seguido de : e seguido do nome
@@ -212,7 +274,7 @@ BEGIN
 		saida   => aux_pc_out, 
 		clk     => clock, 
 		reset   => reset,
-		stall_pc => stall_pc
+		stall_pc => aux_stall_pc
 	);
 
 	instancia_somador1 : COMPONENT somador
@@ -225,7 +287,7 @@ BEGIN
 	instancia_somador2 : COMPONENT somador
 	PORT MAP(
 		entrada_a => aux_out_sum_pc, 
-		entrada_b => aux_out_immgen(pc_width - 1 DOWNTO 0), 
+		entrada_b => aux_immgen_e(pc_width - 1 DOWNTO 0), 
 		saida     => aux_out_sum2_pc
 	);
 	
@@ -278,15 +340,48 @@ BEGIN
 								we          => regWrite
 	); 
 
+	instancia_reg_exe : COMPONENT reg_exe
+		GENERIC MAP(
+		data_width  => data_width, 
+		instr_width => instr_width, 
+		ula_ctrl_width => ula_ctrl_width, 
+		fr_addr_width  => fr_addr_width
+		)
+		PORT MAP(
+			rs1_d => aux_instrucao_de(19 DOWNTO 15), 
+			rs2_d => aux_instrucao_de(24 DOWNTO 20), 
+			rd_d  => aux_instrucao_de(11 DOWNTO 7), 
+			clk   => clock, 
+			flush_exe => aux_flush_exe, 
+			imm_gen_d => aux_out_immgen, 
+			entra_Reg1_dado => aux_data_outrs, 
+			entra_Reg2_dado => aux_out_mux_ula, 
+			rs1_e => aux_rs1_e, 
+			rs2_e => aux_rs2_e, 
+			rd_e  => aux_rd_e, 
+			sai_Reg1_dado => aux_data_outrs_e, 
+			sai_Reg2_dado => aux_out_mux_ula_e, 
+			imm_gen_e => aux_immgen_e, 
+			mem_write_d => memWrite, 
+			mem_read_d => memRead, 
+			mem_reg_d => memToReg,
+			reg_write_d => regWrite, 
+			aluctrl_d => ALUOp,
+			mem_read_e => aux_memread_e, 
+			mem_reg_e => aux_memtoreg_e, 
+			mem_write_e => aux_memwrite_e, 
+			reg_write_e => aux_regwrite_e, 
+			aluctrl_e => aux_aluctrl_e
+	);
 
-	instancia_red_de : COMPONENT reg_decod
+	instancia_reg_de : COMPONENT reg_decod
 		GENERIC MAP(
 		INSTR_WIDTH => instr_width
 		)
 		PORT MAP(
 			entrada_memi => aux_instrucao_if, 
 			clk          => clock, 
-			stall_dec    => stall_pc, 
+			stall_dec    => aux_stall_id, 
 			saida_memi   => aux_instrucao_de
 	);
 
@@ -306,16 +401,16 @@ BEGIN
 				)
 				PORT MAP(
 					dado_ent_0 => aux_data_outrt, 
-					dado_ent_1 => aux_out_immgen, 
+					dado_ent_1 => aux_immgen_e, 
 					sele_ent   => ALUSrc, 
 					dado_sai   => aux_out_mux_ula
 				);
  
 					instancia_ula : COMPONENT ula
 					PORT MAP(
-						entrada_a => aux_data_outrs, 
-						entrada_b => aux_out_mux_ula, 
-						seletor   => ALUOp, 
+						entrada_a => aux_data_outrs_e, 
+						entrada_b => aux_out_mux_ula_e, 
+						seletor   => aux_aluctrl_e, 
 						saida     => aux_alu_out,
 						zero		 => aux_zero_ula
 	);
@@ -328,13 +423,12 @@ BEGIN
 		)
 		PORT MAP(
 			clk            => clock, 
-			mem_write      => memWriteE, 
-			mem_read       => memReadE, 
+			mem_write      => aux_memwrite_e, 
+			mem_read       => aux_memread_e, 
 			write_data_mem => aux_data_outrt, 
 			adress_mem     => aux_alu_out, 
 			read_data_mem  => aux_mem_dado_out
 		);
- 
  
 			instancia_mux_reg : COMPONENT mux21
 				GENERIC MAP(
@@ -343,25 +437,25 @@ BEGIN
 				PORT MAP(
 					dado_ent_0 => aux_alu_out, 
 					dado_ent_1 => aux_mem_dado_out, 
-					sele_ent   => memToReg, 
+					sele_ent   => aux_memtoreg_e, 
 					dado_sai   => aux_mux_data
 				);
     instancia_hazard_unit : COMPONENT hazard_unit 
         PORT MAP(
             branch => branch,
-            MemReadE => memReadE,
-            MemToRegE => memToRegE,
-            MemWriteE => memWriteE,
-            RegWriteE => regWriteE,
-            Rs1D => Rs1D,
-            Rs2D => Rs2D,
-            RsdD => RsdD,
-            Rs1E => Rs1E,
-            Rs2E => Rs2E,
-            RsdE => RsdE,
-            flush_ex => flushEX,
-            stall_id => stallID,
-            stall_PC => stall_pc
+            mem_read_e => aux_memread_e,
+            mem_to_reg_e => aux_memtoreg_e,
+            mem_write_e => aux_memwrite_e,
+            reg_write_e => aux_regwrite_e,
+            rs_1_d => aux_instrucao_de(19 DOWNTO 15),
+			rs_2_d => aux_instrucao_de(24 DOWNTO 20),
+			rs_d_d => aux_instrucao_de(11 DOWNTO 7),
+			rs_1_e => aux_rs1_e,
+			rs_2_e => aux_rs2_e,
+			rs_d_e => aux_rd_e,
+            flush_ex => aux_flush_exe,
+            stall_id => aux_stall_id,
+            stall_PC => aux_stall_pc
         );
 
 	opcode <= aux_instrucao_de(6 DOWNTO 0);

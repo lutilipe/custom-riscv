@@ -12,12 +12,9 @@ entity reg_decod is
     );
     port (
         entrada_memi    : in std_logic_vector(INSTR_WIDTH -1 downto 0);
-        -- entrada_pc4    : in std_logic_vector(31 downto 0);
         clk              : in std_logic;
-        -- flush_dec      : in std_logic;
         stall_dec        : in std_logic;
         saida_memi    : out std_logic_vector(INSTR_WIDTH - 1 downto 0);
-        -- saida_pc4/     : out std_logic_vector(31 downto 0)
     );
 end reg_decod;
 
@@ -28,10 +25,6 @@ begin
         if (rising_edge(clk) ) then
             if(stall_dec = '0') then
                 saida_memi <= entrada_memi ;
-                -- saida_pc4 <= entrada_pc4 ;
-            -- elsif (flush_dec = '1') then
-            --     saida_memi <= "00000000000000000000000000010011"; --addi com 0 + 0
-            --     -- saida_pc4 <= entrada_pc4 ;
             end if;
         end if;
     end process;

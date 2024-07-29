@@ -14,7 +14,7 @@ use ieee.std_logic_1164.all;
 -- Deslocamento a esquerda: 1010
 -- Deslocamento a direita: 0101
 
-entity unidade_de_controle_ciclo_unico is
+entity unidade_de_controle_pipeline is
     port(
         -- entradas
         opcode                                  :   in std_logic_vector(6 downto 0);
@@ -30,9 +30,9 @@ entity unidade_de_controle_ciclo_unico is
         regWrite, memWrite, memRead             :   out std_logic;
         ALUOp                                   :   out std_logic_vector(3 downto 0)
     );
-end entity unidade_de_controle_ciclo_unico;
+end entity unidade_de_controle_pipeline;
 
-architecture behavior of unidade_de_controle_ciclo_unico is
+architecture behavior of unidade_de_controle_pipeline is
     --concatenatar functs
     --signal funct  : std_logic_vector(9 downto 0) := funct7 & funct3;
 
